@@ -11,6 +11,7 @@
         <link href="css/sobre.css" rel="stylesheet">
         <link href="css/rodape.css" rel="stylesheet">
         <link href="css/homepage.css" rel="stylesheet">
+        <link href="css/carrosselhomepage.css" rel="stylesheet">
 
 
     </head>
@@ -40,9 +41,25 @@
 
             <section class="container">
                 <h1 class="titulo-xp">Os mais desejados</h1>
-                <p>carrossel</p>
+                    <ul class="slider">
+                        <li>
+                            <input type="radio" id="slide1" name="slide" checked>
+                            <label for="slide1"></label>
+                            <img src="livros/hp1.jpg">
+                        </li>
+                        <li>
+                            <input type="radio" id="slide2" name="slide">
+                            <label for="slide2"></label>
+                            <img src="livros/hp2.jpg">
+                        </li>
+                        <li>
+                            <input type="radio" id="slide3" name="slide">
+                            <label for="slide3"></label>
+                            <img src="livros/hp3.jpg">
+                        </li>
+                    </ul>
+                  </div>
             </section>
-
             
             <section class="container">
                 <h1 class="titulo-xp">Curtiu algum título acima?</h1>
@@ -67,8 +84,4 @@
             </ul>
             <p class="copy"><b>Copyright &copy; 2021 Livraria Trovão e Baleias  Todos os direitos reservados</b></p>
         </footer>
-
-
-        <script src="../js/index.js"></script>
-    </body>
 </html>
