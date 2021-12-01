@@ -1,0 +1,36 @@
+.rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #b7d5e5;
+
+    padding-bottom: 2rem;
+    margin-top: 5rem;
+}
+
+.rodape__social {
+    display: flex;
+}
+
+.rodape__midia {
+
+    display: block;
+
+    margin: 2rem 3rem 2.2rem 1.2rem;
+
+}
+
+
+.rodape__link {
+    margin: 0 .5rem .7rem;
+}
+
+.redes-svg{
+    width: 257%;
+}
+
+.copy{
+    text-align: center;
+    line-height: normal;
+}
