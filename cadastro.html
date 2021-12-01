@@ -16,19 +16,17 @@
     </head>
 
     <body>
-        
         <header class="cabecalho container">
-                <img src="icons/menu.svg" alt="Menu" class="menu-logo cabecalho__menu">
-                <img src="logo-ltb.svg" alt="Logo da LTB" class="cabecalho-logo">   
-                <a href="login.html"><img src="icons/conta.svg" alt="Conta" class="logout-logo"></a>
+            <button class="cabecalho__menu" aria-label="Menu" class="botao-logo"><i><img src="icons/menu.svg" class="menu-logo"></i></button>
+            <img src="logo-ltb.svg" alt="Logo da LTB" class="cabecalho-logo">   
+            <button aria-label="Notificação" class="botao-logo"><i><a href="login.html"><img src="icons/conta.svg" class="logout-logo"></a></i></button>
         </header>
-
+        
         <nav class="menu-lateral">
-            <img src="icons/conta.svg" alt="Perfil" class="">
-            <a href="#" class="cadastre-se">Cadastre-se</a>
-            <a href="#" class="nav-grid menu-lateral__link menu-lateral__link menu-lateral__link--ativo"><img src="icons/home.svg">Home</a>
-            <a href="#" class="nav-grid menu-lateral__link menu-lateral__link"><img src="icons/planos.svg">Planos</a>
-            <a href="#" class="nav-grid menu-lateral__link menu-lateral__link"><img src="icons/contato.svg">Contato</a>
+            <a href="cadastro.html" class="menu-lateral__link menu-lateral__link--inicio menu-lateral__link--ativo"><img src="icons/pro.svg" class="icon">Cadastre-se</a>
+            <a href="homepage.html" class="menu-lateral__link menu-lateral__link--videos"><img src="icons/home.svg" class="icon">Home</a>
+            <a href="planos.html" class="menu-lateral__link menu-lateral__link--integrantes"><img src="icons/planos.svg" class="icon">Planos</a>
+            <a href="contato.html" class="menu-lateral__link menu-lateral__link--picos"><img src="icons/contato.svg" class="icon">Contato</a>
         </nav>
       
         <main>
@@ -135,8 +133,6 @@
             </ul>
             <p class="copy"><b>Copyright &copy; 2021 Livraria Trovão e Baleias  Todos os direitos reservados</b></p>
         </footer>
-
-
-        <script src="../js/index.js"></script>
     </body>
+    <script src="js/index.js"></script>
 </html>

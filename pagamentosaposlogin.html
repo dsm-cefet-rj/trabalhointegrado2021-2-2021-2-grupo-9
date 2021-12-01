@@ -3,14 +3,14 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width initial-scale= 1.0">
-        <title>Pagamentos | TB</title>
+        <title>Carteira | TB</title>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">      
         <link href="css/reset.css" rel="stylesheet">
         <link href="css/cabecalho.css" rel="stylesheet">
         <link href="css/base.css" rel="stylesheet">
         <link href="css/sobre.css" rel="stylesheet">
         <link href="css/rodape.css" rel="stylesheet">
-        <link href="css/pagamento.css" rel="stylesheet">
+        <link href="css/pagamentosaposlogin.css" rel="stylesheet">
 
 
     </head>
@@ -19,18 +19,32 @@
         <header class="cabecalho container">
             <button class="cabecalho__menu" aria-label="Menu" class="botao-logo"><i><img src="icons/menu.svg" class="menu-logo"></i></button>
             <img src="logo-ltb.svg" alt="Logo da LTB" class="cabecalho-logo">   
-            <button aria-label="Notificação" class="botao-logo"><i><a href="login.html"><img src="icons/conta.svg" class="logout-logo"></a></i></button>
+            <button aria-label="Notificação" class="botao-logo"><i><a href="carrinho.html"><img src="icons/cart.svg" class="logout-logo"></a></i></button>
         </header>
         
         <nav class="menu-lateral">
-            <a href="cadastro.html" class="menu-lateral__link menu-lateral__link--inicio menu-lateral__link--ativo"><img src="icons/pro.svg" class="icon">Cadastre-se</a>
-            <a href="homepage.html" class="menu-lateral__link menu-lateral__link--videos"><img src="icons/home.svg" class="icon">Home</a>
-            <a href="planos.html" class="menu-lateral__link menu-lateral__link--integrantes"><img src="icons/planos.svg" class="icon">Planos</a>
-            <a href="contato.html" class="menu-lateral__link menu-lateral__link--picos"><img src="icons/contato.svg" class="icon">Contato</a>
+            <a href="loginhome.html" class="menu-lateral__link menu-lateral__link--inicio menu-lateral__link--ativo"><img src="icons/pro.svg" class="icon"><b>Olá, Julie!</b></a>
+            <a href="homeaposlogin.html" class="menu-lateral__link menu-lateral__link--videos"><img src="icons/home.svg" class="icon">Home</a>
+            <a href="planosaposlogin.html" class="menu-lateral__link menu-lateral__link--integrantes"><img src="icons/planos.svg" class="icon">Planos</a>
+            <a href="pagamentosaposlogin.html" class="menu-lateral__link menu-lateral__link--integrantes"><img src="icons/carteira.svg" class="icon">Carteira</a>
+            <a href="historico.html" class="menu-lateral__link menu-lateral__link--integrantes"><img src="icons/historico.svg" class="icon">Histórico de livros</a>
+            <a href="contatoaposlogin.html" class="menu-lateral__link menu-lateral__link--picos"><img src="icons/contato.svg" class="icon">Contato</a>
         </nav>
       
         <main>
-            <h1 class="titulo">Formas de pagamento</h1>
+            <section>
+                <h1 class="titulo">Formas de pagamento</h1>
+
+                <h1 class="titulo-forma">Sua forma de pagamento atual</h1>
+                <ul>
+                    <li><img src="icons/formapagatual.svg" class="imgsvg2"></li>
+                    <li class="num-cartao"><b>•••• •••• •••• 3874</b></li>
+                </ul>
+                <p class="prox-data"><em>Sua próxima data de cobrança é 22 de dezembro de 2021.</em></p>
+                <a href="cancelar.html"><button class="botao-cancelar">Cancelar assinatura</button>
+            </section>
+
+            <h1 class="titulo-forma">Adicionar outra forma de pagamento</h1>
             <fieldset class="formapag">           
                 <label for="radio-email"> <input type="radio" name=contato value="email" id="radio-email">Cartão de débito</label>
                 <ul>
@@ -112,7 +126,7 @@
                 </select>
             </section>
 
-            <input type="submit" value="Cadastrar" class="botao-ok"> <!-- é aquele botãozinho de envio!-->
+            <a href="loginhome.html"><input type="submit" value="Cadastrar" class="botao-ok"></a> <!-- é aquele botãozinho de envio!-->
 
         </main>
 
