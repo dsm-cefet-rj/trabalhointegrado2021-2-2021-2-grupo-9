@@ -1,0 +1,68 @@
+.titulo-cancel{
+    font-size: 1.5rem;
+
+    text-align: center;
+
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.parag{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: normal;
+}
+
+.botao-cancelar{
+	width: 80%; /*aumenta a largura*/
+	font-weight: bold;
+	font-size: 18px;
+	border: none; /*nenhuma borda*/
+	cursor: pointer; /*mostrar aquela maozinha do mouse*/
+
+    background: #494986;
+
+    box-sizing: border-box;
+    border-radius: 3rem;
+
+    color: #fefefe;
+
+    margin: 2rem;
+
+    padding: 23px;
+}
+
+.titulo-emprestados{
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    text-align: left;
+   
+    margin-top: 40px;
+    margin-left: 10px;
+
+    color: #494986;
+
+    border-bottom: 1px solid #F0F0F0;
+
+}
+.livro{
+    width: 25%;
+}
+
+.livros{
+    margin-top: 10px;
+    /*margin-left: 50px;
+    margin-right: 20px; */
+}
+
+.livros ul{
+    display: inline-block;
+}
+
+.before, .after{
+    width: 8%;
+    margin-bottom: 64px;
+    margin-left: 6px;
+}

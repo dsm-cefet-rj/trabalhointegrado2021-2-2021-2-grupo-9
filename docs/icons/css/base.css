@@ -1,0 +1,25 @@
+:root {
+    --branco: #FFF;
+    --azul-claro: #DFE3E5;
+    --vermelho-forte: #B72E2E;
+    --cinza-escuro: #4F4C4C;
+}
+
+b {
+    font-weight: bold;
+}
+    
+em {
+    font-style: italic;
+}
+
+body {
+    background-color: #EDEEE9;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container { /* esse container vai ser o espaçamento de toda a pagina*/
+    padding-right: 6%;
+    padding-left: 6%;
+}
