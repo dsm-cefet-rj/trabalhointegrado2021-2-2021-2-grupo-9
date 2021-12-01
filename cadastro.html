@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale= 1.0">
+        <title>Cadastro | TB</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">      
+        <link href="css/reset.css" rel="stylesheet">
+        <link href="css/cabecalho.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link href="css/sobre.css" rel="stylesheet">
+        <link href="css/rodape.css" rel="stylesheet">
+        <link href="css/cadastro.css" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        
+        <header class="cabecalho container">
+                <img src="icons/menu.svg" alt="Menu" class="menu-logo cabecalho__menu">
+                <img src="logo-ltb.svg" alt="Logo da LTB" class="cabecalho-logo">   
+                <img src="icons/conta.svg" alt="Conta" class="logout-logo">
+        </header>
+
+        <nav class="menu-lateral">
+            <img src="icons/conta.svg" alt="Perfil" class="">
+            <a href="#" class="cadastre-se">Cadastre-se</a>
+            <a href="#" class="nav-grid menu-lateral__link menu-lateral__link menu-lateral__link--ativo"><img src="icons/home.svg">Home</a>
+            <a href="#" class="nav-grid menu-lateral__link menu-lateral__link"><img src="icons/planos.svg">Planos</a>
+            <a href="#" class="nav-grid menu-lateral__link menu-lateral__link"><img src="icons/contato.svg">Contato</a>
+        </nav>
+      
+        <main>
+            <h1 class="titulo-dados">Dados cadastrais</h1>
+            <form>
+                <section>
+                    <label for="nomesobrenome">Nome e sobrenome</label> 
+                    <input type="text" id="nomesobrenome" class="input-padrao" required> 
+    
+                    <label for="email">E-mail</label> 
+                    <input type="email" id="email" class="input-padrao" required placeholder="seuemail@dominio.com">
+    
+                    <label for="cpf">CPF</label>
+                    <input type="number" id="cpf" class="input-padrao" required placeholder="XXX.XXX.XXX-XX">
+    
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" class="input-padrao" required placeholder="(XX) XXXX-XXXX">
+    
+                    <label for="datanasc">Data de Nascimento</label>
+                    <input type="date" id="datanasc" class="input-padrao" required placeholder="(XX) XXXX-XXXX">
+    
+                    <label for="senha">Crie uma senha</label>
+                    <input type="password" id="senha" class="input-padrao" required>
+    
+                    <label for="senha">Repetir senha</label>
+                    <input type="password" id="senha" class="input-padrao" required>
+                </section>
+
+                <section>
+                    <h1 class="titulo-dados">Endereço</h1>
+                
+                    <label for="cep">CEP</label> 
+                    <input type="number" id="cep" class="input-padrao" required  placeholder="XXXXX-XXX"> 
+
+                    <label for="rua">Rua</label> 
+                    <input type="text" id="email" class="input-padrao" required>
+
+                    <label for="cpf">Número</label>
+                    <input type="number" id="cpf" class="input-padrao" required>
+
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" class="input-padrao" required>
+
+                    <label for="estado">Estado</label></br>
+                    <select name="estados-brasil" class="lista">
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                </select>
+            </section>
+
+            <section class="generos">
+                <h1 class="titulo-dados">Gêneros favoritos</h1>
+                <label class="checkbox-generos"><input type="checkbox">Ficção Literária</label>
+                <label class="checkbox-generos"><input type="checkbox">Não-Ficção</label>
+                <label class="checkbox-generos"><input type="checkbox">Suspense</label>
+                <label class="checkbox-generos"><input type="checkbox">Fantasia</label>
+                <label class="checkbox-generos"><input type="checkbox">Horror</label>
+                <label class="checkbox-generos"><input type="checkbox">Poesia</label>
+                <label class="checkbox-generos"><input type="checkbox">Romance</label>
+
+
+
+            </section>
+            <section class="checks">
+                <label class="checkbox"><input type="checkbox" checked="">Li e aceito os termos</label>
+
+                <label class="checkbox"><input type="checkbox" checked="">Gostaria de receber nossas novidades por e-mail?</label>
+            </section>
+
+               
+
+                <input type="submit" value="Confirmar" class="botao-ok"> <!-- é aquele botãozinho de envio!-->
+
+        </main>
+
+        <footer class="rodape container">
+            <ul class="rodape__social">
+                <li><a href="#" class="rodape__midia"><img src="imgredes/facebook.svg" alt="Ícone do Facebook" class="redes-svg"></a></li>
+                <li><a href="#" class="rodape__midia"><img src="imgredes/instagram.svg" alt="Ícone do Instagram" class="redes-svg"></a></li>
+                <li><a href="#" class="rodape__midia"><img src="imgredes/twitter.svg" alt="Ícone do Twitter" class="redes-svg"></a></li>
+            </ul>
+            <p class="copy"><b>Copyright &copy; 2021 Livraria Trovão e Baleias  Todos os direitos reservados</b></p>
+        </footer>
+
+
+        <script src="../js/index.js"></script>
+    </body>
+</html>
