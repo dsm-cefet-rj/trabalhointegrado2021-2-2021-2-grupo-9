@@ -1,0 +1,163 @@
+body {
+    font-family: sans-serif;
+    height: 100vh;
+  }
+  
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  
+    background: #42a5f5;
+    color: white;
+    border-color: gray;
+    border-style: solid;
+    margin: 4px;
+    padding: 4px;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .experimentar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+  }
+  .experimentar-title {
+    font-size: 18px;
+    color: blue;
+    margin-top: 32px;
+    text-transform: uppercase;
+  }
+  .experimentar-item {
+    margin-top: 8px;
+  }
+  .experimentar-button {
+    display: block;
+    background: blue;
+    padding: 20px 40px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+  
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  .books {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    width: 100%;
+    padding: 32px;
+  }
+  .books-title {
+    text-align: right;
+  }
+  .books-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+  
+  .assinar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px;
+  }
+  .assinar-title {
+    font-size: 16px;
+  }
+  .assinar-button {
+    display: block;
+    background: blue;
+    padding: 20px 40px;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+  
+    color: white;
+    font-size: 16px;
+    text-transform: uppercase;
+  }
+  
+  .vantagens {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    width: 100%;
+    padding: 32px;
+  }
+  .vantagens-title {
+    font-weight: bold;
+    font-size: 18px;
+    color: blue;
+  }
+  .vantagens-item {
+    margin-bottom: 8px;
+  }
+  .vantagens-item:last-child {
+    margin-bottom: 0px !important;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 2px;
+    color: blue;
+    width: 100px;
+    height: 200px;
+  }
+  
+  .button {
+    background: none;
+    color: inherit;
+    padding: 4px;
+    font: inherit;
+    cursor: pointer;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: skyblue;
+  }
+  
+  footer {
+    position: relative;
+    right: 0;
+    left: 0;
+    bottom: 0px;
+    margin-right: auto;
+    margin-left: auto;
+  
+    font-size: 14px;
+    text-align: center;
+    background: #42a5f5;
+    color: white;
+    line-height: 50px;
+    padding: 0 20px;
+  }
+  
