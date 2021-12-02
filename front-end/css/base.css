@@ -3,10 +3,12 @@
     --azul-claro: #DFE3E5;
     --vermelho-forte: #B72E2E;
     --cinza-escuro: #4F4C4C;
+    --cinza-claro: #EDEEE9;
+    --baby-blue: #b7d5e5;
 
     --spacing-xxxSmall: 8px;
     --spacing-xxSmall: 16px;
-    --spanging-xSmall: 24px;
+    --spacing-xSmall: 24px;
     --spancing-small: 32px;
     --spancing-medium: 40px;
     --spancing-large: 48px;
@@ -29,8 +31,7 @@ em {
 }
 
 body {
-    background-color: #EDEEE9;
-
+    background-color: var(--cinza-claro);
     font-family: 'Montserrat', sans-serif;
 }
 
