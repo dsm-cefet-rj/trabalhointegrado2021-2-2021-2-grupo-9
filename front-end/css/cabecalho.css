@@ -2,6 +2,11 @@
     margin-top: var(--superior-navbar-height);
     margin-left: 0;
     max-width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spancing-small);
 }
 @media screen and (min-width: 1440px) {
     .main-container {
@@ -26,6 +31,12 @@
     max-height: var(--superior-navbar-height);
 }
 
+.assine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .cabecalho__menu {
     background-color: #b7d5e5;
     border: none;
@@ -38,11 +49,7 @@
 
 
 .cabecalho-logo {
-    margin-bottom: 1rem;
-
     size-adjust: 0.2rem;
-
-    width: 50%;
     max-height: calc(var(--superior-navbar-height) - 2*8px);
 } 
 
@@ -93,16 +100,16 @@
         height: var(--superior-navbar-height);
         margin-left: var(--lateral-navbar-width);
 
+        display: flex;
+        justify-content: space-between;
+        padding-left: 30% !important;
+
         background-color: #b7d5e5;
         column-gap: 32px;
         grid-template-columns: 1fr auto;
-        padding: 16px 60px;
+        padding: 8px 60px;
         box-sizing: border-box;
         grid-column: 2;
-    }
-
-    .cabecalho-logo {
-        max-width: 300px;
     }
 
     .cabecalho__menu {
