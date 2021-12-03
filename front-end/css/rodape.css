@@ -31,6 +31,7 @@
     line-height: normal;
 
     font-size: 14px;
+<<<<<<< HEAD
 }
 
 @media screen and (min-width: 1440px) {
@@ -41,4 +42,6 @@
         margin-left: 15%;
     }
 
+=======
+>>>>>>> 7247df29beeb06ae2969b39a12ce2a701c0f9b73
 }
