@@ -30,7 +30,7 @@ li{
     font-weight: bold;
 }
 .botao-cancelar{
-    width: 70%; /*aumenta a largura*/
+    width: 80%; /*aumenta a largura*/
     font-weight: bold;
     font-size: 18px;
     border: none; /*nenhuma borda*/
@@ -101,7 +101,7 @@ li{
 }
 
 .botao-ok{
-	width: 40%; /*aumenta a largura*/
+	width: 80%; /*aumenta a largura*/
 	font-weight: bold;
 	font-size: 18px;
 	border: none; /*nenhuma borda*/
@@ -114,7 +114,7 @@ li{
 
     color: #fefefe;
 
-    margin: 2rem;
+    margin: 1rem;
 
     padding: 23px;
 }
@@ -122,4 +122,23 @@ li{
 .prox-data{
     margin-left: 20px;
     margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+    .botao-cancelar{
+        margin-left: 10%;
+    }
+
+    .titulo-forma{
+        margin-right: 10rem;
+        margin-bottom: 2rem;
+    }
+
+    li{
+        display: inline-block;
+    }
+    .botao-ok{
+        width: 182%;
+        margin-left: -81%;
+    }
 }

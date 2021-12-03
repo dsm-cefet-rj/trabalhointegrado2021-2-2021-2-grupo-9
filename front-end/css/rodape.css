@@ -3,9 +3,8 @@
     flex-direction: column;
     align-items: center;
 
-    background-color: #b7d5e5;
-
-    padding-bottom: 2rem;
+    background-color: var(--baby-blue);
+    padding-bottom: var(--spacing-xSmall);
     margin-top: 5rem;
 }
 
@@ -14,11 +13,8 @@
 }
 
 .rodape__midia {
-
     display: block;
-
-    margin: 2rem 3rem 2.2rem 1.2rem;
-
+    padding: var(--spacing-xSmall);
 }
 
 
@@ -33,4 +29,16 @@
 .copy{
     text-align: center;
     line-height: normal;
+
+    font-size: 14px;
+}
+
+@media screen and (min-width: 1440px) {
+    .rodape__social {
+        margin-left: 13.5%;
+    }
+    .copy{
+        margin-left: 15%;
+    }
+
 }

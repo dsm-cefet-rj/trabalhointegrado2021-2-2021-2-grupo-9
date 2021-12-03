@@ -1,15 +1,40 @@
-.cabecalho {
+.main-container {
+    margin-top: var(--superior-navbar-height);
+    margin-left: 0;
+    max-width: 100vw;
+
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spancing-small);
+}
+@media screen and (min-width: 1440px) {
+    .main-container {
+        margin-left: var(--lateral-navbar-width);
+    }
+}
 
+.cabecalho {
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    left: 0px;
+    z-index: 10;
+
+    display: flex;
     justify-content: space-between;
-
     align-items: center;
 
     background-color: #b7d5e5;
-
     padding: 8px 16px;
-
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
+    max-height: var(--superior-navbar-height);
+}
+
+.assine {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .cabecalho__menu {
@@ -24,32 +49,23 @@
 
 
 .cabecalho-logo {
-    margin-bottom: 1rem;
-
     size-adjust: 0.2rem;
+    max-height: calc(var(--superior-navbar-height) - 2*8px);
+} 
 
-    width: 50%;
-}
 
 .menu-logo{
     width: 150%;
+    max-width: 200px;
 }
 
 .logout-logo{
-    width: 150%;
+    width: 200%;
 }
 
 .icon{
     margin-right: .5rem;
     width: 10%;
-}
-
-
-@media screen and (min-width: 1440px) {
-    body {
-        display: grid;
-        grid-template-columns: auto 1fr;
-    }
 }
 
 .cabecalho {
@@ -79,12 +95,19 @@
 
 @media screen and (min-width: 1440px) {
     .cabecalho {
+        position: fixed;
+        width: calc(100% - var(--lateral-navbar-width));
+        height: var(--superior-navbar-height);
+        margin-left: var(--lateral-navbar-width);
+
+        display: flex;
+        justify-content: space-between;
+        padding-left: 36% !important;
+
         background-color: #b7d5e5;
-        display: grid;
         column-gap: 32px;
         grid-template-columns: 1fr auto;
-        padding: 16px 60px;
-        height: 80px;
+        padding: 8px 60px;
         box-sizing: border-box;
         grid-column: 2;
     }
@@ -130,6 +153,7 @@
     background-color: #b7d5e5;
     width: 75vw;
     height: 100vh;
+    padding-top: 4rem;
 
     position: absolute;
     left: -100vw;
@@ -150,14 +174,14 @@
 .menu-lateral__link {
     height: 64px;
     color: #000000;
-    padding-left: 64px;
+    padding-left: 1.5rem;
     display: flex;
     align-items: center;
 }
 
 .menu-lateral__link--ativo {
     color: #000000;
-    padding-left: 56px;
+    padding-left: 21px;
     border-left: 8px solid #FFFFFF;
 }
 
@@ -171,7 +195,10 @@
 
 @media screen and (min-width: 1440px) {
     .menu-lateral {
-        position: static;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
         width: 200px;
         grid-column: 1;
         grid-row: 1 / span 2;

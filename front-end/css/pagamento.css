@@ -7,38 +7,59 @@
     padding-bottom: 30px;
 }
 
-.botao-ok{
-	width: 40%; /*aumenta a largura*/
-	font-weight: bold;
-	font-size: 18px;
-	border: none; /*nenhuma borda*/
-	cursor: pointer; /*mostrar aquela maozinha do mouse*/
-
-    background: #494986;
-
-    box-sizing: border-box;
-    border-radius: 3rem;
-
-    color: #fefefe;
-
-    margin: 2rem;
-
-    padding: 23px;
-}
 
 .formapag{
     margin-left: 6px;
     margin-bottom: 2rem;
 }
 
+.num-cartao{
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    margin-left: 30px;
+}
+
 li{
     display: inline-block;
 }
 
+.titulo-forma{
+    margin-left: 15px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+.botao-cancelar{
+    width: 80%; /*aumenta a largura*/
+    font-weight: bold;
+    font-size: 18px;
+    border: none; /*nenhuma borda*/
+    cursor: pointer; /*mostrar aquela maozinha do mouse*/
+    
+    background: #494986;
+    
+    box-sizing: border-box;
+    border-radius: 3rem;
+    
+    color: #fefefe;
+    
+    margin-left: 20px;
+    margin-bottom: 2rem;
+    
+    padding: 23px;
+}
+
 .imgsvg{
-    width: 100%;
+    width: 80%;
     padding: .5rem;
     margin-left: 15px;
+}
+
+.imgsvg2{
+    width: 63%;
+    padding-top: 11px;
+    margin-left: 8px;
+    margin-left: 28px;
 }
 
 .text-pag{
@@ -48,7 +69,7 @@ li{
 .input-padrao{  
 	display: block; /*bota tudo embaixo do outro*/
 	margin: 0 0 15px; /*afasta a label da caixinha de resposta*/
-	padding: 10px 25px; /*aumenta o tamanho da caixinha*/
+	padding: 10px 55px; /*aumenta o tamanho da caixinha*/
 	width: 50%; /*aumenta a largura da caixinha*/
     margin-left: 20px;
     margin-top: 10px;
@@ -76,5 +97,49 @@ li{
     margin-left: 20px;
     margin-top: 10px;
     
-    padding: 10px 25px; /*aumenta o tamanho da caixinha*/
+    padding: 10px 30px; /*aumenta o tamanho da caixinha*/
+}
+
+
+.botao-ok{
+	width: 80%; /*aumenta a largura*/
+	font-weight: bold;
+	font-size: 18px;
+	border: none; /*nenhuma borda*/
+	cursor: pointer; /*mostrar aquela maozinha do mouse*/
+
+    background: #494986;
+
+    box-sizing: border-box;
+    border-radius: 3rem;
+
+    color: #fefefe;
+
+    margin: 1rem;
+
+    padding: 23px;
+}
+
+.prox-data{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+    .botao-cancelar{
+        margin-left: 10%;
+    }
+
+    .titulo-forma{
+        margin-right: 10rem;
+        margin-bottom: 2rem;
+    }
+
+    li{
+        display: inline-block;
+    }
+    .botao-ok{
+        width: 80%;
+        margin-left: 10%;
+    }
 }
