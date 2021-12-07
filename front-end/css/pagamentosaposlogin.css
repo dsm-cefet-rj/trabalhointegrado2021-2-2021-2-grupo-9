@@ -69,7 +69,7 @@ li{
 .input-padrao{  
 	display: block; /*bota tudo embaixo do outro*/
 	margin: 0 0 15px; /*afasta a label da caixinha de resposta*/
-	padding: 10px 25px; /*aumenta o tamanho da caixinha*/
+	padding: 10px 55px; /*aumenta o tamanho da caixinha*/
 	width: 50%; /*aumenta a largura da caixinha*/
     margin-left: 20px;
     margin-top: 10px;
@@ -97,8 +97,9 @@ li{
     margin-left: 20px;
     margin-top: 10px;
     
-    padding: 10px 25px; /*aumenta o tamanho da caixinha*/
+    padding: 10px 30px; /*aumenta o tamanho da caixinha*/
 }
+
 
 .botao-ok{
 	width: 80%; /*aumenta a largura*/
@@ -125,6 +126,10 @@ li{
 }
 
 @media screen and (min-width: 1440px) {
+    .titulo{
+        margin-right: 8rem;
+    }
+
     .botao-cancelar{
         margin-left: 10%;
     }
@@ -138,7 +143,7 @@ li{
         display: inline-block;
     }
     .botao-ok{
-        width: 182%;
-        margin-left: -81%;
+        width: 80%;
+        margin-left: 10%;
     }
 }

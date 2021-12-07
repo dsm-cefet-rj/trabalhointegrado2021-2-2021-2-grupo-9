@@ -102,11 +102,7 @@
 
         display: flex;
         justify-content: space-between;
-<<<<<<< HEAD
         padding-left: 36% !important;
-=======
-        padding-left: 30% !important;
->>>>>>> 7247df29beeb06ae2969b39a12ce2a701c0f9b73
 
         background-color: #b7d5e5;
         column-gap: 32px;
