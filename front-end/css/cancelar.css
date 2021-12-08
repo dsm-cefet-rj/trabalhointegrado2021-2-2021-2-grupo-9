@@ -15,7 +15,7 @@
 }
 
 .botao-cancelar{
-	width: 80%; /*aumenta a largura*/
+	width: 40%; /*aumenta a largura*/
 	font-weight: bold;
 	font-size: 18px;
 	border: none; /*nenhuma borda*/
@@ -28,9 +28,10 @@
 
     color: #fefefe;
 
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-left: 30%;
 
-    padding: 23px;
+    padding: 1.1rem;
 }
 
 .titulo-emprestados{
