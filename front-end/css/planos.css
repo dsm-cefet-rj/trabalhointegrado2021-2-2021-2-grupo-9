@@ -3,11 +3,13 @@
 
 .titulo-plano {
     font-weight: 700;
-    font-size: 2rem;
+    font-size: 1.5rem;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
 
     text-align: center;
    
-    margin: 4rem 2rem 2rem 2rem;
 
     color: #000000;
 
@@ -20,7 +22,7 @@
 
     background-color: var(--branco);
 
-    width: 100%;
+    width: 130%;
     max-width: 300px;
 
     text-align: center;
@@ -109,4 +111,18 @@
     margin-bottom: -5px;
     margin-left: -15px;
     margin-right: 1rem;
+}
+
+@media screen and (min-width: 1440px) {
+    .titulo-plano{
+        padding-right: 8rem;
+    }
+    .planos-cartoes {
+        display: flex;
+        flex-direction: inherit;
+        align-items: center;
+        gap: 5rem;
+        margin-right: 15rem;
+        width: 118%;
+    }
 }

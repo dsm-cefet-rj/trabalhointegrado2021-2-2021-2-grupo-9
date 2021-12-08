@@ -39,3 +39,22 @@
 .livros ul{
     display: inline-block;
 }
+
+@media screen and (min-width: 1440px) {
+    .titulo-xp{
+        padding-top: 50px;
+        padding-right: 8rem;
+    }
+
+    .paragrafo-exp{
+        padding-right: 8rem;
+    }
+
+    .livro{
+        width: 15%;
+    }
+    
+    .botao-assine{
+        margin-right: 8rem;
+    }
+}

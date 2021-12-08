@@ -2,8 +2,9 @@
     font-size: 1.2rem;
     font-weight: bold;
     padding-bottom: 20px;
-    padding-top: 20px;
-    padding-left: 30px;
+
+    padding-left: .5rem;
+    padding-top: 50px;
 
 }
 
@@ -78,4 +79,10 @@ label{
 
     padding: 23px;
 
+}
+@media screen and (min-width: 1440px) {
+    .titulo-dados{
+        padding-top: 50px;
+        padding-right: 8rem;
+    }
 }

@@ -10,12 +10,12 @@
 }
 
 .perfilfoto{
-    width: 40%;
-    margin-left: 29%;
+    width: 30%;
+    margin-left: 7px;
 }
 
 .botao-escolher{
-    margin-left: 28%;
+    margin-left: 7px;
     margin-top: 15px;
     margin-bottom: 45px;
     width: 40%;
@@ -30,7 +30,7 @@
 	display: block; /*bota tudo embaixo do outro*/
 	margin: 0 0 15px; /*afasta a label da caixinha de resposta*/
 	padding: 10px 25px; /*aumenta o tamanho da caixinha*/
-	width: 50%; /*aumenta a largura da caixinha*/
+	width: 60%; /*aumenta a largura da caixinha*/
     margin-left: 20px;
     margin-top: 10px;
 
@@ -54,4 +54,33 @@
 
     padding: 23px;
 
+}
+
+@media screen and (min-width: 1440px) {
+    .titulo-editar{
+        padding-top: 50px;
+
+        padding-right: 8rem;
+    }
+
+    .perfilfoto{
+        width: 10%;
+
+        padding-right: 8rem;
+    }
+
+    .botao-escolher{
+        margin-right: 8rem;
+        width: 10%;
+    }
+
+    .input-padrao{  
+        margin-right: 10rem;
+        margin-left: 0rem;
+    }
+
+    .botao-ok{
+        margin-right: 9rem;
+        margin-left: -1.5rem;
+    }
 }

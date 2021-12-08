@@ -28,20 +28,22 @@
             <a href="planos.html" class="menu-lateral__link menu-lateral__link--integrantes"><img src="icons/planos.svg" class="icon">Planos</a>
             <a href="contato.html" class="menu-lateral__link menu-lateral__link--picos"><img src="icons/contato.svg" class="icon">Contato</a>
         </nav>
-
+      
         <main>
-            <section>
-                <h1 class="titulo">Faça login</h1>
-                    <input type="text" id="username" class="input-padrao" required placeholder="Login">
+            <h1 class="titulo">Faça login</h1>
+            <form>
+                <section>
+                    <label for="login" class="texto"></label> 
+                    <input type="text" id="login" class="input-padrao" required placeholder="Username"> 
+    
+                    <label for="senha"  class="texto"></label>
                     <input type="password" id="senha" class="input-padrao" required placeholder="Senha">
+                </section>
 
-                    <label class="checkbox"><input type="checkbox">Lembrar minha senha</label>
-            </section>
+            <button class="botao-ok"><a href="loginhome.html">Confirmar</a></button>
 
-            <a href="loginhome.html"><input type="submit" value="Login" class="botao-ok"></a> <!-- é aquele botãozinho de envio!-->
-            <section>
-                <p class="cadastre-se"><a href="cadastro.html">Novo por aqui? <b>Cadastre-se</b></a></p>
-            </section> 
+            <p class="esqueci"><b>Esqueci minha senha</b></p>
+
         </main>
 
         <footer class="rodape container">
@@ -52,5 +54,6 @@
             </ul>
             <p class="copy"><b>Copyright &copy; 2021 Livraria Trovão e Baleias  Todos os direitos reservados</b></p>
         </footer>
-        <script src="js/index.js"></script>
+    </body>
+    <script src="js/index.js"></script>
 </html>

@@ -66,3 +66,23 @@
     margin-bottom: 64px;
     margin-left: 6px;
 }
+
+@media screen and (min-width: 1440px) {
+    .titulo-cancel{
+        padding-top: 50px;
+        padding-right: 8rem;
+    }
+
+    .botao-cancelar{
+        width: 20%;
+        margin-left: 31.5rem;
+    }
+
+    .titulo-emprestados{
+        margin-left: 12.5rem;
+    }
+    .livros{
+        margin-top: 1rem;
+        margin-right: 5rem;
+    }
+}

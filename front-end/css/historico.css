@@ -40,3 +40,19 @@
     margin-bottom: 64px;
     margin-left: 6px;
 }
+
+@media screen and (min-width: 1440px) {
+    .titulo{
+        padding-top: 50px;
+        padding-right: 8rem;
+    }
+
+    .titulo-historico{
+        padding-right: 9rem;
+    }
+    .livros{
+        padding-right: 6rem;
+    }
+}
+
+
