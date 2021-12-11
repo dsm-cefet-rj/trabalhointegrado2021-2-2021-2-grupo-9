@@ -1,0 +1,58 @@
+.titulo{
+    font-size: 1.5rem;
+
+    text-align: center;
+
+    padding-top: 40px;
+    padding-bottom: 30px;
+}
+
+.titulo-historico{
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    text-align: left;
+   
+    margin-top: 40px;
+    margin-left: 10px;
+
+    color: #494986;
+
+    border-bottom: 1px solid #F0F0F0;
+}
+
+.livro{
+    width: 25%;
+}
+
+.livros{
+    margin-top: 10px;
+    /*margin-left: 50px;
+    margin-right: 20px; */
+}
+
+.livros ul{
+    display: inline-block;
+}
+
+.before, .after{
+    width: 8%;
+    margin-bottom: 64px;
+    margin-left: 6px;
+}
+
+@media screen and (min-width: 1440px) {
+    .titulo{
+        padding-top: 50px;
+        padding-right: 8rem;
+    }
+
+    .titulo-historico{
+        padding-right: 9rem;
+    }
+    .livros{
+        padding-right: 6rem;
+    }
+}
+
+

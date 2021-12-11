@@ -1,0 +1,75 @@
+body {
+    font-family: sans-serif;
+    height: 100vh;
+  }
+  
+  header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+  
+    color: blue;
+    border-style: solid;
+    border-color: gray;
+    margin: 4px;
+    padding: 4px;
+  }
+  
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+    padding: 16px;
+  }
+  
+  section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  
+    margin-top: 32px;
+  }
+  
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+    border-style: solid;
+    border-width: 2px;
+    color: blue;
+    width: 100px;
+    height: 200px;
+  }
+  
+  .button {
+    background: none;
+    color: inherit;
+    padding: 4px;
+    font: inherit;
+    cursor: pointer;
+    border-width: 1px;
+    border-color: skyblue;
+  }
+  
+  footer {
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 10px;
+    margin-right: auto;
+    margin-left: auto;
+  
+    margin-top: 8px;
+  
+    font-size: 14px;
+    text-align: center;
+    color: gray;
+  }

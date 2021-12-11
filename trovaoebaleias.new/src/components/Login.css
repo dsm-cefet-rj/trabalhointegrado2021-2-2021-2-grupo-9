@@ -1,0 +1,60 @@
+section{
+    font-family: 'Montserrat', sans-serif;
+}
+
+.titulo{
+    font-size: 1.5rem;
+
+    text-align: center;
+
+    margin-top: 17rem;
+    padding-bottom: 30px;
+}
+
+
+.input-padrao{  
+    display: block;
+    margin: 10px 2px 18px;
+    padding: 10px 25px;
+    width: 50%;
+    margin-left: 72px;
+}
+.checkbox{
+    margin-left: 85px;
+    margin-top: 20px;
+}
+
+.botao-ok{
+	width: 40%; /*aumenta a largura*/
+	font-weight: bold;
+	font-size: 18px;
+	border: none; /*nenhuma borda*/
+	cursor: pointer; /*mostrar aquela maozinha do mouse*/
+
+    background: #494986;
+
+    box-sizing: border-box;
+    border-radius: 3rem;
+
+    margin-left: 7.5rem;
+    margin-top: 2rem;
+
+    padding: 23px;
+
+}
+
+.botao-ok a{
+    text-decoration: none;
+    color: #fefefe;
+}
+
+.cadastre-se{
+    margin-bottom: -2rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+
+.esqueci{
+    padding-top: 70px;
+    margin-left: 3.2rem;
+}
