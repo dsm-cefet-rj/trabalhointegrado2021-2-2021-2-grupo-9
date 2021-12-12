@@ -74,23 +74,6 @@
 
 
 @media screen and (min-width: 1440px) {
-    .cabecalho {
-        position: fixed;
-        width: calc(100% - var(--lateral-navbar-width));
-        height: var(--superior-navbar-height);
-        margin-left: var(--lateral-navbar-width);
-
-        display: flex;
-        justify-content: space-between;
-        padding-left: 36% !important;
-
-        background-color: #b7d5e5;
-        column-gap: 32px;
-        grid-template-columns: 1fr auto;
-        padding: 8px 60px;
-        box-sizing: border-box;
-        grid-column: 2;
-    }
 
     .cabecalho__menu {
         display: none;
@@ -157,19 +140,4 @@
         display: flex;
         align-items: center;
     }
-
-    .menu-lateral__link--ativo {
-        color: #000000;
-        padding-left: 21px;
-        border-left: 8px solid #FFFFFF;
-    }
-    
-    .menu-lateral__link::before {
-        width: 24px;
-        height: 24px;
-        font-size: 24px;
-        position: absolute;
-        left: 24px;
-    }
-    
 }

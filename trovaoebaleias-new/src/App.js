@@ -24,7 +24,7 @@ class App extends Component {
             className="cabecalho__menu"
             aria-label="Menu"
             className="botao-logo"
-            onClick={Grid}
+            
           >
             <i>
               <img src={Menu} className="icones" />
@@ -77,13 +77,6 @@ class App extends Component {
         </footer>
       </section>
     );
-    function Grid() {
-      const botaoMenu = document.querySelector('.cabecalho__menu');
-      const menu = document.querySelector('.menu-lateral');
-            botaoMenu.addEventListener("click", () => {
-            menu.classList.toggle('menu-lateral--ativo');
-      });
-}
   }
 }
 
