@@ -4,16 +4,19 @@ import Reset from './assets/Reset.css';
 import Cabecalho from "./components/Cabecalho.css";
 import Rodape from "./components/Rodape.css";
 import Login from "./components/Login.css";
+import Base from "./components/Base.css";
 import Menu from "./img/menu.svg";
 import Logo from "./img/logo-ltb.svg";
 import Perfil from "./img/perfil-foto.svg";
 import Facebook from "./img/facebook.svg";
 import Instagram from "./img/instagram.svg";
 import Twitter from "./img/twitter.svg";
+import Profile from "./img/pro.svg";
 
 
 class App extends Component {
   render() {
+    
     return (
       <section>
         <header className="cabecalho">
@@ -21,6 +24,7 @@ class App extends Component {
             className="cabecalho__menu"
             aria-label="Menu"
             className="botao-logo"
+            onClick={Grid}
           >
             <i>
               <img src={Menu} className="icones" />
@@ -35,7 +39,12 @@ class App extends Component {
             </i>
           </button>
         </header>
+        <nav className="menu-lateral">
+            <a href="cadastro.html" className="menu-lateral__link menu-lateral__link--inicio menu-lateral__link--ativo"><img src={Profile} className="icon"/>Cadastre-se</a>
+        </nav>
+
         
+        <main>
         <form>
         <p className="titulo">Login</p>
           <input
@@ -55,6 +64,7 @@ class App extends Component {
         <button className="botao-ok">
           <a href="loginhome.html">Confirmar</a>
         </button>
+        </main>
 
         <footer className="rodape">
         <ul className="rodape__social">
@@ -67,6 +77,13 @@ class App extends Component {
         </footer>
       </section>
     );
+    function Grid() {
+      const botaoMenu = document.querySelector('.cabecalho__menu');
+      const menu = document.querySelector('.menu-lateral');
+            botaoMenu.addEventListener("click", () => {
+            menu.classList.toggle('menu-lateral--ativo');
+      });
+}
   }
 }
 
