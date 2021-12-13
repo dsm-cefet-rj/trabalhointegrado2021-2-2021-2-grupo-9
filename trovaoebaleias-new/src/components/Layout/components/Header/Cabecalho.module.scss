@@ -1,3 +1,30 @@
+header {
+    height: var(--superior-navbar-height);
+}
+
+.menu-lateral {
+    display: flex;
+    flex-direction: column;
+    background-color: #b7d5e5;
+    width: 25vw;
+    height: 100vh;
+    padding-top: 4rem;
+
+    position: absolute;
+    left: 0;
+    transition: .25s;
+    z-index: 10;
+
+    .menu-lateral__link {
+        height: 64px;
+        color: #000000;
+        padding-left: 1.5rem;
+        display: flex;
+        align-items: center;
+    }
+}
+
+
 .cabecalho {
     position: fixed;
     top: 0px;
@@ -29,6 +56,7 @@
 .botao-logo{
     background-color: #b7d5e5;
     border: none;
+    cursor: pointer;
 }
 
 
@@ -43,8 +71,8 @@
 
 
 .icon{
-    margin-right: .5rem;
-    width: 10%;
+    width: 50px;
+    padding: var(--spacing-xxxSmall);
 }
 
 .cabecalho {
@@ -98,7 +126,7 @@
         display: block;
         width: 32px;
         height: 32px;
-        background-image: url(../img/pro.svg);
+        background-image: url(../../../../img/pro.svg);
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
