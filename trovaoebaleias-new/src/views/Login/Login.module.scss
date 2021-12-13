@@ -6,6 +6,7 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: var(--lateral-navbar-width);
 }
 
 .titulo{
@@ -64,3 +65,10 @@ section{
     padding-top: 70px;
     margin-left: 3.2rem;
 }
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    .login {
+        margin-left: 0 !important;
+    }
+}
+

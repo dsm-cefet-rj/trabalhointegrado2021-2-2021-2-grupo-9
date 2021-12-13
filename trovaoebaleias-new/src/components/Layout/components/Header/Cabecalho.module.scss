@@ -6,11 +6,12 @@ header {
     display: flex;
     flex-direction: column;
     background-color: #b7d5e5;
-    width: 25vw;
+    width: var(--lateral-navbar-width);
     height: 100vh;
-    padding-top: 4rem;
 
-    position: absolute;
+    position: fixed;
+    padding-top: var(--spacing-large);
+    top: 0;
     left: 0;
     transition: .25s;
     z-index: 10;
@@ -21,6 +22,10 @@ header {
         padding-left: 1.5rem;
         display: flex;
         align-items: center;
+
+        &:hover {
+            transform: scale(1.05);
+        }
     }
 }
 
@@ -40,6 +45,9 @@ header {
     padding: 8px 16px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.16);
     max-height: var(--superior-navbar-height);
+
+    margin-left: var(--lateral-navbar-width);
+    padding-left: calc(50% - var(--lateral-navbar-width)) !important;
 }
 
 .assine {
@@ -141,12 +149,12 @@ header {
         display: flex;
         flex-direction: column;
         background-color: #b7d5e5;
-        width: 75vw;
+        width: var(--lateral-navbar-width);
         height: 100vh;
-        padding-top: 4rem;
-    
-        position: absolute;
-        left: -100vw;
+
+        padding-top: var(--spacing-large);
+        position: fixed;
+        left: 0vw;
         transition: .25s;
     }
     
@@ -167,5 +175,12 @@ header {
         padding-left: 1.5rem;
         display: flex;
         align-items: center;
+    }
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    .cabecalho {
+        margin-left: 0;
+        padding-left: var(--spacing-xSmall) !important;
     }
 }

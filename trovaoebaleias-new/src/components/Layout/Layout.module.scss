@@ -10,12 +10,6 @@ main {
     margin-top: var(--spacing-large);
 }
 
-@media screen and (min-width: 1440px) {
-    main {
-        margin-left: var(--lateral-navbar-width);
-    }
-}
-
 .container { /* esse container vai ser o espaçamento de toda a pagina*/
     padding-right: 6%;
     padding-left: 6%;

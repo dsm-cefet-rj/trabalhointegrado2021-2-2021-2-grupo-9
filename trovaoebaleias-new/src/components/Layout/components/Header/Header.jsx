@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useMediaQuery } from 'react-responsive'
 
 import Menu from "img/menu.svg";
 import Logo from "img/logo-ltb.svg";
@@ -9,28 +10,36 @@ import Home from "img/home.svg";
 import Planos from "img/planos.svg";
 import Contato from "img/contato.svg";
 
+import { themes } from '../../../../themes'
+
 import styles from './Cabecalho.module.scss';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(true)
 
-    const handleClick = () => setIsOpen(true)
+    const { desktop, mobile, mobileLandscape, tablet } = themes.breakpoints
+    const isMobile = useMediaQuery({ query: mobile })
 
+    const shouldOpen = !isMobile ? true : isOpen
+
+    const handleMenuClick = () => setIsOpen(true)
     const handleNavClick = () => setIsOpen(false)
 
     return ( 
         <header>
             <div className={styles.cabecalho} >
-                <button
-                    className={styles["cabecalho__menu"]}
-                    aria-label="Menu"
-                    className={styles["botao-logo"]}
-                    onClick={handleClick}
-                >
-                    <i>
-                    <img src={Menu} className={styles.icones} />
-                    </i>
-                </button>
+                {isMobile &&
+                    <button
+                        className={styles["cabecalho__menu"]}
+                        aria-label="Menu"
+                        className={styles["botao-logo"]}
+                        onClick={handleMenuClick}
+                    >
+                        <i>
+                        <img src={Menu} className={styles.icones} />
+                        </i>
+                    </button>
+                }
                 <img src={Logo} />
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>
@@ -41,7 +50,7 @@ const Header = () => {
                 </button>
             </div>
 
-            { isOpen && 
+            { shouldOpen && 
                 <nav className={styles["menu-lateral"]} onClick={handleNavClick}>
                     <a href="cadastro.html" className={styles["menu-lateral__link"]}>
                         <img src={Profile} className={styles.icon} />
