@@ -2,6 +2,10 @@
     margin-left: 7rem;
 }
 
+div{
+    font-family: 'Montserrat' , sans-serif;
+}
+
 .titulo-dados{
     font-size: 1.2rem;
     font-weight: bold;
