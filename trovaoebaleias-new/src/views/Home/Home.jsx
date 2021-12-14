@@ -19,7 +19,6 @@ import World from "../../img/world.svg";
 import Cancel from "../../img/cancel.svg";
 
 
-
 class Home extends Component {
   render() {
     
