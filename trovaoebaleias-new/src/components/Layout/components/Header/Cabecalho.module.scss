@@ -48,6 +48,10 @@ header {
 
     margin-left: var(--lateral-navbar-width);
     padding-left: calc(50% - var(--lateral-navbar-width)) !important;
+
+    .img-logo {
+        width: var(--superior-navbar-height);
+    }
 }
 
 .assine {

@@ -17,7 +17,7 @@ import styles from "./Home.module.scss";
 
 const Home = () => (
   <div clasName={styles.home}>
-    <section className="container">
+    <section className={styles.container}>
       <h1 className="titulo-xp">Experimente por 7 dias</h1>
       <p className="paragrafo-exp">
         <img src={Verificado} className="verificado-svg" />
@@ -29,7 +29,7 @@ const Home = () => (
       </p>
     </section>
 
-    <section className="container">
+    <section className={styles.container}>
       <h1 className="titulo-desejados">Os mais desejados</h1>
       <ul className="livros">
         <img src={Hp1} className="livro" />
@@ -41,12 +41,12 @@ const Home = () => (
       </ul>
     </section>
 
-    <section className="container assine">
+    <section className={styles.container}>
         <h1 className="titulo-desejados">Curtiu algum título acima?</h1>
         <button className="botao-assine"><Link to= "/cadastro">Assine já</Link></button>
     </section>
 
-    <section className="container vantagens">
+    <section className={styles.container}>
         <h1 className="titulo-desejados">Vantagens</h1>
         <p className="paragrafo-exp"><img src={Book}  className="verificado-svg"/>Alugue livros quando quiser</p>
         <p className="paragrafo-exp"><img src={World} className="verificado-svg"/>Aprenda novos idiomas</p>

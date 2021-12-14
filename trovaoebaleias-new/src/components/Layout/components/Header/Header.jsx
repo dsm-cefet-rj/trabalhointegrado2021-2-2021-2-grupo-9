@@ -40,7 +40,7 @@ const Header = () => {
                         </i>
                     </button>
                 }
-                <img src={Logo} />
+                <img className={styles["img-logo"]} src={Logo} />
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>
                     <a href="login">
