@@ -2,32 +2,6 @@ header {
     height: var(--superior-navbar-height);
 }
 
-.menu-lateral {
-    display: flex;
-    flex-direction: column;
-    background-color: #b7d5e5;
-    width: var(--lateral-navbar-width);
-    height: 100vh;
-
-    position: fixed;
-    padding-top: var(--spacing-large);
-    top: 0;
-    left: 0;
-    transition: .25s;
-    z-index: 10;
-
-    .menu-lateral__link {
-        height: 64px;
-        color: #000000;
-        padding-left: 1.5rem;
-        display: flex;
-        align-items: center;
-
-        &:hover {
-            transform: scale(1.05);
-        }
-    }
-}
 
 
 .cabecalho {
