@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive'
+import { Link } from "react-router-dom";
 
 import Menu from "img/menu.svg";
 import Logo from "img/logo-ltb.svg";
 import Perfil from "img/perfil-foto.svg";
 import Profile from "img/pro.svg";
+
+import Reset from "../../../../assets/Reset.css";
 
 import Home from "img/home.svg";
 import Planos from "img/planos.svg";
@@ -43,9 +46,9 @@ const Header = () => {
                 <img className={styles["img-logo"]} src={Logo} />
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>
-                    <a href="login">
+                    <Link to="/login">
                         <img src={Perfil} className={styles.icones} />
-                    </a>
+                    </Link>
                     </i>
                 </button>
             </div>

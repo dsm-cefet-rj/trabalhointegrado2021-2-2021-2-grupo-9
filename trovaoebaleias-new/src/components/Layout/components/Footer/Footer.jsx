@@ -1,6 +1,11 @@
+
 import Facebook from "img/facebook.svg";
 import Instagram from "img/instagram.svg";
 import Twitter from "img/twitter.svg";
+import Fonte from "../../../../assets/Fonte.css";
+import Reset from "../../../../assets/Reset.css";
+
+
 
 import styles from './Rodape.module.scss';
 
