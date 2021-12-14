@@ -43,7 +43,7 @@ const Header = () => {
                 <img src={Logo} />
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>
-                    <a href="login.html">
+                    <a href="login">
                         <img src={Perfil} className={styles.icones} />
                     </a>
                     </i>
