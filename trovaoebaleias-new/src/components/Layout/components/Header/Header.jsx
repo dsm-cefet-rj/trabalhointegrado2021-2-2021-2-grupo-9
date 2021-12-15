@@ -23,7 +23,9 @@ const Header = ({ sidebar, setSidebar }) => {
         <header>
             <div className={styles.cabecalho}>
                 <SideBar sidebar={sidebar} setSidebar={setSidebar} className="navbarr"/>
-                <img className={styles["img-logo"]} src={Logo} />
+                <Link to="/home">
+                    <img className={styles["img-logo"]} src={Logo} />
+                </Link>
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>
                     <Link to="/login">
