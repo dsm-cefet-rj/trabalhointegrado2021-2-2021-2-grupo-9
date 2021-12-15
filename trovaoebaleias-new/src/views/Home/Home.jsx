@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
+import { Carousel } from "components";
+
+import styles from "./Home.module.scss";
+
 import Verificado from "../../img/verificado.svg";
 import Hp1 from "../../imglivros/hp1.jpg";
 import Hp2 from "../../imglivros/hp2.jpg";
@@ -13,9 +17,17 @@ import Book from "../../img/book.svg";
 import World from "../../img/world.svg";
 import Cancel from "../../img/cancel.svg";
 
-import styles from "./Home.module.scss";
+const srcBooks = [ 
+  Hp1,
+  Hp2,
+  Hp3,
+  Hp4,
+  Hp5,
+  Hp6,
+]
 
 const Home = () => {
+
   return (
     <div className={styles.home}>
       <section className={styles.container}>
@@ -32,14 +44,7 @@ const Home = () => {
 
       <section className={styles.container}>
         <h1 className={styles["titulo-desejados"]}>Os mais desejados</h1>
-        <ul className={styles["livros"]}>
-          <img src={Hp1} className={styles["livro"]} />
-          <img src={Hp2} className={styles["livro"]} />
-          <img src={Hp3} className={styles["livro"]} />
-          <img src={Hp4} className={styles["livro"]} />
-          <img src={Hp5} className={styles["livro"]} />
-          <img src={Hp6} className={styles["livro"]} />
-        </ul>
+        { <Carousel srcBooks={srcBooks} /> }
       </section>
 
       <section className={styles.container}>

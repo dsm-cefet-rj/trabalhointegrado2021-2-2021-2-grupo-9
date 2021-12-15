@@ -1,0 +1,45 @@
+.carousel {
+    background-color: rgba(194, 246, 255, 0.5);
+    display: flex;
+    justify-content: space-between;;
+    align-items: center;
+
+    border: none;
+    border-radius: var(--spacing-xSmall);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    padding: var(--spacing-xxSmall) auto;
+
+    .button {
+        border-radius: 50%;
+        height: 80px;
+        width: 80px;
+        border: none;
+        cursor: pointer;
+
+        margin: auto var(--spacing-xxSmall);
+        background-color: rgba(183, 213, 229, 0.4); 
+        backdrop-filter: blur(5px);
+    }
+    .button:hover {
+        background-color:  rgba(183, 213, 229, 0.7);
+        transform: scale(1.05); 
+    }
+    .label {
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+    .books-layer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 4px;
+    }
+}
+
+.carousel::before {
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .6);
+    filter: blur(10px);
+}
+
+
