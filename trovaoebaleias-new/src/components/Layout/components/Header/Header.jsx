@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive'
 import { Link } from "react-router-dom";
 
-import Navbar from "components/Layout/Navbar";
+import { SideBar } from "components/Layout/components";
 import Menu from "img/menu.svg";
 import Logo from "img/logo-ltb.svg";
 import Perfil from "img/perfil-foto.svg";
@@ -18,16 +18,14 @@ import { themes } from '../../../../themes'
 
 import styles from './Cabecalho.module.scss';
 
-
-const Header = () => {
-    
-
+const Header = ({ sidebar, setSidebar }) => {
     return ( 
         <header>
-            <div className={styles.cabecalho}>{
-                    <Navbar className="navbarr"/>
-                }
-                <img src={Logo} />
+            <div className={styles.cabecalho}>
+                <SideBar sidebar={sidebar} setSidebar={setSidebar} className="navbarr"/>
+                <Link to="/home">
+                    <img className={styles["img-logo"]} src={Logo} />
+                </Link>
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>
                     <Link to="/login">
@@ -36,10 +34,8 @@ const Header = () => {
                     </i>
                 </button>
             </div>
-
         </header>
-      );
-      
+    );
 }
  
 export default Header;

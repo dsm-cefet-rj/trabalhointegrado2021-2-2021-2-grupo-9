@@ -1,13 +1,15 @@
 section{
     font-family: 'Montserrat', sans-serif;
-    margin-right: 20rem;
 }
 
 .login {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: var(--lateral-navbar-width);
+
+    form {
+        margin-left: 0;
+    }
 }
 
 .titulo{
@@ -46,9 +48,6 @@ section{
     margin-top: 2rem;
 
     padding: 23px;
-
-    margin-right: 13rem;
-
 }
 
 .botao-ok a{

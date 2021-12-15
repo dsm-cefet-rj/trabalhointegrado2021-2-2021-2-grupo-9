@@ -1,7 +1,9 @@
 
 .home {
-    background-color: red !important;
-    margin-left: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-small);
 }
 
 .titulo-xp{
@@ -44,12 +46,13 @@
 }
 
 .livro{
-    width: 32%;
     margin-left: .2rem;
 }
 
 .livros ul{
     display: inline-block;
+    display: flex;
+    flex-wrap: wrap;
 }
 .vantagens{
     margin-bottom: 10rem;
@@ -61,4 +64,11 @@
         margin-left: 1rem;
     }
     
+}
+
+.container { /* esse container vai ser o espaçamento de toda a pagina*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--spacing-medium);
 }
