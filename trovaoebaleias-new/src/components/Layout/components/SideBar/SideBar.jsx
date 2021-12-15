@@ -9,9 +9,7 @@ import { SidebarData } from './SidebarData';
 
 import './SideBar.css';
 
-function SideBar() {
-  const [sidebar, setSidebar] = useState(false);
-
+const SideBar = ({ sidebar, setSidebar }) => {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (

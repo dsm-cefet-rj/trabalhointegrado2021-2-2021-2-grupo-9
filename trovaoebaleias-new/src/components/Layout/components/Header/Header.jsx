@@ -18,11 +18,11 @@ import { themes } from '../../../../themes'
 
 import styles from './Cabecalho.module.scss';
 
-const Header = () => {
+const Header = ({ sidebar, setSidebar }) => {
     return ( 
         <header>
             <div className={styles.cabecalho}>
-                <SideBar className="navbarr"/>
+                <SideBar sidebar={sidebar} setSidebar={setSidebar} className="navbarr"/>
                 <img className={styles["img-logo"]} src={Logo} />
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>
@@ -32,7 +32,6 @@ const Header = () => {
                     </i>
                 </button>
             </div>
-
         </header>
     );
 }
