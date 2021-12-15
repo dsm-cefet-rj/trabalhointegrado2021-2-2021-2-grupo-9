@@ -1,15 +1,11 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { Home } from '../../views'
-import { Login } from '../../views'
-import { Cadastro } from '../../views'
+import { Cadastro, Login, Home } from 'views'
 import { Layout } from '../../components'
 
-import Navbar from '../../components/Layout/Navbar'
-
-import Contato from '../../pages/Contato'
-
+// import Navbar from '../../components/Layout/Navbar'
+// import Contato from '../../pages/Contato'
 
 import './App.module.scss'
 

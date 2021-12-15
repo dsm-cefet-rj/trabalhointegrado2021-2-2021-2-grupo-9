@@ -1,11 +1,5 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
-import Estilo from "./Home.css"
-
-import Logo from "../../img/logo-ltb.svg";
-import Menu from "../../img/menu.svg";
-import Perfil from "../../img/perfil-foto.svg";
 import Verificado from "../../img/verificado.svg";
 import Hp1 from "../../imglivros/hp1.jpg";
 import Hp2 from "../../imglivros/hp2.jpg";

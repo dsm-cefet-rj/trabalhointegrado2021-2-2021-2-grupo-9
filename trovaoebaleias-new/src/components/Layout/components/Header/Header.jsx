@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useMediaQuery } from 'react-responsive'
 import { Link } from "react-router-dom";
 
-import Navbar from "components/Layout/Navbar";
+import { SideBar } from "../../components";
 import Menu from "img/menu.svg";
 import Logo from "img/logo-ltb.svg";
 import Perfil from "img/perfil-foto.svg";
@@ -24,9 +24,8 @@ const Header = () => {
 
     return ( 
         <header>
-            <div className={styles.cabecalho}>{
-                    <Navbar className="navbarr"/>
-                }
+            <div className={styles.cabecalho}>
+                <SideBar />
                 <img className={styles["img-logo"]} src={Logo} />
                 <button aria-label="Notificação" className={styles["botao-logo"]}>
                     <i>

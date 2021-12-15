@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Footer, Header } from "./components";
+import { Footer, Header, SideBar } from "./components";
 
 import styles from './Layout.module.scss'
 
