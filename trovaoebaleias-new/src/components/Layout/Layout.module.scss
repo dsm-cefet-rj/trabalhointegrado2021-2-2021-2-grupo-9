@@ -4,6 +4,7 @@
     align-items: center;
 
     margin: var(--spacing-xxLarge) auto;
+    min-height: calc(100vh - 2.38*var(--superior-navbar-height));
 }
 
 .open {
