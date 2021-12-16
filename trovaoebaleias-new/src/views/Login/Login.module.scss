@@ -6,6 +6,7 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: var(--spacing-xxLarge);
 
     form {
         margin-left: 0;

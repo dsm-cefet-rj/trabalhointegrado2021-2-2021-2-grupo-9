@@ -1,11 +1,8 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { Cadastro, Login, Home } from 'views'
+import { Cadastro, Login, Home, Planos } from 'views'
 import { Layout } from '../../components'
-
-// import Navbar from '../../components/Layout/Navbar'
-// import Contato from '../../pages/Contato'
 
 import './App.module.scss'
 
@@ -16,6 +13,7 @@ const App = () => {
         <Route exact path="/" component={Home} /> 
         <Route exact path="/home" component={Home} /> 
         <Route path = '/login' component={Login} />
+        <Route path = '/planos' component={Planos} />
         <Route path = '/cadastro' component={Cadastro} />
       </Switch>
     </Layout>

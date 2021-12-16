@@ -3,7 +3,29 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--spacing-small);
+}
+
+.experimente-section {
+    @extend .container;
+    gap: var(--spacing-xxxSmall);
+}
+.experimente-itens {
+    @extend .vantagens-items;
+}
+.experimente-botao {
+    border-radius: 10rem;
+    border: none;
+    background-color: #494986;
+    color: #fefefe;
+    width: 300px;
+    padding: var(--spacing-xSmall);
+    font-size: 1.3rem;
+}
+
+.carousel-section {
+    @extend .container;
+    padding: 40px;
+    background-color: rgba(211, 211, 211, 0.15);
 }
 
 .titulo-xp{
@@ -11,13 +33,16 @@
     text-align: center;
     padding-bottom: 30px;
 }
+.titulo-carousel {
+    @extend .titulo-desejados;
+
+    display: flex;
+    align-self: flex-start;
+}
 
 .titulo-desejados{
     font-size: 1.5rem;
-
     text-align: center;
-
-    padding-top: 5rem;
     padding-bottom: 30px;
 }
 
@@ -54,6 +79,15 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.vantagens-section {
+    @extend .carousel-section;
+}
+.vantagens-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
 .vantagens{
     margin-bottom: 10rem;
 }
@@ -70,5 +104,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 0 var(--spacing-medium);
+    width: 100%;
+    padding: var(--spacing-xxLarge);
 }
