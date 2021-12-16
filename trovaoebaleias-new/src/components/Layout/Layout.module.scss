@@ -3,10 +3,11 @@
     flex-direction: column;
     align-items: center;
 
-    margin: var(--spacing-xxLarge) auto;
     min-height: calc(100vh - 2.38*var(--superior-navbar-height));
+    width: 100%;
 }
 
 .open {
     margin-left: var(--lateral-navbar-width);
+    width: calc(100% - var(--lateral-navbar-width));
 }

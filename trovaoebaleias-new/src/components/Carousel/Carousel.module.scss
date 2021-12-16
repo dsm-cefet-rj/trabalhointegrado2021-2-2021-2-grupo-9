@@ -1,8 +1,7 @@
 .carousel {
     background-color: rgba(194, 246, 255, 0.5);
     display: flex;
-    justify-content: space-between;;
-    align-items: center;
+    height: 300px;
 
     border: none;
     border-radius: var(--spacing-xSmall);
@@ -22,7 +21,6 @@
     }
     .button:hover {
         background-color:  rgba(183, 213, 229, 0.7);
-        transform: scale(1.05); 
     }
     .label {
         font-size: 16px;
@@ -31,9 +29,17 @@
 
     .books-layer {
         display: flex;
-        justify-content: center;
         align-items: center;
         gap: 4px;
+    }
+    .image-layer {
+        border-radius: 20px;
+    }
+    .main-image {
+        transform: scale(1.4);
+        transition: transform 1s;
+        padding: 40px;
+        border-radius: 50px;
     }
 }
 

@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { Carousel } from "components";
@@ -27,24 +27,27 @@ const srcBooks = [
 ]
 
 const Home = () => {
-
   return (
     <div className={styles.home}>
       <section className={styles.container}>
         <h1 className={styles["titulo-xp"]}>Experimente por 7 dias</h1>
-        <p className={styles["paragrafo-exp"]}>
-          <img src={Verificado} className={styles["verificado-svg"]} />
-          Acesso ilimitado a toda plataforma
-        </p>
-        <p className={styles["paragrafo-exp"]}>
-          <img src={Verificado} className={styles["verificado-svg"]} />
-          Mais de mil títulos, inúmeros gêneros
-        </p>
+        <ul className={styles["experimente-itens"]}>
+          <li className={styles["paragrafo-exp"]}>
+            <img src={Verificado} className={styles["verificado-svg"]} />
+            Acesso ilimitado a toda plataforma
+          </li>
+          <li className={styles["paragrafo-exp"]}>
+            <img src={Verificado} className={styles["verificado-svg"]} />
+            Mais de mil títulos, inúmeros gêneros
+          </li>
+        </ul>
       </section>
 
-      <section className={styles.container}>
-        <h1 className={styles["titulo-desejados"]}>Os mais desejados</h1>
-        { <Carousel srcBooks={srcBooks} /> }
+      <section className={styles["carousel-section"]}>
+        <div className={styles["carousel-wrapper"]}>
+          <h1 className={styles["titulo-carousel"]}>Os mais desejados</h1>
+          { <Carousel srcBooks={srcBooks} /> }
+        </div>
       </section>
 
       <section className={styles.container}>
@@ -52,12 +55,16 @@ const Home = () => {
           <button className={styles["botao-assine"]}><Link to= "/cadastro">Assine já</Link></button>
       </section>
 
-      <section className={styles.container}>
+      <section className={styles["vantagens-section"]}>
+        <div className={styles["vantagens-wrapper"]}>
           <h1 className={styles["titulo-desejados"]}>Vantagens</h1>
-          <p className={styles["paragrafo-exp"]}><img src={Book}  className={styles["verificado-svg"]} />Alugue livros quando quiser</p>
-          <p className={styles["paragrafo-exp"]}><img src={World} className={styles["verificado-svg"]} />Aprenda novos idiomas</p>
-          <p className={styles["paragrafo-exp"]}><img src={Pro} className={styles["verificado-svg"]} />Aprimore-se profissionalmente</p>
-          <p className={styles["paragrafo-exp]}"]}><img src={Cancel} className={styles["verificado-svg"]} />Cancele a qualquer momento</p>
+          <ul className={styles["vantagens-items"]}>
+            <li className={styles["paragrafo-exp"]}><img src={Book}  className={styles["verificado-svg"]} />Alugue livros quando quiser</li>
+            <li className={styles["paragrafo-exp"]}><img src={World} className={styles["verificado-svg"]} />Aprenda novos idiomas</li>
+            <li className={styles["paragrafo-exp"]}><img src={Pro} className={styles["verificado-svg"]} />Aprimore-se profissionalmente</li>
+            <li className={styles["paragrafo-exp]}"]}><img src={Cancel} className={styles["verificado-svg"]} />Cancele a qualquer momento</li>
+          </ul>
+        </div>
       </section>
     </div>
   )

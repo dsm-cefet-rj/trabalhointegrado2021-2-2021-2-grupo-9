@@ -1,7 +1,9 @@
 // @flow
 import React, { useState } from 'react';
+import classNames from 'classnames/bind'
 
 import styles from './Carousel.module.scss'
+const cx = classNames.bind(styles)
 
 const Carousel = ({ srcBooks }) => {
     const [selectedSlide, setSelectedSlide] = useState(1)
@@ -32,7 +34,7 @@ const Carousel = ({ srcBooks }) => {
             <div className={styles["books-layer"]}>
                 <img src={srcBooks[slide.first]} className={styles["image-layer"]} />
                 <img src={srcBooks[slide.second]} className={styles["image-layer"]} />
-                <img src={srcBooks[slide.third]} className={styles["image-layer"]} />
+                <img src={srcBooks[slide.third]} className={cx("image-layer", "main-image")} />
                 <img src={srcBooks[slide.fourth]} className={styles["image-layer"]} />
                 <img src={srcBooks[slide.fifth]} className={styles["image-layer"]} />
             </div>
