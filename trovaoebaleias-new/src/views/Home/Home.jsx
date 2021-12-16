@@ -29,7 +29,7 @@ const srcBooks = [
 const Home = () => {
   return (
     <div className={styles.home}>
-      <section className={styles.container}>
+      <section className={styles["experimente-section"]}>
         <h1 className={styles["titulo-xp"]}>Experimente por 7 dias</h1>
         <ul className={styles["experimente-itens"]}>
           <li className={styles["paragrafo-exp"]}>
@@ -41,6 +41,7 @@ const Home = () => {
             Mais de mil títulos, inúmeros gêneros
           </li>
         </ul>
+        <button className={styles["experimente-botao"]}><Link to= "/cadastro">EXPERIMENTAR AGORA</Link></button>
       </section>
 
       <section className={styles["carousel-section"]}>
