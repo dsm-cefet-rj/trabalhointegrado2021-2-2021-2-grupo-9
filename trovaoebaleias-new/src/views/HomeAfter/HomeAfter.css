@@ -1,0 +1,65 @@
+.titulo-emprestados{
+
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    text-align: left;
+   
+    margin-top: 5rem;
+    color: #494986;
+
+    border-bottom: 1px solid #F0F0F0;
+
+}
+.livro{
+    width: 26%;
+}
+
+.livros{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.livros ul{
+    display: inline-block;
+}
+
+.before, .after{
+    width: 8%;
+    margin-bottom: 64px;
+    margin-left: 6px;
+    margin-right: 6px;
+}
+.titulo-emprestados{
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    text-align: left;
+   
+    margin-top: 40px;
+    margin-left: 10px;
+
+    color: #494986;
+
+    border-bottom: 1px solid #F0F0F0;
+
+}
+.livro{
+    width: 25%;
+}
+
+.livros{
+    margin-top: 10px;
+    /*margin-left: 50px;
+    margin-right: 20px; */
+}
+
+.livros ul{
+    display: inline-block;
+}
+
+.before, .after{
+    width: 8%;
+    margin-bottom: 64px;
+    margin-left: 6px;
+}
