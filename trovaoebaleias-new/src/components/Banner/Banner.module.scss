@@ -16,6 +16,7 @@
 
     &-image {
         border-radius: var(--border-radius-large);
+        height: var(--banner-image-height);
     }
 }
 .card-section {
@@ -24,7 +25,7 @@
     gap: var(--spacing-xxxSmall);
 }
 .card-section:nth-child(1) {
-    padding: var(--spacing-small);
+    padding: var(--spacing-xxSmall);
     gap: var(--spacing-xxSmall);
 }
 
@@ -35,6 +36,7 @@
 .card-section-text {
     @extend .flex-column-start;
     padding-left: var(--spacing-xxSmall);
+    width: max-content;
 }
 
 .card-section-button {
