@@ -6,6 +6,9 @@
     --cinza-escuro: #4F4C4C;
     --cinza-claro: #EDEEE9;
     --baby-blue: #b7d5e5;
+    --color-white: rgba(255, 255, 255, 1);
+    --color-azul-magenta: rgba(73, 73, 134, 1);
+    --default-background: rgba(77,77,77, .1);
 
     --spacing-xxxSmall: 8px;
     --spacing-xxSmall: 16px;
@@ -16,6 +19,10 @@
     --spacing-xLarge: 64px;
     --spacing-xxLarge: 80px;
 
+    --font-size-large: 18px;
+    --font-size-medium: 16px;
+    --font-size-small: 14px;
+
     --breakpoint-mobile: 767px;
     --breakpoint-tablet: 768px;
     --breakpoint-desktop: 1366px;
@@ -23,4 +30,6 @@
     --lateral-navbar-width: 250px;
     --superior-navbar-height: 180px;
     --footer-icon-width: 30px;
+
+    background-color: var(--default-background);
 }
