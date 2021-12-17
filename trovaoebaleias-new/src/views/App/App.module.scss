@@ -11,6 +11,7 @@ body {
     --color-baby-blue: #b7d5e5;
 
     --color-white: rgba(255, 255, 255, 1);
+    --color-mostarda: rgba(255, 191, 0, 1);
     --color-magenta: rgba(73, 73, 134, 1);
     --color-magenta80: rgba(73, 73, 134, .8);
     --color-shade10: rgba(93, 93, 94, .1);
@@ -41,9 +42,10 @@ body {
     --breakpoint-tablet: 768px;
     --breakpoint-desktop: 1366px;
 
+    --max-width: 1200px;
     --lateral-navbar-width: 250px;
     --superior-navbar-height: 180px;
     --footer-icon-width: 30px;
-    --banner-width: 1064px;
-    --banner-image-height: 240px;
+    --banner-image-height: 300px;
+    --banner-image-width: 400px;
 }

@@ -21,10 +21,6 @@ const SectionDegustar = () => {
                             <img src={Verificado} className={styles["section-itens-img"]} />
                             Acesso ilimitado a toda plataforma
                         </li>
-                        <li className={styles["section-itens-paragrafo"]}>
-                            <img src={Verificado} className={styles["section-itens-img"]} />
-                            Mais de mil títulos, inúmeros gêneros
-                        </li>
                     </ul>
                 </Banner>
                 <Banner 
@@ -34,10 +30,6 @@ const SectionDegustar = () => {
                     buttonLink="/cadastro"
                 >
                     <ul className={styles["section-itens"]}>
-                        <li className={styles["section-itens-paragrafo"]}>
-                            <img src={Verificado} className={styles["section-itens-img"]} />
-                            Acesso ilimitado a toda plataforma
-                        </li>
                         <li className={styles["section-itens-paragrafo"]}>
                             <img src={Verificado} className={styles["section-itens-img"]} />
                             Mais de mil títulos, inúmeros gêneros
