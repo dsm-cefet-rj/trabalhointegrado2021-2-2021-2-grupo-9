@@ -26,17 +26,6 @@ const srcBooks = [
   Hp6,
 ]
 
-<<<<<<< HEAD
-class Home extends Component {
-  render() {
-    
-    return (
-      <main class="base">
-        <section className="container">
-          <h1 className="titulo-xp">Experimente por 7 dias</h1>
-          <p className="paragrafo-exp">
-            <img src={Verificado} className="verificado-svg" />
-=======
 const Home = () => {
   return (
     <div className={styles.home}>
@@ -45,7 +34,6 @@ const Home = () => {
         <ul className={styles["experimente-itens"]}>
           <li className={styles["paragrafo-exp"]}>
             <img src={Verificado} className={styles["verificado-svg"]} />
->>>>>>> 4628e02ea6d94da232689402d60fd2865687c851
             Acesso ilimitado a toda plataforma
           </li>
           <li className={styles["paragrafo-exp"]}>
