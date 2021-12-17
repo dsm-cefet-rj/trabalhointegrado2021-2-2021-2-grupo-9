@@ -42,13 +42,13 @@
     border-radius: var(--border-radius-xLarge);
     padding: var(--spacing-xSmall);
 
-    background-color: var(--color-azul-magenta);
+    background-color: var(--color-magenta);
     color: var(--color-white);
 
     font-size: var(--font-size-large);
 
     &:hover {
-        background-color: var(--color-azul-magenta-light);
+        background-color: var(--color-magenta80);
         transform: scale(1.05);
     }
 }
