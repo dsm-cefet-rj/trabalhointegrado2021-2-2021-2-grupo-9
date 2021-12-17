@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import styles from "./Login.module.scss"
 
@@ -26,7 +27,7 @@ const Login = () => {
             </section>
 
             <button className={styles["botao-ok"]}>
-            <a href="loginhome.html">Entrar</a>
+            <Link to="/homeafter">Entrar</Link>
             </button>
             
         </div>
