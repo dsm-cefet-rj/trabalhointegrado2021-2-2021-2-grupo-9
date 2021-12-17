@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react"
+import classNames from 'classnames/bind'
 
-import { Footer, Header } from "./components";
+import { Footer, Header } from "./components"
 
-import './Layout.module.scss'
+import styles from './Layout.module.scss'
+
+const cx = classNames.bind(styles)
 
 const Layout = ({ children }) => {
+    const [sidebar, setSidebar] = useState(false);
 
-    const MainContent = () =>  <main> { children } </main>
+    const showSidebar = () => setSidebar(!sidebar);
+
+    const conditionalInsideContainer = cx("inside-container", { "open": sidebar})
 
     return ( 
         <>
-            <Header />
-            {MainContent()}
+            <Header sidebar={sidebar} setSidebar={setSidebar} />
+            <main className={conditionalInsideContainer} > { children } </main>
             <Footer />
         </>
      );
