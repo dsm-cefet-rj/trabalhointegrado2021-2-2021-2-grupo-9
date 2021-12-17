@@ -8,6 +8,7 @@
     --baby-blue: #b7d5e5;
     --color-white: rgba(255, 255, 255, 1);
     --color-azul-magenta: rgba(73, 73, 134, 1);
+    --color-azul-magenta-light: rgba(73, 73, 134, .9);
     --default-background: rgba(77,77,77, .1);
 
     --spacing-xxxSmall: 8px;
@@ -19,9 +20,15 @@
     --spacing-xLarge: 64px;
     --spacing-xxLarge: 80px;
 
+    --font-size-xxxLarge: 30px;
+    --font-size-xxLarge: 26px;
+    --font-size-xLarge: 22px;
     --font-size-large: 18px;
     --font-size-medium: 16px;
     --font-size-small: 14px;
+
+    --border-radius-large: 20px;
+    --border-radius-xLarge: 30px;
 
     --breakpoint-mobile: 767px;
     --breakpoint-tablet: 768px;
