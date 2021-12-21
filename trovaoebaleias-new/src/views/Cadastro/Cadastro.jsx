@@ -94,7 +94,7 @@ const Cadastro = () => {
                             <input type="text" id="cidade" className={style["input-padrao"]} />
                     </section>
                         
-                    <section className={style["cadastro-section"]}>
+                    <section className={style["cadastro-sele"]}>
                     <label htmlFor="estado">Estado</label><br></br>
                         <select name="estados-brasil" className="lista">
                         { ESTADOS.map( ({ sigla, nome }) => 
