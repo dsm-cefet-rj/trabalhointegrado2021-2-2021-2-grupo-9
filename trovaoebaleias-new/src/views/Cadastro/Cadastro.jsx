@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { useMediaQuery } from 'react-responsive'
-import { Link } from "react-router-dom";
 
 import { Card } from 'components'
 
@@ -9,54 +7,79 @@ import { ESTADOS } from "../../constants";
 import style from "./Cadastro.module.scss"
 
 const Cadastro = () => {
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [passwordPassed, setPasswordPassed] = useState(false)
+
+    const handleName = (e) => setName(e.target.value)
+    const handleEmail = (e) => setPassword(e.target.value)
+    const handlePassword = (e) => setEmail(e.target.value)
+
+    const handlePasswordRepeat = (e) => {
+        const newPassword = e.target.value
+        const hasPasswordPassed = newPassword === password
+
+        if (hasPasswordPassed) {
+            setPasswordPassed(true)
+        }
+    }
+
+    const handleSubmit = () => {
+        console.log(' ')
+        console.log('name', name)
+        console.log('email', email)
+        console.log('passwordPassed', passwordPassed)
+    }
+
     return (
         <Card> 
             <div className={style["cadastro"]}>
                 <h1 className={style["titulo-dados"]}>Dados cadastrais</h1>
-                <form className={style["cadastro-form"]}>
+                <form className={style["cadastro-form"]} onSubmit={handleSubmit}>
 
                     <section className={style["cadastro-section"]}>
                         <label htmlFor="nomesobrenome">Nome e sobrenome</label> 
-                            <input type="text" id="nomesobrenome" className={style["input-padrao"]} required />
+                            <input type="text" id="nomesobrenome" className={style["input-padrao"]} onChange={handleName} />
 
                             <label htmlFor="email">E-mail</label> 
-                            <input type="email" id="email" className={style["input-padrao"]} required placeholder="seuemail@dominio.com" />
+                            <input type="email" id="email" className={style["input-padrao"]} placeholder="seuemail@dominio.com" onChange={handleEmail}/>
             
                             <label htmlFor="cpf">CPF</label>
-                            <input type="number" id="cpf" className={style["input-padrao"]} required placeholder="XXX.XXX.XXX-XX" />
+                            <input type="number" id="cpf" className={style["input-padrao"]} placeholder="XXX.XXX.XXX-XX" />
             
                             <label htmlFor="telefone">Telefone</label>
-                            <input type="tel" id="telefone" className={style["input-padrao"]} required placeholder="(XX) XXXX-XXXX" />
+                            <input type="tel" id="telefone" className={style["input-padrao"]} placeholder="(XX) XXXX-XXXX" />
             
                             <label htmlFor="datanasc">Data de Nascimento</label>
-                            <input type="date" id="datanasc" className={style["input-padrao"]} required placeholder="(XX) XXXX-XXXX" />
+                            <input type="date" id="datanasc" className={style["input-padrao"]} placeholder="(XX) XXXX-XXXX" />
 
                             <label htmlFor="senha">Crie uma senha</label>
-                            <input type="password" id="senha" className={style["input-padrao"]} required />
+                            <input type="password" id="senha" className={style["input-padrao"]} onChange={handlePassword} />
             
                             <label htmlFor="senha">Repetir senha</label>
-                            <input type="password" id="senha" className={style["input-padrao"]} required/>
+                            <input type="password" id="senha" className={style["input-padrao"]} onChange={handlePasswordRepeat}/>
 
                             <h1 className={style["titulo-dados"]}>Endereço</h1>
                         
                             <label htmlFor="cep">CEP</label> 
-                            <input type="number" id="cep" className={style["input-padrao"]} required  placeholder="XXXXX-XXX" /> 
+                            <input type="number" id="cep" className={style["input-padrao"]}  placeholder="XXXXX-XXX" /> 
 
                             <label htmlFor="rua">Rua</label> 
-                            <input type="text" id="email" className={style["input-padrao"]} required />
+                            <input type="text" id="email" className={style["input-padrao"]} />
 
                             <label htmlFor="cpf">Número</label>
-                            <input type="number" id="cpf" className={style["input-padrao"]} required />
+                            <input type="number" id="cpf" className={style["input-padrao"]} />
 
                             <label htmlFor="cidade">Cidade</label>
-                            <input type="text" id="cidade" className={style["input-padrao"]} required />
+                            <input type="text" id="cidade" className={style["input-padrao"]} />
                     </section>
                         
                     <section className={style["cadastro-section"]}>
                     <label htmlFor="estado">Estado</label><br></br>
                         <select name="estados-brasil" className="lista">
                         { ESTADOS.map( ({ sigla, nome }) => 
-                            <option value={sigla}>{nome}</option>
+                            <option key={sigla} value={sigla}>{nome}</option>
                         )}
                     </select>
                     </section>
@@ -74,11 +97,15 @@ const Cadastro = () => {
 
                     <section className={style["lista-check"]}>
                         <label className={style["checkbox"]}><input type="checkbox"/>Li e aceito os termos</label>
-
                         <label className={style["checkbox"]}><input type="checkbox"/>Gostaria de receber nossas novidades por e-mail?</label>
                     </section>
 
-                    <Link to="/pagamento"><button className={style["botao-ok"]}>Confirmar</button></Link>
+                    <input 
+                        type="submit" 
+                        to="/pagamento" 
+                        className={style["botao-ok"]} 
+                        value="Confirmar" 
+                    />
                 </form> 
             </div>
         </Card>
