@@ -1,17 +1,38 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Redirect } from 'react-router-dom'
+
+import { useLogin } from "hooks";
 
 import styles from "./Login.module.scss"
 
+const LOGIN_TESTE = {
+    userName: "admin",
+    password: "123456"
+}
+
 const Login = () => {
+    const [redirect, setRedirect] = useState(false)
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
 
+    const { setIsLogged } = useLogin()
 
     const handleuserNameChange = (e) => setUserName(e.target.value)
     const handlePasswordChange = (e) => setPassword(e.target.value)
+
     const handleSubmit = () => {
-        console.log('data', userName, password)
+        const successfullLogin = 
+            userName === LOGIN_TESTE.userName && 
+            password === LOGIN_TESTE.password
+
+        if (successfullLogin) {
+            setIsLogged(true)
+            setRedirect(true)
+        }
+    }
+
+    if (redirect) {
+        return <Redirect push to="/home" />
     }
 
     return ( 
@@ -39,9 +60,5 @@ const Login = () => {
         </section>      
      );
 }
-
-            {/* <button className={styles["botao-ok"]}>
-                <Link to="/homeafter">Entrar</Link>
-            </button> */}
 
 export default Login;
