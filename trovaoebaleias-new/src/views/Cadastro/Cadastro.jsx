@@ -1,106 +1,134 @@
-import React, { useState } from "react";
-import { useMediaQuery } from 'react-responsive'
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Redirect } from 'react-router-dom'
 
-import Estilo from "./Cadastro.css"
+import { Card } from 'components'
 
+import { LoginContext } from "context";
+
+import { ESTADOS } from "../../constants";
+
+import style from "./Cadastro.module.scss"
 
 const Cadastro = () => {
-    return ( 
-        <div className="base">
-           <h1 className="titulo-dados">Dados cadastrais</h1>
-            <form>
-                <div>
-                <label for="nomesobrenome">Nome e sobrenome</label> 
-                    <input type="text" id="nomesobrenome" className="input-padrao" required />
+    const { setUser } = useContext(LoginContext) || []
+    const [redirect, setRedirect] = useState(false)
+    const [name, setName] = useState("")
+    const [password, setPassword] = useState("")
+    const [email, setEmail] = useState("")
+    const [passwordPassed, setPasswordPassed] = useState(false)
 
-                    <label for="email">E-mail</label> 
-                    <input type="email" id="email" className="input-padrao" required placeholder="seuemail@dominio.com" />
-    
-                    <label for="cpf">CPF</label>
-                    <input type="number" id="cpf" className="input-padrao" required placeholder="XXX.XXX.XXX-XX" />
-    
-                    <label for="telefone">Telefone</label>
-                    <input type="tel" id="telefone" className="input-padrao" required placeholder="(XX) XXXX-XXXX" />
-    
-                    <label for="datanasc">Data de Nascimento</label>
-                    <input type="date" id="datanasc" className="input-padrao" required placeholder="(XX) XXXX-XXXX" />
+    const handleName = (e) => setName(e.target.value)
+    const handleEmail = (e) => setEmail(e.target.value)
+    const handlePassword = (e) => setPassword(e.target.value)
 
-                    <label for="senha">Crie uma senha</label>
-                    <input type="password" id="senha" className="input-padrao" required />
-    
-                    <label for="senha">Repetir senha</label>
-                    <input type="password" id="senha" className="input-padrao" required/>
+    const handlePasswordRepeat = (e) => {
+        const newPassword = e.target.value
+        const hasPasswordPassed = newPassword === password
 
-                    <h1 className="titulo-dados">Endereço</h1>
-                
-                    <label for="cep">CEP</label> 
-                    <input type="number" id="cep" className="input-padrao" required  placeholder="XXXXX-XXX" /> 
+        if (hasPasswordPassed) {
+            setPasswordPassed(true)
+        }
+    }
 
-                    <label for="rua">Rua</label> 
-                    <input type="text" id="email" className="input-padrao" required />
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
 
-                    <label for="cpf">Número</label>
-                    <input type="number" id="cpf" className="input-padrao" required />
+        if (passwordPassed) {
+            const newUser = {
+                id: 101,
+                name,
+                password
+            }
+            console.log('newUser', newUser)
 
-                    <label for="cidade">Cidade</label>
-                    <input type="text" id="cidade" className="input-padrao" required />
-                </div>
-                    
-                <div>
-                <label for="estado">Estado</label><br></br>
-                    <select name="estados-brasil" class="lista">
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
-                </select>
-                </div>
-                    
-                <h1 className="titulo-dados">Gêneros favoritos</h1>
-                <div className="listaa">
-                    <label className="checkbox-generos"><input type="checkbox"/>Ficção Literária</label>
-                    <label className="checkbox-generos"><input type="checkbox"/>Não-Ficção</label>
-                    <label className="checkbox-generos"><input type="checkbox"/>Suspense</label>
-                    <label className="checkbox-generos"><input type="checkbox"/>Fantasia</label>
-                    <label className="checkbox-generos"><input type="checkbox"/>Horror</label>
-                    <label className="checkbox-generos"><input type="checkbox"/>Poesia</label>
-                    <label className="checkbox-generos"><input type="checkbox"/>Romance</label>
-                </div>
+            setUser(newUser)
+            setRedirect(true)
+        }
+    }
 
-                <div className="lista-check">
-                    <label class="checkbox"><input type="checkbox"/>Li e aceito os termos</label>
+    if (redirect) {
+        return <Redirect push to="/login" />
+    }
 
-                    <label class="checkbox"><input type="checkbox"/>Gostaria de receber nossas novidades por e-mail?</label>
-                </div>
+    return (
+        <Card> 
+            <div className={style["cadastro"]}>
+                <h1 className={style["titulo-dados"]}>Dados cadastrais</h1>
+                <form className={style["cadastro-form"]} onSubmit={handleSubmit}>
 
-                <Link to="/pagamento"><button class="botao-ok">Confirmar</button></Link>
-            </form> 
-        </div>
-     );
+                    <section className={style["cadastro-section"]}>
+                        <label htmlFor="nomesobrenome">Nome e sobrenome</label> 
+                            <input type="text" id="nomesobrenome" value={name} className={style["input-padrao"]} onChange={handleName} />
+
+                            <label htmlFor="email">E-mail</label> 
+                            <input type="email" id="email" value={email} className={style["input-padrao"]} placeholder="seuemail@dominio.com" onChange={handleEmail}/>
+            
+                            <label htmlFor="cpf">CPF</label>
+                            <input type="number" id="cpf" className={style["input-padrao"]} placeholder="XXX.XXX.XXX-XX" />
+            
+                            <label htmlFor="telefone">Telefone</label>
+                            <input type="tel" id="telefone" className={style["input-padrao"]} placeholder="(XX) XXXX-XXXX" />
+            
+                            <label htmlFor="datanasc">Data de Nascimento</label>
+                            <input type="date" id="datanasc" className={style["input-padrao"]} placeholder="(XX) XXXX-XXXX" />
+
+                            <label htmlFor="senha">Crie uma senha</label>
+                            <input type="password" id="senha" value={password} className={style["input-padrao"]} onChange={handlePassword} />
+            
+                            <label htmlFor="senha">Repetir senha</label>
+                            <input type="password" id="senha" className={style["input-padrao"]} onChange={handlePasswordRepeat}/>
+
+                            <h1 className={style["titulo-dados"]}>Endereço</h1>
+                        
+                            <label htmlFor="cep">CEP</label> 
+                            <input type="number" id="cep" className={style["input-padrao"]}  placeholder="XXXXX-XXX" /> 
+
+                            <label htmlFor="rua">Rua</label> 
+                            <input type="text" id="email" className={style["input-padrao"]} />
+
+                            <label htmlFor="cpf">Número</label>
+                            <input type="number" id="cpf" className={style["input-padrao"]} />
+
+                            <label htmlFor="cidade">Cidade</label>
+                            <input type="text" id="cidade" className={style["input-padrao"]} />
+                    </section>
+                        
+                    <section className={style["cadastro-sele"]}>
+                    <label htmlFor="estado">Estado</label><br></br>
+                        <select name="estados-brasil" className="lista">
+                        { ESTADOS.map( ({ sigla, nome }) => 
+                            <option key={sigla} value={sigla}>{nome}</option>
+                        )}
+                    </select>
+                    </section>
+                        
+                    <h1 className={style["titulo-dados"]}>Gêneros favoritos</h1>
+                    <section className={style["listaa"]}>
+                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Ficção Literária</label>
+                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Não-Ficção</label>
+                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Suspense</label>
+                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Fantasia</label>
+                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Horror</label>
+                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Poesia</label>
+                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Romance</label>
+                    </section>
+
+                    <section className={style["lista-check"]}>
+                        <label className={style["checkbox"]}><input type="checkbox"/>Li e aceito os termos</label>
+                        <label className={style["checkbox"]}><input type="checkbox"/>Gostaria de receber nossas novidades por e-mail?</label>
+                    </section>
+
+                    <input 
+                        type="submit" 
+                        to="/pagamento" 
+                        className={style["botao-ok"]} 
+                        value="Confirmar" 
+                    />
+                </form> 
+            </div>
+        </Card>
+    );
 }
 
 export default Cadastro;
