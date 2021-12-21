@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Redirect } from 'react-router-dom'
 
-import { useLogin } from "hooks";
+import { LoginContext } from "context";
 
 import styles from "./Login.module.scss"
 
@@ -11,11 +11,10 @@ const LOGIN_TESTE = {
 }
 
 const Login = () => {
+    const { setIsLogged } = useContext(LoginContext) || []
     const [redirect, setRedirect] = useState(false)
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
-
-    const { setIsLogged } = useLogin()
 
     const handleuserNameChange = (e) => setUserName(e.target.value)
     const handlePasswordChange = (e) => setPassword(e.target.value)
