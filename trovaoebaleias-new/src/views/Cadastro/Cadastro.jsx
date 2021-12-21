@@ -1,20 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { Redirect } from 'react-router-dom'
 
 import { Card } from 'components'
+
+import { LoginContext } from "context";
 
 import { ESTADOS } from "../../constants";
 
 import style from "./Cadastro.module.scss"
 
 const Cadastro = () => {
+    const { setUser } = useContext(LoginContext) || []
+    const [redirect, setRedirect] = useState(false)
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
     const [passwordPassed, setPasswordPassed] = useState(false)
 
     const handleName = (e) => setName(e.target.value)
-    const handleEmail = (e) => setPassword(e.target.value)
-    const handlePassword = (e) => setEmail(e.target.value)
+    const handleEmail = (e) => setEmail(e.target.value)
+    const handlePassword = (e) => setPassword(e.target.value)
 
     const handlePasswordRepeat = (e) => {
         const newPassword = e.target.value
@@ -25,11 +30,25 @@ const Cadastro = () => {
         }
     }
 
-    const handleSubmit = () => {
-        console.log(' ')
-        console.log('name', name)
-        console.log('email', email)
-        console.log('passwordPassed', passwordPassed)
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        if (passwordPassed) {
+            const newUser = {
+                id: 101,
+                name,
+                password
+            }
+            console.log('newUser', newUser)
+
+            setUser(newUser)
+            setRedirect(true)
+        }
+    }
+
+    if (redirect) {
+        return <Redirect push to="/login" />
     }
 
     return (
@@ -40,10 +59,10 @@ const Cadastro = () => {
 
                     <section className={style["cadastro-section"]}>
                         <label htmlFor="nomesobrenome">Nome e sobrenome</label> 
-                            <input type="text" id="nomesobrenome" className={style["input-padrao"]} onChange={handleName} />
+                            <input type="text" id="nomesobrenome" value={name} className={style["input-padrao"]} onChange={handleName} />
 
                             <label htmlFor="email">E-mail</label> 
-                            <input type="email" id="email" className={style["input-padrao"]} placeholder="seuemail@dominio.com" onChange={handleEmail}/>
+                            <input type="email" id="email" value={email} className={style["input-padrao"]} placeholder="seuemail@dominio.com" onChange={handleEmail}/>
             
                             <label htmlFor="cpf">CPF</label>
                             <input type="number" id="cpf" className={style["input-padrao"]} placeholder="XXX.XXX.XXX-XX" />
@@ -55,7 +74,7 @@ const Cadastro = () => {
                             <input type="date" id="datanasc" className={style["input-padrao"]} placeholder="(XX) XXXX-XXXX" />
 
                             <label htmlFor="senha">Crie uma senha</label>
-                            <input type="password" id="senha" className={style["input-padrao"]} onChange={handlePassword} />
+                            <input type="password" id="senha" value={password} className={style["input-padrao"]} onChange={handlePassword} />
             
                             <label htmlFor="senha">Repetir senha</label>
                             <input type="password" id="senha" className={style["input-padrao"]} onChange={handlePasswordRepeat}/>
@@ -109,7 +128,7 @@ const Cadastro = () => {
                 </form> 
             </div>
         </Card>
-     );
+    );
 }
 
 export default Cadastro;

@@ -5,13 +5,8 @@ import { LoginContext } from "context";
 
 import styles from "./Login.module.scss"
 
-const LOGIN_TESTE = {
-    userName: "admin",
-    password: "123456"
-}
-
 const Login = () => {
-    const { setIsLogged } = useContext(LoginContext) || []
+    const { setIsLogged, users } = useContext(LoginContext) || []
     const [redirect, setRedirect] = useState(false)
     const [userName, setUserName] = useState("")
     const [password, setPassword] = useState("")
@@ -19,10 +14,13 @@ const Login = () => {
     const handleuserNameChange = (e) => setUserName(e.target.value)
     const handlePasswordChange = (e) => setPassword(e.target.value)
 
-    const handleSubmit = () => {
-        const successfullLogin = 
-            userName === LOGIN_TESTE.userName && 
-            password === LOGIN_TESTE.password
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const successfullLogin = users.some(
+            user => user.name ===userName && user.password === password
+        )
 
         if (successfullLogin) {
             setIsLogged(true)
@@ -57,7 +55,7 @@ const Login = () => {
                 <input type="submit" className={styles["botao-ok"]} value="Entrar" />
             </form>
         </section>      
-     );
+    );
 }
 
 export default Login;
