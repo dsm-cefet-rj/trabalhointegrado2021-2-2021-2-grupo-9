@@ -2,10 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Carousel } from "components";
+import SectionDegustar from './SectionDegustar/SectionDegustar'
 
 import styles from "./Home.module.scss";
 
-import Verificado from "../../img/verificado.svg";
 import Hp1 from "../../imglivros/hp1.jpg";
 import Hp2 from "../../imglivros/hp2.jpg";
 import Hp3 from "../../imglivros/hp3.jpg";
@@ -29,20 +29,7 @@ const srcBooks = [
 const Home = () => {
   return (
     <div className={styles.home}>
-      <section className={styles["experimente-section"]}>
-        <h1 className={styles["titulo-xp"]}>Experimente por 7 dias</h1>
-        <ul className={styles["experimente-itens"]}>
-          <li className={styles["paragrafo-exp"]}>
-            <img src={Verificado} className={styles["verificado-svg"]} />
-            Acesso ilimitado a toda plataforma
-          </li>
-          <li className={styles["paragrafo-exp"]}>
-            <img src={Verificado} className={styles["verificado-svg"]} />
-            Mais de mil títulos, inúmeros gêneros
-          </li>
-        </ul>
-        <button className={styles["experimente-botao"]}><Link to= "/cadastro">EXPERIMENTAR AGORA</Link></button>
-      </section>
+      <SectionDegustar />
 
       <section className={styles["carousel-section"]}>
         <div className={styles["carousel-wrapper"]}>

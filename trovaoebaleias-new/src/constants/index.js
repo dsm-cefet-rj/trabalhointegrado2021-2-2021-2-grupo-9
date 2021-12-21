@@ -1,0 +1,1 @@
+export { SLIDER_INTERVAL } from './slider'
