@@ -1,0 +1,117 @@
+.cadastro {
+
+
+    .titulo-dados {
+        font-size: var(--font-size-xLarge);
+        font-weight: bold;
+        padding-bottom: 2rem;
+        padding-top: 2rem;
+        text-align: center;
+    
+    }
+
+    .cadastro-form {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        label{
+            margin-top: 4rem;
+            margin-left: 1rem;
+            text-align: left;
+            margin-bottom:10px;
+        }
+        
+        .input-padrao{  
+            display: block; /*bota tudo embaixo do outro*/
+            margin: 0 0 15px; /*afasta a label da caixinha de resposta*/
+            padding: 10px 25px; /*aumenta o tamanho da caixinha*/
+            width: 50%; /*aumenta a largura da caixinha*/
+            margin-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        
+        .lista{
+            width: 62%;
+        
+            font-size: 1rem;
+        
+            margin: 0 0 15px; /*afasta a label da caixinha de resposta*/
+            margin-left: 20px;
+            margin-top: 10px;
+        
+            padding: 10px 25px; /*aumenta o tamanho da caixinha*/
+        
+        }
+        
+        .generos{
+            margin-top: 1px;
+            margin-bottom: 1px;
+        }
+        
+        .checkbox-generos{
+            display: block;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        
+        .lista-check{
+            margin-top: 8rem;
+        
+        }
+        
+        .checkbox{
+            display: block;
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-top: 30px;
+        }
+        
+        .listaa{
+            margin-bottom: -4rem;
+            margin-top: -4rem;
+        }
+        
+        
+        .botao-ok{
+            width: 40%; /*aumenta a largura*/
+            font-weight: bold;
+            font-size: 18px;
+            border: none; /*nenhuma borda*/
+            cursor: pointer; /*mostrar aquela maozinha do mouse*/
+        
+            
+        
+            background: #494986;
+        
+            box-sizing: border-box;
+            border-radius: 3rem;
+        
+            color: #fefefe;
+        
+            margin: 2rem;
+        
+            padding: 23px;
+            margin-bottom: 6rem;
+            margin-left: 9rem;
+        
+        }
+    }
+}
+
+
+@media screen and (min-width: 1440px) {
+    .titulo-dados{
+        padding-top: 50px;
+        padding-right: 8rem;
+    }
+}
+
+.flex-column-center { /* esse container vai ser o espaçamento de toda a pagina*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
