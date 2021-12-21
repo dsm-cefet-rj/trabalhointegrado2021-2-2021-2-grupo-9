@@ -1,10 +1,8 @@
-import React, { useContext} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 import { Carousel } from "components";
 import SectionDegustar from './SectionDegustar/SectionDegustar'
-
-import { LoginContext } from "context";
 
 import styles from "./Home.module.scss";
 
@@ -29,11 +27,6 @@ const srcBooks = [
 ]
 
 const Home = () => {
-  const { isLogged } = useContext(LoginContext) || []
-  // const { isLogged } = useLogin()
-
-  console.log('isLogged', isLogged)
-
   return (
     <div className={styles.home}>
       <SectionDegustar />
