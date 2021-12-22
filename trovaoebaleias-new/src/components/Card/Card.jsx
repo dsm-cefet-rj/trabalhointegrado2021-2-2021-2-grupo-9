@@ -17,11 +17,12 @@ const StyledCard = styled.div`
     font-family: 'Montserrat', sans-serif;
 
     margin: var(--spacing-medium);
-    padding: var(--spacing-small);
+    padding: var(--spacing-xxSmall);
     border-radius: var(--border-radius-large);
 
     background-color: var(--color-white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
 `
 
 export default Card;

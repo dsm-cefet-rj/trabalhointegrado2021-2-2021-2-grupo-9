@@ -1,33 +1,41 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react"
 import { Redirect } from 'react-router-dom'
 
 import { Card } from 'components'
 
-import { LoginContext } from "context";
+import { LoginContext } from 'context'
 
-import { ESTADOS } from "../../constants";
+import {
+    ACCOUNT_FIELDS, 
+    ADRESS_FIELDS,
+    BOOK_GENRES, 
+    ESTADOS,  
+} from "../../constants";
 
 import style from "./Cadastro.module.scss"
 
 const Cadastro = () => {
     const { setUser } = useContext(LoginContext) || []
     const [redirect, setRedirect] = useState(false)
-    const [name, setName] = useState("")
-    const [password, setPassword] = useState("")
-    const [email, setEmail] = useState("")
     const [passwordPassed, setPasswordPassed] = useState(false)
+    const [userData, setUserData] = useState(null)
+    const [userDataValid, setUserDataValid] = useState(null)
 
-    const handleName = (e) => setName(e.target.value)
-    const handleEmail = (e) => setEmail(e.target.value)
-    const handlePassword = (e) => setPassword(e.target.value)
+    useEffect(() => {
+        if (!userData?.password) {
+            return
+        }
 
-    const handlePasswordRepeat = (e) => {
-        const newPassword = e.target.value
-        const hasPasswordPassed = newPassword === password
-
+        const hasPasswordPassed = userData?.repeat === userData?.password
         if (hasPasswordPassed) {
             setPasswordPassed(true)
         }
+    }, [userData?.password])
+
+    const handleUserInput = (e) => {
+        const name = e.target.id
+        const value = e.target.value
+        setUserData(prevData => ({...prevData, [name]: value }))
     }
 
     const handleSubmit = (e) => {
@@ -37,8 +45,8 @@ const Cadastro = () => {
         if (passwordPassed) {
             const newUser = {
                 id: 101,
-                name,
-                password
+                name: userData?.name,
+                password: userData?.password,
             }
             console.log('newUser', newUser)
 
@@ -47,83 +55,92 @@ const Cadastro = () => {
         }
     }
 
+    const validateField = (fieldName, value) => {
+        let fieldValidationErrors =  userDataValid.formErrors;
+        let emailValid = userDataValid.emailValid;
+        let passwordValid = userDataValid.passwordValid;
+
+        switch (fieldName) {
+            case 'email':
+                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+                fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+                break;
+            case 'password':
+                passwordValid = value.length >= 6;
+                fieldValidationErrors.password = passwordValid ? '': ' is too short';
+                break;
+            default:
+                break;
+        }
+    }
+
     if (redirect) {
-        return <Redirect push to="/login" />
+        return <Redirect push to="/pagamento" />
     }
 
     return (
         <Card> 
             <div className={style["cadastro"]}>
-                <h1 className={style["titulo-dados"]}>Dados cadastrais</h1>
+                <h1 className={style["cadastro-titulo"]}>Dados cadastrais</h1>
+
                 <form className={style["cadastro-form"]} onSubmit={handleSubmit}>
-
-                    <section className={style["cadastro-section"]}>
-                        <label htmlFor="nomesobrenome">Nome e sobrenome</label> 
-                            <input type="text" id="nomesobrenome" value={name} className={style["input-padrao"]} onChange={handleName} />
-
-                            <label htmlFor="email">E-mail</label> 
-                            <input type="email" id="email" value={email} className={style["input-padrao"]} placeholder="seuemail@dominio.com" onChange={handleEmail}/>
-            
-                            <label htmlFor="cpf">CPF</label>
-                            <input type="number" id="cpf" className={style["input-padrao"]} placeholder="XXX.XXX.XXX-XX" />
-            
-                            <label htmlFor="telefone">Telefone</label>
-                            <input type="tel" id="telefone" className={style["input-padrao"]} placeholder="(XX) XXXX-XXXX" />
-            
-                            <label htmlFor="datanasc">Data de Nascimento</label>
-                            <input type="date" id="datanasc" className={style["input-padrao"]} placeholder="(XX) XXXX-XXXX" />
-
-                            <label htmlFor="senha">Crie uma senha</label>
-                            <input type="password" id="senha" value={password} className={style["input-padrao"]} onChange={handlePassword} />
-            
-                            <label htmlFor="senha">Repetir senha</label>
-                            <input type="password" id="senha" className={style["input-padrao"]} onChange={handlePasswordRepeat}/>
+                    <section className={style["cadastro-form-basic"]}>
+                            { ACCOUNT_FIELDS.map((field) =>
+                                <> 
+                                    <label htmlFor={field.name} className={style["custom-label"]}>{field.label}</label> 
+                                    <input 
+                                        type={field.type}
+                                        id={field.name}
+                                        value={userData?.[field.name]} 
+                                        className={style["input-padrao"]}
+                                        placeholder={field.placeholder} 
+                                        onChange={handleUserInput} 
+                                    />
+                                </>
+                            )}
 
                             <h1 className={style["titulo-dados"]}>Endereço</h1>
-                        
-                            <label htmlFor="cep">CEP</label> 
-                            <input type="number" id="cep" className={style["input-padrao"]}  placeholder="XXXXX-XXX" /> 
-
-                            <label htmlFor="rua">Rua</label> 
-                            <input type="text" id="email" className={style["input-padrao"]} />
-
-                            <label htmlFor="cpf">Número</label>
-                            <input type="number" id="cpf" className={style["input-padrao"]} />
-
-                            <label htmlFor="cidade">Cidade</label>
-                            <input type="text" id="cidade" className={style["input-padrao"]} />
+                            { ADRESS_FIELDS.map((field) => (
+                                <>
+                                    <label htmlFor={field.name} className={style["custom-label"]}>{field.label}</label> 
+                                    <input 
+                                        type={field.type}
+                                        id={field.name}
+                                        value={userData?.[field.name]} 
+                                        className={style["input-padrao"]}
+                                        placeholder={field.placeholder} 
+                                        onChange={handleUserInput}
+                                    /> 
+                                </>
+                            ))}
                     </section>
                         
-                    <section className={style["cadastro-sele"]}>
-                    <label htmlFor="estado">Estado</label><br></br>
+                    <section className={style["cadastro-form-selecao"]}>
+                        <label htmlFor="estado" className={style["custom-label"]}>Estado</label><br></br>
                         <select name="estados-brasil" className="lista">
-                        { ESTADOS.map( ({ sigla, nome }) => 
-                            <option key={sigla} value={sigla}>{nome}</option>
-                        )}
-                    </select>
+                            { ESTADOS.map( ({ sigla, nome }) => 
+                                <option key={sigla} value={sigla}>{nome}</option>
+                            )}
+                        </select>
                     </section>
                         
-                    <h1 className={style["titulo-dados"]}>Gêneros favoritos</h1>
-                    <section className={style["listaa"]}>
-                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Ficção Literária</label>
-                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Não-Ficção</label>
-                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Suspense</label>
-                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Fantasia</label>
-                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Horror</label>
-                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Poesia</label>
-                        <label className={style["checkbox-generos"]}><input type="checkbox"/>Romance</label>
+                    <section className={style["cadastro-form-lista"]}>
+                        <h1 className={style["titulo-dados"]}>Gêneros favoritos</h1>
+                        { BOOK_GENRES.map((genre) =>
+                            <label className={style["checkbox-generos"]}><input type="checkbox"/>{genre}</label>
+                        )}
                     </section>
 
-                    <section className={style["lista-check"]}>
+                    <section className={style["cadastro-form-check"]}>
                         <label className={style["checkbox"]}><input type="checkbox"/>Li e aceito os termos</label>
                         <label className={style["checkbox"]}><input type="checkbox"/>Gostaria de receber nossas novidades por e-mail?</label>
                     </section>
 
                     <input 
                         type="submit" 
-                        to="/pagamento" 
-                        className={style["botao-ok"]} 
-                        value="Confirmar" 
+                        className={style["cadastro-form-submit"]} 
+                        value="Confirmar"
+                        disabled={redirect} 
                     />
                 </form> 
             </div>
