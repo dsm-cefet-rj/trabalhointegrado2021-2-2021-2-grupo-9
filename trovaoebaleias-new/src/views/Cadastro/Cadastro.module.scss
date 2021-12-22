@@ -77,13 +77,13 @@
         
         .botao-ok{
             @extend .default-button;
-            width: 40%; /*aumenta a largura*/
+            width: 100%; /*aumenta a largura*/
             font-weight: bold;
             font-size: 18px;
             box-sizing: border-box;
             border-radius: 3rem;
 
-            margin: var(--spacing-xxSmall) auto;
+            margin: var(--spacing-xSmall) auto;
             padding: var(--spacing-xSmall);        
         }
     }

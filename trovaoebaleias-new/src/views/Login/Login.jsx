@@ -29,7 +29,7 @@ const Login = () => {
     }
 
     if (redirect) {
-        return <Redirect push to="/home" />
+        return <Redirect push to="/homeafter" />
     }
 
     return ( 
