@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import * as FaIcons from 'react-icons/fa';
@@ -6,11 +6,17 @@ import * as AiIcons from 'react-icons/ai';
 import { IconContext } from 'react-icons';
 
 import { SidebarData } from './SidebarData';
+import { SidebarDataFull } from './SidebarDataFull';
+
+import { LoginContext } from "context";
 
 import './SideBar.css';
 
 const SideBar = ({ sidebar, setSidebar }) => {
+  const { isLogged } = useContext(LoginContext) || []
   const showSidebar = () => setSidebar(!sidebar);
+
+  const pickSideBar = isLogged ? SidebarDataFull : SidebarData
 
   return (
     <>
@@ -27,7 +33,7 @@ const SideBar = ({ sidebar, setSidebar }) => {
                 <AiIcons.AiOutlineClose />
               </Link>
             </li>
-            {SidebarData.map((item, index) => {
+            {pickSideBar.map((item, index) => {
               return (
                 <li key={index} className={item.cName}>
                   <Link to={item.path}>
