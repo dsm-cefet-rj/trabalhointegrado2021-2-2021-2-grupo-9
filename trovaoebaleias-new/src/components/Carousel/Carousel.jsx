@@ -1,6 +1,7 @@
-// @flow
 import React, { useState } from 'react';
 import classNames from 'classnames/bind'
+
+import leftArrow from 'img/icons8-left-64.png'
 
 import styles from './Carousel.module.scss'
 const cx = classNames.bind(styles)
@@ -25,10 +26,12 @@ const Carousel = ({ srcBooks }) => {
         fifth:  (firstIndex + 4) % numberOfItens,
     }
 
+    //<img className={styles["img-logo"]} src={leftArrow} />
+
     return (
         <div className={styles.carousel}>
             <button className={styles["button"]} onClick={handleLeftClick}>
-                <p className={styles["label"]}>L</p>
+                <img className={styles["button-image"]} src={leftArrow} />
             </button>
 
             <div className={styles["books-layer"]}>
@@ -40,7 +43,7 @@ const Carousel = ({ srcBooks }) => {
             </div>
             
             <button className={styles["button"]} onClick={handleRightClick}>
-                <p className={styles["label"]}>R</p>
+                <img className={styles["button-image-right"]} src={leftArrow} />
             </button>
         </div>
     );

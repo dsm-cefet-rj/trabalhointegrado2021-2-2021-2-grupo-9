@@ -4,6 +4,7 @@
     align-items: center;
 
     min-height: calc(100vh - 1.5*var(--superior-navbar-height));
+    margin-top: calc(var(--superior-navbar-height) - 2*var(--spacing-xxSmall));
     width: 100%;
 }
 

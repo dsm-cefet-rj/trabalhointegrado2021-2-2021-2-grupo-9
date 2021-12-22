@@ -9,24 +9,21 @@
     padding: var(--spacing-xxSmall) auto;
 
     .button {
+        @extend .flex-center-center;
+        @extend .default-button;
+
         border-radius: 50%;
         height: 80px;
         width: 80px;
-        border: none;
-        cursor: pointer;
-
         margin: auto var(--spacing-xxSmall);
         background-color: rgba(183, 213, 229, 0.4); 
-        backdrop-filter: blur(5px);
     }
     .button:hover {
         background-color:  rgba(183, 213, 229, 0.7);
     }
-    .label {
-        font-size: 16px;
-        font-weight: 600;
+    .button-image-right {
+        transform: rotate(180deg);
     }
-
     .books-layer {
         display: flex;
         align-items: center;
@@ -46,6 +43,18 @@
 .carousel::before {
     box-shadow: inset 0 0 2000px rgba(255, 255, 255, .6);
     filter: blur(10px);
+}
+
+.flex-center-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.default-button {
+    text-decoration: none;
+	border: none; /*nenhuma borda*/
+	cursor: pointer; /*mostrar aquela maozinha do mouse*/
+    color: var(--color-white);
 }
 
 
