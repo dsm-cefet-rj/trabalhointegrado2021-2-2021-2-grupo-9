@@ -28,7 +28,6 @@ export const SidebarData = [
     icon:<FaIcons.FaPhoneAlt/>,
     cName:'nav-text'
     }
-
 ]
 
 export default SidebarData;
