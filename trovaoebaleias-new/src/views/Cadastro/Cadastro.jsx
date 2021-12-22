@@ -19,7 +19,7 @@ const Cadastro = () => {
     const [redirect, setRedirect] = useState(false)
     const [passwordPassed, setPasswordPassed] = useState(false)
     const [userData, setUserData] = useState(null)
-    const [userDataValid, setUserDataValid] = useState(null)
+    // const [userDataValid, setUserDataValid] = useState(null)
 
     useEffect(() => {
         if (!userData?.password) {
@@ -30,7 +30,7 @@ const Cadastro = () => {
         if (hasPasswordPassed) {
             setPasswordPassed(true)
         }
-    }, [userData?.password])
+    }, [userData])
 
     const handleUserInput = (e) => {
         const name = e.target.id
@@ -55,24 +55,24 @@ const Cadastro = () => {
         }
     }
 
-    const validateField = (fieldName, value) => {
-        let fieldValidationErrors =  userDataValid.formErrors;
-        let emailValid = userDataValid.emailValid;
-        let passwordValid = userDataValid.passwordValid;
+    // const validateField = (fieldName, value) => {
+    //     let fieldValidationErrors =  userDataValid.formErrors;
+    //     let emailValid = userDataValid.emailValid;
+    //     let passwordValid = userDataValid.passwordValid;
 
-        switch (fieldName) {
-            case 'email':
-                emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-                fieldValidationErrors.email = emailValid ? '' : ' is invalid';
-                break;
-            case 'password':
-                passwordValid = value.length >= 6;
-                fieldValidationErrors.password = passwordValid ? '': ' is too short';
-                break;
-            default:
-                break;
-        }
-    }
+    //     switch (fieldName) {
+    //         case 'email':
+    //             emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+    //             fieldValidationErrors.email = emailValid ? '' : ' is invalid';
+    //             break;
+    //         case 'password':
+    //             passwordValid = value.length >= 6;
+    //             fieldValidationErrors.password = passwordValid ? '': ' is too short';
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
 
     if (redirect) {
         return <Redirect push to="/pagamento" />

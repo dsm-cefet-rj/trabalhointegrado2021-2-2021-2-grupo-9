@@ -3,7 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 
-export const SidebarData = [
+export const SidebarDataFull = [
     {
     title:'Editar Perfil',
     path:"/editar",
@@ -30,4 +30,4 @@ export const SidebarData = [
     },
 ]
 
-export default SidebarData;
+export default SidebarDataFull;
