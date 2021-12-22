@@ -3,8 +3,8 @@
 
     text-align: center;
 
-    padding-top: 6rem;
-    padding-bottom: 30px;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
 }
 
 
@@ -102,7 +102,7 @@ li{
 
 
 .botao-ok{
-	width: 60%; /*aumenta a largura*/
+	width: 80%; /*aumenta a largura*/
 	font-weight: bold;
 	font-size: 18px;
 	border: none; /*nenhuma borda*/
@@ -115,8 +115,7 @@ li{
 
     color: #fefefe;
 
-    margin-left: 4rem;
-
+    margin: 2rem auto;
     padding: 23px;
 }
 
