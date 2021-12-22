@@ -26,8 +26,6 @@ const Carousel = ({ srcBooks }) => {
         fifth:  (firstIndex + 4) % numberOfItens,
     }
 
-    //<img className={styles["img-logo"]} src={leftArrow} />
-
     return (
         <div className={styles.carousel}>
             <button className={styles["button"]} onClick={handleLeftClick}>
