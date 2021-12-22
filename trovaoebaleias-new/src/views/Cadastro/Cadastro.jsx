@@ -1,9 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react"
 import { Redirect } from 'react-router-dom'
 
 import { Card } from 'components'
 
-import { LoginContext } from "context";
+import { LoginContext } from 'context'
 
 import {
     ACCOUNT_FIELDS, 
@@ -21,12 +21,6 @@ const Cadastro = () => {
     const [userData, setUserData] = useState(null)
     const [userDataValid, setUserDataValid] = useState(null)
 
-    const handleUserInput = (e) => {
-        const name = e.target.id
-        const value = e.target.value
-        setUserData(prevData => ({...prevData, [name]: value }))
-    }
-
     useEffect(() => {
         if (!userData?.password) {
             return
@@ -37,6 +31,12 @@ const Cadastro = () => {
             setPasswordPassed(true)
         }
     }, [userData?.password])
+
+    const handleUserInput = (e) => {
+        const name = e.target.id
+        const value = e.target.value
+        setUserData(prevData => ({...prevData, [name]: value }))
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -81,13 +81,13 @@ const Cadastro = () => {
     return (
         <Card> 
             <div className={style["cadastro"]}>
-                <h1 className={style["titulo-dados"]}>Dados cadastrais</h1>
+                <h1 className={style["cadastro-titulo"]}>Dados cadastrais</h1>
 
                 <form className={style["cadastro-form"]} onSubmit={handleSubmit}>
-                    <section className={style["cadastro-section"]}>
+                    <section className={style["cadastro-form-basic"]}>
                             { ACCOUNT_FIELDS.map((field) =>
                                 <> 
-                                    <label htmlFor={field.name}>{field.label}</label> 
+                                    <label htmlFor={field.name} className={style["custom-label"]}>{field.label}</label> 
                                     <input 
                                         type={field.type}
                                         id={field.name}
@@ -100,10 +100,9 @@ const Cadastro = () => {
                             )}
 
                             <h1 className={style["titulo-dados"]}>Endereço</h1>
-
                             { ADRESS_FIELDS.map((field) => (
                                 <>
-                                    <label htmlFor={field.name}>{field.label}</label> 
+                                    <label htmlFor={field.name} className={style["custom-label"]}>{field.label}</label> 
                                     <input 
                                         type={field.type}
                                         id={field.name}
@@ -116,30 +115,30 @@ const Cadastro = () => {
                             ))}
                     </section>
                         
-                    <section className={style["cadastro-sele"]}>
-                    <label htmlFor="estado">Estado</label><br></br>
+                    <section className={style["cadastro-form-selecao"]}>
+                        <label htmlFor="estado" className={style["custom-label"]}>Estado</label><br></br>
                         <select name="estados-brasil" className="lista">
-                        { ESTADOS.map( ({ sigla, nome }) => 
-                            <option key={sigla} value={sigla}>{nome}</option>
-                        )}
-                    </select>
+                            { ESTADOS.map( ({ sigla, nome }) => 
+                                <option key={sigla} value={sigla}>{nome}</option>
+                            )}
+                        </select>
                     </section>
                         
-                    <h1 className={style["titulo-dados"]}>Gêneros favoritos</h1>
-                    <section className={style["listaa"]}>
+                    <section className={style["cadastro-form-lista"]}>
+                        <h1 className={style["titulo-dados"]}>Gêneros favoritos</h1>
                         { BOOK_GENRES.map((genre) =>
                             <label className={style["checkbox-generos"]}><input type="checkbox"/>{genre}</label>
                         )}
                     </section>
 
-                    <section className={style["lista-check"]}>
+                    <section className={style["cadastro-form-check"]}>
                         <label className={style["checkbox"]}><input type="checkbox"/>Li e aceito os termos</label>
                         <label className={style["checkbox"]}><input type="checkbox"/>Gostaria de receber nossas novidades por e-mail?</label>
                     </section>
 
                     <input 
                         type="submit" 
-                        className={style["botao-ok"]} 
+                        className={style["cadastro-form-submit"]} 
                         value="Confirmar"
                         disabled={redirect} 
                     />
