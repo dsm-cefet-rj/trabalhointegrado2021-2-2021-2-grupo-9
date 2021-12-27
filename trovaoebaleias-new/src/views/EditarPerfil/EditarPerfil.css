@@ -1,0 +1,62 @@
+.titulo-editar{
+    font-weight: bold;
+
+    font-size: 1.5rem;
+
+    text-align: center;
+
+    padding-top: 3rem;
+    padding-bottom: 30px;
+    margin-left: 2rem;
+}
+
+
+.botao-escolher{
+    margin-left: 7px;
+    margin-top: 15px;
+    margin-bottom: 45px;
+    width: 40%;
+    height: 40%;
+}
+
+.at{
+    margin-left: 20px;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+.input-padrao{  
+	display: block; 
+    width: 20%;
+    margin-left: 1rem;
+}
+
+.botao-ok{
+	width: 80%; 
+	font-weight: bold;
+	font-size: 18px;
+	border: none;
+	cursor: pointer;
+
+    background: #494986;
+
+    box-sizing: border-box;
+    border-radius: 3rem;
+
+    color: #fefefe;
+
+    margin: 2rem;
+
+    padding: 23px;
+
+}
+
+@media screen and (min-width: 1440px) {
+    .perfilfoto{
+        width: 10%;
+    }
+
+    .input-padrao{
+        width: 6%;
+    }
+}

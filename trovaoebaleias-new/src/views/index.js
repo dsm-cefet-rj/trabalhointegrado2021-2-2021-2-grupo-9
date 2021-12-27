@@ -6,4 +6,5 @@ export { default as Planos } from './Planos/Planos'
 export { default as Contato } from './Contato/Contato'
 export { default as Pagamento } from './Pagamento/Pagamento'
 export { default as HomeAfter } from './HomeAfter/HomeAfter'
+export { default as EditarPerfil } from './EditarPerfil/EditarPerfil'
 

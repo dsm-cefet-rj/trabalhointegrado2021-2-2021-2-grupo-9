@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
-import { Cadastro, Login, Home, Contato, Planos, Pagamento , HomeAfter} from 'views'
+import { Cadastro, Login, Home, Contato, Planos, Pagamento , HomeAfter, EditarPerfil} from 'views'
 import { Layout } from '../../components'
 
 import './App.module.scss'
@@ -18,6 +18,7 @@ const App = () => {
         <Route path = '/contato' component={Contato} />
         <Route path = '/pagamento' component={Pagamento} />
         <Route path = '/homeafter' component={HomeAfter} />
+        <Route path = '/editarperfil' component={EditarPerfil} />
       </Switch>
     </Layout>
    )

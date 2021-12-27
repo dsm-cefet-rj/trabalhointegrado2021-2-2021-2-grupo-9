@@ -5,16 +5,16 @@ import * as IoIcons from 'react-icons/io';
 
 export const SidebarDataFull = [
     {
-    title:'Editar Perfil',
-    path:"/editar",
-    icon:<FaIcons.FaPencilAlt/>,
-    cName:'nav-text'
+        title:'Home',
+        path:"/homeafter",
+        icon:<AiIcons.AiFillHome/>,
+        cName: 'nav-text'
     },
     {
-    title:'Home',
-    path:"/homeafter",
-    icon:<AiIcons.AiFillHome/>,
-    cName: 'nav-text'
+    title:'Editar Perfil',
+    path:"/editarperfil",
+    icon:<FaIcons.FaPencilAlt/>,
+    cName:'nav-text'
     },
     {
         title:'Planos',
@@ -23,11 +23,12 @@ export const SidebarDataFull = [
         cName: 'nav-text'
     },
     {
-        title:'Histórico de Livros',
-        path:"/historico",
-        icon:<AiIcons.AiOutlineMoneyCollect/>,
+        title:'Carteira',
+        path:"/carteira",
+        icon:<AiIcons.AiTwotoneMoneyCollect/>,
         cName: 'nav-text'
     },
+
 ]
 
 export default SidebarDataFull;
