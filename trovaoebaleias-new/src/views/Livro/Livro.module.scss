@@ -1,0 +1,37 @@
+.livro {
+    @extend .flex-column-center;
+
+    &-title {
+        margin-top: var(--spacing-large);
+        margin-bottom: var(--spacing-medium);
+        font-size: var(--font-size-xxLarge);
+        text-align: center;
+    }
+
+    &-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-small);
+
+        &-content {
+            @extend .flex-column-center;
+            gap: var(--spacing-xxSmall);
+            width: 200px;
+
+            &-title, &-author {
+                text-align: center;
+
+                span {
+                    margin-left: 0;
+                }
+            }
+        }
+    }
+}
+
+.flex-column-center { /* esse container vai ser o espaçamento de toda a pagina*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
