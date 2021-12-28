@@ -9,7 +9,7 @@ import Hp4 from "../../imglivros/hp4.jpg";
 import Hp5 from "../../imglivros/hp5.jpg";
 import Hp6 from "../../imglivros/hp6.jpg";
 
-import styles from './Livro.module.scss'
+import styles from './LivrosList.module.scss'
 
 const initialBooks = [
     { 
@@ -84,7 +84,7 @@ const initialBooks = [
     },
 ]
 
-const Livro = () => {
+const LivrosList = () => {
     const books = initialBooks
 
     return (
@@ -128,4 +128,4 @@ const Livro = () => {
     );
 }
  
-export default Livro;
+export default LivrosList;
