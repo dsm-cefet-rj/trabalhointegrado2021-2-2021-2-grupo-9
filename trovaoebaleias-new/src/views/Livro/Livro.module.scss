@@ -14,16 +14,33 @@
         flex-wrap: wrap;
         margin-bottom: var(--spacing-small);
 
+        span {
+            margin-left: 0;
+        }
+
         &-content {
             @extend .flex-column-center;
             gap: var(--spacing-xxSmall);
             width: 200px;
 
-            &-title, &-author {
-                text-align: center;
+            &-bottom {
+                @extend .flex-center;
+                
+                &-text {
+                    @extend .flex-column-center;
+                    gap: var(--spacing-xxSmall);
 
-                span {
-                    margin-left: 0;
+                    &-title, &-author {
+                        text-align: center;
+        
+                        span {
+                            margin-left: 0;
+                        }
+                    }
+                }
+                
+                &-options {
+                    margin: auto auto;
                 }
             }
         }
@@ -44,16 +61,20 @@
     }
 }
 
-.flex-column-center { /* esse container vai ser o espaçamento de toda a pagina*/
+.flex-column-center {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
 
 .default-button {
     text-decoration: none;
-	border: none; /*nenhuma borda*/
-	cursor: pointer; /*mostrar aquela maozinha do mouse*/
+	border: none; 
+	cursor: pointer;
 
     background-color: var(--color-magenta);
     color: var(--color-white);

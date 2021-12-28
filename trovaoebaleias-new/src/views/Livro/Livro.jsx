@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Card } from 'components'
+import { Card, Icon } from 'components'
 
 import Hp1 from "../../imglivros/hp1.jpg";
 import Hp2 from "../../imglivros/hp2.jpg";
@@ -92,22 +92,34 @@ const Livro = () => {
             <div className={styles["livro-title"]}>
                 <h1>Livros</h1>
             </div>
+
             <section className={styles["livro-section"]}>
                 { books.map(book => 
                     <Card>
                         <div className={styles["livro-section-content"]}>
                             <img src={book.src} className={styles["livro-content-image"]} />
 
-                            <div className={styles["livro-section-content-title"]}>
-                                <span>{book.title}</span>
-                            </div>
+                            <div className={styles["livro-section-content-bottom"]}>
+                                <div className={styles["livro-section-content-bottom-text"]}>
+                                    <div className={styles["livro-section-content-bottom-text-title"]}>
+                                        <span>{book.title}</span>
+                                    </div>
 
-                            <div className={styles["livro-section-content-author"]}>
-                                <span>{book.author}</span>
+                                    <div className={styles["livro-section-content-bottom-text-author"]}>
+                                        <span>{book.author}</span>
+                                    </div>
+                                </div>
+
+                                <span className={styles["livro-section-content-bottom-options"]}>
+                                    <Icon type="three-dots"></Icon>
+                                </span>
                             </div>
+                            
                         </div>
+
                     </Card>
                 )}
+
                 <span className={styles["livro-section-adicionar"]}>
                     <button className={styles["livro-section-adicionar-button"]}>Adicionar Livro</button>
                 </span>
