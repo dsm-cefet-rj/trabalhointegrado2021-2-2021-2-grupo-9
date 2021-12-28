@@ -8,7 +8,6 @@ import Hp3 from "../../imglivros/hp3.jpg";
 
 import Estilo from "./Cancelar.css"
 
-
 const Cancelar = () => {
     return (
         <>
