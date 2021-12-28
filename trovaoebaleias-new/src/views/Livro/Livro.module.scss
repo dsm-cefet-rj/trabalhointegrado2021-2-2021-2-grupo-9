@@ -1,0 +1,81 @@
+.livro {
+    @extend .flex-column-center;
+
+    &-title {
+        margin-top: var(--spacing-large);
+        margin-bottom: var(--spacing-medium);
+        font-size: var(--font-size-xxLarge);
+        text-align: center;
+    }
+
+    &-section {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: var(--spacing-small);
+
+        span {
+            margin-left: 0;
+        }
+
+        &-content {
+            @extend .flex-column-center;
+            gap: var(--spacing-xxSmall);
+            width: 200px;
+
+            &-bottom {
+                @extend .flex-center;
+                
+                &-text {
+                    @extend .flex-column-center;
+                    gap: var(--spacing-xxSmall);
+
+                    &-title, &-author {
+                        text-align: center;
+        
+                        span {
+                            margin-left: 0;
+                        }
+                    }
+                }
+                
+                &-options {
+                    margin: auto auto;
+                }
+            }
+        }
+
+        &-adicionar {
+            @extend .flex-column-center;
+            justify-content: center;
+
+            &-button {
+                @extend .default-button;
+                border-radius: 50%;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+                font-size: x-large;
+                width: 150px;
+                height: 150px;
+            }
+        }
+    }
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+}
+
+.default-button {
+    text-decoration: none;
+	border: none; 
+	cursor: pointer;
+
+    background-color: var(--color-magenta);
+    color: var(--color-white);
+}
