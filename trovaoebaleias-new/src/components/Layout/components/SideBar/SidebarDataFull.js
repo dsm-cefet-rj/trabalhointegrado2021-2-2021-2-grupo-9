@@ -19,13 +19,13 @@ export const SidebarDataFull = [
     {
         title:'Planos',
         path:"/planosafter",
-        icon:<AiIcons.AiTwotoneMoneyCollect/>,
+        icon:<AiIcons.AiOutlineCreditCard/>,
         cName: 'nav-text'
     },
     {
         title:'Carteira',
         path:"/carteira",
-        icon:<AiIcons.AiTwotoneMoneyCollect/>,
+        icon:<FaIcons.FaWallet/>,
         cName: 'nav-text'
     },
 
