@@ -2,7 +2,8 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
 import { 
-  Cadastro, 
+  Cadastro,
+  Livro, 
   LivrosList, 
   Login, 
   Home, 
@@ -21,6 +22,7 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={Home} /> 
         <Route exact path="/home" component={Home} />
+        <Route path = '/livro/:livroId' component={Livro} /> 
         <Route path = '/livros' component={LivrosList} /> 
         <Route path = '/login' component={Login} />
         <Route path = '/planos' component={Planos} />

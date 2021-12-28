@@ -1,0 +1,40 @@
+
+.livro {
+    @extend .flex-column-center;
+    gap: var(--spacing-xSmall);
+    margin-top: var(--spacing-large);
+
+    &-image {
+        width: 300px;
+    }
+
+    &-info {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--spacing-xxSmall);
+
+        &-input {
+            display: block;
+            width: 100%; 
+            padding: var(--spacing-xxxSmall);
+            margin-left: var(--spacing-xxxSmall); 
+        }
+
+        &-title, &-author {
+            display: flex;
+            align-items: center;
+
+            span {
+                margin-left: 0;
+            }
+        }
+    }
+
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
