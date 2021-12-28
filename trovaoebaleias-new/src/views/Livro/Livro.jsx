@@ -1,109 +1,41 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 
-import Hp1 from "../../imglivros/hp1.jpg";
-import Hp2 from "../../imglivros/hp2.jpg";
-import Hp3 from "../../imglivros/hp3.jpg";
-import Hp4 from "../../imglivros/hp4.jpg";
-import Hp5 from "../../imglivros/hp5.jpg";
-import Hp6 from "../../imglivros/hp6.jpg";
+import { INITIAL_BOOKS } from '../../constants'
 
 import styles from './Livro.module.scss'
 
-const initialBooks = [
-    { 
-        id: 101,
-        title: "Harry Porter e a Pedra Filosofal",
-        src: Hp1,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 102,
-        title: "Harry Porter e a Câmara Secreta",
-        src: Hp2,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 103,
-        title: "Harry Porter e o Prisioneiro de Azkaban",
-        src: Hp3,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 104,
-        title: "Harry Porter e o Cálice de Fogo",
-        src: Hp4,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 105,
-        title: "Harry Porter e a Ordem da Fénix",
-        src: Hp5,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 106,
-        title: "Harry Porter e as Relíquias da Morte",
-        src: Hp6,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 107,
-        title: "Harry Porter e a Pedra Filosofal",
-        src: Hp1,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 108,
-        title: "Harry Porter e a Câmara Secreta",
-        src: Hp2,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 109,
-        title: "Harry Porter e o Prisioneiro de Azkaban",
-        src: Hp3,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-    { 
-        id: 110,
-        title: "Harry Porter e o Cálice de Fogo",
-        src: Hp4,
-        author: "J.K. Rowling",
-        genrer: ["fantasia", "ficção"],
-    },
-]
-
 const Livro = () => {
-    const books = initialBooks
-    const { livroId } = useParams()    
+    const [books, setBooks] = useState(INITIAL_BOOKS)
+    const { livroId } = useParams()
+    
     const selectedBook = books.filter(book => book.id === +livroId)
     const book = selectedBook[0]
+
+    const handleSubmit = () => {}
 
     return ( 
         <section className={styles["livro"]}>
             <img src={book?.src} className={styles["livro-image"]} />
 
-            <div className={styles["livro-info"]}>
-                <div className={styles["livro-info-title"]}>
-                    <label>Título: </label>
-                    <input className={styles["livro-info-input"]} value={book?.title}></input>
-                </div>
+            <form onSubmit={handleSubmit} className={styles["livro-form"]}>
+                <div className={styles["livro-form-info"]}>
+                    <div className={styles["livro-form-info-title"]}>
+                        <label>Título: </label>
+                        <input className={styles["livro-form-info-input"]} value={book?.title}></input>
+                    </div>
 
-                <div className={styles["livro-info-author"]}>
-                    <label>Autor: </label>
-                    <input className={styles["livro-info-input"]} value={book?.author}></input>
+                    <div className={styles["livro-form-info-author"]}>
+                        <label>Autor: </label>
+                        <input className={styles["livro-form-info-input"]} value={book?.author}></input>
+                    </div>
                 </div>
-            </div>     
+                <input 
+                    type="submit" 
+                    className={styles["livro-form-submit"]} 
+                    value="Atualizar"
+                />     
+            </form>
         </section>
      );
 }
