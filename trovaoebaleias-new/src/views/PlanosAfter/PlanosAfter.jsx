@@ -5,13 +5,9 @@ import Verificado from "../../img/verificado.svg";
 
 import styles from './PlanosAfter.module.scss'
 
+import swal from 'sweetalert';
 
-//const botao = document.querySelector(".botao-plano")
-
-  //      botao.addEventListener("click", () => {
-    //        alert("Plano alterado");
-      //  });
-
+const handlePlanChange = () => swal("Parabéns!", "Plano atualizado", "success");
 
 const PlanosAfter = () => {
     return ( 
@@ -27,7 +23,7 @@ const PlanosAfter = () => {
                     <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />Primeiro mês grátis</p>
                     <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />5 livros por mês</p>
                     <p className={styles["preco-cartao"]}>R$ 19,90</p>
-                    <button className={styles["botao-plano"]}>Vir para este plano</button>
+                    <button onClick={handlePlanChange} className={styles["botao-plano"]}>Vir para este plano</button>
                 </article>
             </li>
 
@@ -38,7 +34,7 @@ const PlanosAfter = () => {
                     <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />10 livros por mês</p>
                     <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />-10% ao convidar amigo</p>
                     <p className={styles["preco-cartao"]}>R$ 39,90</p>
-                    <button className={styles["botao-plano"]}><Link to="/">Vir para este plano</Link></button>
+                    <button onClick={handlePlanChange} className={styles["botao-plano"]}>Vir para este plano</button>
                 </article>
             </li>
 
@@ -50,7 +46,7 @@ const PlanosAfter = () => {
                     <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />-10% ao convidar amigo</p>
                     <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />Entre outras vantagens</p>
                     <p className={styles["preco-cartao"]}>R$ 89,90</p>
-                    <button className={styles["botao-plano"]}><Link to="/">Vir para este plano</Link></button>
+                    <button onClick={handlePlanChange} className={styles["botao-plano"]}>Vir para este plano</button>
                 </article>
             </li>
         </ul>

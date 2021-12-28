@@ -106,6 +106,10 @@
 
 }
 
+.botao-plano:hover{
+    cursor: pointer;
+}
+
 .botao-planos {
     background: #494986;
 
@@ -124,18 +128,4 @@
     margin-bottom: -5px;
     margin-left: -15px;
     margin-right: 1rem;
-}
-
-@media screen and (min-width: 1440px) {
-    .titulo-plano{
-        padding-right: 8rem;
-    }
-    .planos-cartoes {
-        display: flex;
-        flex-direction: inherit;
-        align-items: center;
-        gap: 5rem;
-        margin-right: 15rem;
-        width: 118%;
-    }
 }
