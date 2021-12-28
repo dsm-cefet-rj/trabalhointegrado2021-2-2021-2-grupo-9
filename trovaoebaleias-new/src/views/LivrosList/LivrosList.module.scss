@@ -12,6 +12,7 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        margin: auto var(--spacing-medium);
         margin-bottom: var(--spacing-small);
 
         span {

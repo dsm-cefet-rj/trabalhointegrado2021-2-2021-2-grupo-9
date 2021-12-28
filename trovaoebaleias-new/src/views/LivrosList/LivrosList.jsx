@@ -1,14 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-import { Card, Icon } from 'components'
+import { BookCard } from './components'
 
-import { INITIAL_BOOKS } from '../../constants'
+import { INITIAL_BOOKS as books } from '../../constants'
 
 import styles from './LivrosList.module.scss'
 
 const LivrosList = () => {
-    const books = INITIAL_BOOKS
-
     return (
         <div className={styles["livro"]}>
             <div className={styles["livro-title"]}>
@@ -16,34 +15,12 @@ const LivrosList = () => {
             </div>
 
             <section className={styles["livro-section"]}>
-                { books.map(book => 
-                    <Card>
-                        <div className={styles["livro-section-content"]}>
-                            <img src={book.src} className={styles["livro-content-image"]} />
-
-                            <div className={styles["livro-section-content-bottom"]}>
-                                <div className={styles["livro-section-content-bottom-text"]}>
-                                    <div className={styles["livro-section-content-bottom-text-title"]}>
-                                        <span>{book.title}</span>
-                                    </div>
-
-                                    <div className={styles["livro-section-content-bottom-text-author"]}>
-                                        <span>{book.author}</span>
-                                    </div>
-                                </div>
-
-                                <span className={styles["livro-section-content-bottom-options"]}>
-                                    <Icon type="three-dots"></Icon>
-                                </span>
-                            </div>
-                            
-                        </div>
-
-                    </Card>
+                { books.map(book =>
+                    <BookCard book={book} />
                 )}
 
                 <span className={styles["livro-section-adicionar"]}>
-                    <button className={styles["livro-section-adicionar-button"]}>Adicionar Livro</button>
+                    <button className={styles["livro-section-adicionar-button"]}><Link to="/livro/new">Adicionar Livro</Link></button>
                 </span>
             </section>
         </div>
