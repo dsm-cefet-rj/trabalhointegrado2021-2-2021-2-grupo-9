@@ -108,7 +108,10 @@ const Livro = () => {
                         </div>
                     </Card>
                 )}
-            </section> 
+                <span className={styles["livro-section-adicionar"]}>
+                    <button className={styles["livro-section-adicionar-button"]}>Adicionar Livro</button>
+                </span>
+            </section>
         </div>
     );
 }
