@@ -1,12 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
+import { useSelector} from 'react-redux'
+
 import { BookCard } from './components'
 
 import styles from './LivrosList.module.scss'
 
-const LivrosList = ({ books, dispatch }) => {
-    const sortedBooks = books.sort((a, b) => a.id - b.id)
+const LivrosList = () => {
+    const books = useSelector(state => state.books)
+    const sortedBooks = [...books].sort((itemA, itemB) => +itemA.id - itemB.id)
 
     return (
         <div className={styles["livro"]}>
@@ -16,7 +19,7 @@ const LivrosList = ({ books, dispatch }) => {
 
             <section className={styles["livro-section"]}>
                 { sortedBooks.map(book =>
-                    <BookCard key={book.id} book={book} dispatch={dispatch} />
+                    <BookCard key={book.id} book={book} />
                 )}
 
                 <span className={styles["livro-section-adicionar"]}>

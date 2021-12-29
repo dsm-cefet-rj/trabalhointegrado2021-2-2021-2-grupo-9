@@ -1,12 +1,15 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import { useDispatch} from 'react-redux'
+
 import { Card, Icon } from 'components'
 
 import styles from './BookCard.module.scss'
 
-const BookCard = ({ book, dispatch }) => {
+const BookCard = ({ book }) => {
     const [showBookMenu, setShowBookMenu] = useState(false)
+    const dispatch = useDispatch()
 
     const menuClick = () => setShowBookMenu(prevState => !prevState)
     const removeBook = () => dispatch({type: 'delete', payload: book })

@@ -18,12 +18,12 @@ const booksReducer = (state = INITIAL_BOOKS, action) => {
 
     case 'update':
       const updatedBook = { id: action.payload.id, ...action.payload}
-      const remainingBooks = state.filter(book => book.id !== +action.payload.id)
+      const remainingBooks = [...state].filter(book => book.id !== +action.payload.id)
       const updatedBookList = [...remainingBooks, updatedBook ]
       return updatedBookList
 
     case 'delete':
-      const splicedBooks = state.filter(book => book.id !== action.payload.id)
+      const splicedBooks = [...state].filter(book => book.id !== action.payload.id)
       return splicedBooks
 
     default:

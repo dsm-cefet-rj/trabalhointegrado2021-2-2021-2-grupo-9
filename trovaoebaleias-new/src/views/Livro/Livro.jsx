@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Redirect, useParams } from 'react-router-dom';
 
+import { useSelector, useDispatch} from 'react-redux'
+
 import styles from './Livro.module.scss'
 
-const Livro = ({ books, dispatch }) => {
+const Livro = () => {
     const [bookData, setBookData] = useState({})
     const [redirect, setRedirect] = useState(false)
+    const books = useSelector(state => state.books)
+    const dispatch = useDispatch()
 
     const { livroId } = useParams()
     const creationMode = livroId === "new"
@@ -39,46 +43,17 @@ const Livro = ({ books, dispatch }) => {
         setBookData(prevData => ({...prevData, [name]: value }))
     }
 
-    const handleSubmit = (e) => {        
+    const handleClick = ({ e, type}) => {        
         e.preventDefault()
         e.stopPropagation()
 
-        const submitId = e.target.id
-        const actionType = getActionType(submitId)
-
-        executeAction(actionType)
-    }
-
-    const getActionType = (submitId) => {
-        if (submitId === 'excluir') {
-            return 'delete'
-        }  
-        if (creationMode) {
-            return 'add'
-        }
-        return 'update'
-    }
-
-    const executeAction = (type) => {
-        switch (type) {
-            case 'add': 
-                addBook()
-                break
-            case 'update': 
-                updateBook()
-                break
-            case 'delete':     
-                deleteBook()
-                break
-            default:
-                throw new Error() 
-        }
+        dispatch({ type, payload: bookData })
         setRedirect("/livros")
     }
 
-    const addBook = () => dispatch({type: 'add', payload: bookData})
-    const updateBook = () => dispatch({type: 'update', payload: bookData})
-    const deleteBook = () => dispatch({type: 'delete', payload: bookData})
+    const handleAddClick = (e) => handleClick({ e: e, type: 'add'})
+    const handleUpdateClick = (e) => handleClick({ e: e, type: 'update'})
+    const handleRemoveClick = (e) => handleClick({ e: e, type: 'delete'})
 
     if (redirect) {
         return <Redirect push to={redirect} />
@@ -88,7 +63,7 @@ const Livro = ({ books, dispatch }) => {
         <section className={styles["livro"]}>
             <img src={bookData?.src} className={styles["livro-image"]} />
 
-            <form onSubmit={handleSubmit} className={styles["livro-form"]}>
+            <div className={styles["livro-form"]}>
                 <div className={styles["livro-form-info"]}>
                     <div className={styles["livro-form-info-title"]}>
                         <label>Título: </label>
@@ -114,20 +89,20 @@ const Livro = ({ books, dispatch }) => {
                 </div>
 
                 <span className={styles["livro-form-submit"]}>
-                    <input 
+                    <button 
                         type="submit"
                         id="excluir" 
                         className={styles["livro-form-submit-secondary"]} 
-                        value='Excluir'
-                    />
-                    <input 
+                        onClick={handleRemoveClick}
+                    >Excluir</button>
+                    <button 
                         type="submit"
                         id="adicionar"  
                         className={styles["livro-form-submit-primary"]} 
-                        value={`${creationMode ? 'Adicionar' : 'Atualizar'}`}
-                    />
+                        onClick={creationMode ? handleAddClick : handleUpdateClick}
+                    >{`${creationMode ? 'Adicionar' : 'Atualizar'}`}</button>
                 </span>
-            </form>
+            </div>
         </section>
      );
 }
