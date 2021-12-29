@@ -5,17 +5,20 @@ import { Card, Icon } from 'components'
 
 import styles from './BookCard.module.scss'
 
-const BookCard = ({ book, removeBook }) => {
+const BookCard = ({ book, dispatch }) => {
     const [showBookMenu, setShowBookMenu] = useState(false)
 
     const menuClick = () => setShowBookMenu(prevState => !prevState)
+    const removeBook = () => dispatch({type: 'delete', payload: book })
 
     return ( 
         <>
             <Card noBorder margin="xxSmall">
                 <div className={styles["livro-section"]}>
                     <div className={styles["livro-section-content"]}>
-                        <img src={book.src} className={styles["livro-section-content-image"]} />
+                        <Link to={`/livro/${book.id}`}>
+                            <img src={book.src} className={styles["livro-section-content-image"]} />
+                        </Link>
 
                         <div className={styles["livro-section-content-bottom"]}>
                             <div className={styles["livro-section-content-bottom-text"]}>
@@ -38,7 +41,7 @@ const BookCard = ({ book, removeBook }) => {
                         <ul className={styles["livro-section-menu"]}>
                             <li className={styles["livro-section-menu-item"]}><Link to={`/livro/${book.id}`}>Ver</Link></li>
                             <li className={styles["livro-section-menu-item"]}><Link to={`/livro/${book.id}`}>Editar</Link></li>
-                            <li className={styles["livro-section-menu-item"]} onClick={() => removeBook(book.id)}>Excluir</li>
+                            <li className={styles["livro-section-menu-item"]} onClick={removeBook}>Excluir</li>
                         </ul>
                     }
                 </div>

@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Redirect, useParams } from 'react-router-dom';
 
-import NotFound from "../../img/not_found.svg";
-
 import styles from './Livro.module.scss'
 
-const Livro = ({ books, setBooks, removeBook }) => {
+const Livro = ({ books, dispatch }) => {
     const [bookData, setBookData] = useState({})
     const [redirect, setRedirect] = useState(false)
 
@@ -35,13 +33,6 @@ const Livro = ({ books, setBooks, removeBook }) => {
         })
     }
 
-    const getCurrentGreatestIndex = () => {
-        const bookIds = books.map(book => +book.id)
-        const sortedBookIdsDec = bookIds.sort((a, b) => b - a)
-        const firstIndex = sortedBookIdsDec[0]
-        return firstIndex
-    }
-
     const handleUserInput = (e) => {
         const name = e.target.id
         const value = e.target.value
@@ -51,31 +42,43 @@ const Livro = ({ books, setBooks, removeBook }) => {
     const handleSubmit = (e) => {        
         e.preventDefault()
         e.stopPropagation()
-        const actionType = e.target.id
-        const removeBook = actionType === "excluir"
 
-        if (removeBook) {
-            removeBook(bookData.id)
-            setRedirect("/livros")
-            return
+        const submitId = e.target.id
+        const actionType = getActionType(submitId)
+
+        executeAction(actionType)
+    }
+
+    const getActionType = (submitId) => {
+        if (submitId === 'excluir') {
+            return 'delete'
+        }  
+        if (creationMode) {
+            return 'add'
         }
+        return 'update'
+    }
 
-        creationMode ? addBook() : updateBook()
+    const executeAction = (type) => {
+        switch (type) {
+            case 'add': 
+                addBook()
+                break
+            case 'update': 
+                updateBook()
+                break
+            case 'delete':     
+                deleteBook()
+                break
+            default:
+                throw new Error() 
+        }
         setRedirect("/livros")
     }
 
-    const addBook = () => {
-        const newBook = { id: getCurrentGreatestIndex() + 1, src: NotFound, ...bookData}
-        const newBookList = [...books, newBook ]
-        setBooks(newBookList)
-    }
-
-    const updateBook = () => {
-        const updatedBook = { id: livroId, ...bookData}
-        const remaingBooks = books.filter(book => book.id !== +livroId)
-        const updatedBooks = [...remaingBooks, updatedBook ]
-        setBooks(updatedBooks)
-    }
+    const addBook = () => dispatch({type: 'add', payload: bookData})
+    const updateBook = () => dispatch({type: 'update', payload: bookData})
+    const deleteBook = () => dispatch({type: 'delete', payload: bookData})
 
     if (redirect) {
         return <Redirect push to={redirect} />
@@ -83,7 +86,7 @@ const Livro = ({ books, setBooks, removeBook }) => {
 
     return ( 
         <section className={styles["livro"]}>
-            <img src={bookData?.src ? bookData?.src : NotFound} className={styles["livro-image"]} />
+            <img src={bookData?.src} className={styles["livro-image"]} />
 
             <form onSubmit={handleSubmit} className={styles["livro-form"]}>
                 <div className={styles["livro-form-info"]}>
