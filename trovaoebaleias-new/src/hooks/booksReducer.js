@@ -1,3 +1,5 @@
+import { INITIAL_BOOKS } from '../constants'
+
 import NotFound from "../img/not_found.svg";
 
 const getCurrentGreatestIndex = (state) => {
@@ -7,7 +9,7 @@ const getCurrentGreatestIndex = (state) => {
   return firstIndex
 }
 
-const bookReducer = (state, action) => {
+const booksReducer = (state = INITIAL_BOOKS, action) => {
   switch (action.type) {
     case 'add':
       const newBook = { id: getCurrentGreatestIndex(state) + 1, src: NotFound, ...action.payload}
@@ -25,8 +27,8 @@ const bookReducer = (state, action) => {
       return splicedBooks
 
     default:
-      throw new Error()
+      return state
   }
 }
 
-export { bookReducer }
+export { booksReducer }

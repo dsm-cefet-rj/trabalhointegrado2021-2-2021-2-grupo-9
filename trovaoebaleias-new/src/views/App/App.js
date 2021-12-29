@@ -14,14 +14,14 @@ import {
 } from 'views'
 import { Layout } from 'components'
 
-import { bookReducer } from 'hooks'
+import { booksReducer } from 'hooks'
 
 import { INITIAL_BOOKS } from '../../constants'
 
 import './App.module.scss'
 
 const App = () => {
-  const [books, dispatch] = useReducer(bookReducer, INITIAL_BOOKS)
+  const [books, dispatch] = useReducer(booksReducer, INITIAL_BOOKS)
 
   return (
     <Layout>
