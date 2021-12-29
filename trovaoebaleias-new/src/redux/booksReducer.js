@@ -14,7 +14,7 @@ const addBookReducer = (state, payload) => {
 }
 
 const updateBookReducer = (state, payload) => {
-  const updatedBook = { id: payload.id, ...payload}
+  const updatedBook = payload
   const remainingBooks = [...state].filter(book => book.id !== +payload.id)
   const updatedBookList = [...remainingBooks, updatedBook ]
   return updatedBookList
