@@ -11,10 +11,16 @@ export const SidebarDataFull = [
         cName: 'nav-text'
     },
     {
-    title:'Editar Perfil',
-    path:"/editarperfil",
-    icon:<FaIcons.FaPencilAlt/>,
-    cName:'nav-text'
+        title:'Editar Perfil',
+        path:"/editarperfil",
+        icon:<FaIcons.FaPencilAlt/>,
+        cName:'nav-text'
+    },
+    {
+        title:'Livros',
+        path:"/livros",
+        icon:<IoIcons.IoIosBook/>,
+        cName: 'nav-text'
     },
     {
         title:'Planos',
@@ -28,7 +34,4 @@ export const SidebarDataFull = [
         icon:<FaIcons.FaWallet/>,
         cName: 'nav-text'
     },
-
 ]
-
-export default SidebarDataFull;

@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useDispatch} from 'react-redux'
+import { removeBook } from '../../../../redux'
 
 import { Card, Icon } from 'components'
 
@@ -12,7 +13,7 @@ const BookCard = ({ book }) => {
     const dispatch = useDispatch()
 
     const menuClick = () => setShowBookMenu(prevState => !prevState)
-    const removeBook = () => dispatch({type: 'delete', payload: book })
+    const deleteBook = () => dispatch(removeBook(book))
 
     return ( 
         <>
@@ -44,7 +45,7 @@ const BookCard = ({ book }) => {
                         <ul className={styles["livro-section-menu"]}>
                             <li className={styles["livro-section-menu-item"]}><Link to={`/livro/${book.id}`}>Ver</Link></li>
                             <li className={styles["livro-section-menu-item"]}><Link to={`/livro/${book.id}`}>Editar</Link></li>
-                            <li className={styles["livro-section-menu-item"]} onClick={removeBook}>Excluir</li>
+                            <li className={styles["livro-section-menu-item"]} onClick={deleteBook}>Excluir</li>
                         </ul>
                     }
                 </div>

@@ -3,6 +3,10 @@ import { Redirect, useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch} from 'react-redux'
 
+import { addBook, updateBook, removeBook } from '../../redux'
+
+import NotFound from "../../img/not_found.svg";
+
 import styles from './Livro.module.scss'
 
 const Livro = () => {
@@ -43,17 +47,14 @@ const Livro = () => {
         setBookData(prevData => ({...prevData, [name]: value }))
     }
 
-    const handleClick = ({ e, type}) => {        
-        e.preventDefault()
-        e.stopPropagation()
-
-        dispatch({ type, payload: bookData })
+    const handleClick = ({ fn }) => {        
+        dispatch(fn(bookData))
         setRedirect("/livros")
     }
 
-    const handleAddClick = (e) => handleClick({ e: e, type: 'add'})
-    const handleUpdateClick = (e) => handleClick({ e: e, type: 'update'})
-    const handleRemoveClick = (e) => handleClick({ e: e, type: 'delete'})
+    const handleAddClick = () => handleClick({ fn: addBook })
+    const handleUpdateClick = () => handleClick({ fn: updateBook })
+    const handleRemoveClick = () => handleClick({ fn: removeBook })
 
     if (redirect) {
         return <Redirect push to={redirect} />
@@ -61,7 +62,7 @@ const Livro = () => {
 
     return ( 
         <section className={styles["livro"]}>
-            <img src={bookData?.src} className={styles["livro-image"]} />
+            <img src={bookData?.src || NotFound} className={styles["livro-image"]} />
 
             <div className={styles["livro-form"]}>
                 <div className={styles["livro-form-info"]}>
