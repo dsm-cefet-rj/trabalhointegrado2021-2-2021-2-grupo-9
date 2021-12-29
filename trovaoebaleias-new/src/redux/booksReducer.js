@@ -1,5 +1,3 @@
-import { INITIAL_BOOKS } from '../constants'
-
 import NotFound from "../img/not_found.svg";
 
 const getCurrentGreatestIndex = (state) => {
@@ -9,26 +7,22 @@ const getCurrentGreatestIndex = (state) => {
   return firstIndex
 }
 
-const booksReducer = (state = INITIAL_BOOKS, action) => {
-  switch (action.type) {
-    case 'add':
-      const newBook = { id: getCurrentGreatestIndex(state) + 1, src: NotFound, ...action.payload}
-      const newBookList = [...state, newBook ]
-      return newBookList
-
-    case 'update':
-      const updatedBook = { id: action.payload.id, ...action.payload}
-      const remainingBooks = [...state].filter(book => book.id !== +action.payload.id)
-      const updatedBookList = [...remainingBooks, updatedBook ]
-      return updatedBookList
-
-    case 'delete':
-      const splicedBooks = [...state].filter(book => book.id !== action.payload.id)
-      return splicedBooks
-
-    default:
-      return state
-  }
+const addBookReducer = (state, payload) => {
+  const newBook = { id: getCurrentGreatestIndex(state) + 1, src: NotFound, ...payload}
+  const newBookList = [...state, newBook ]
+  return newBookList
 }
 
-export { booksReducer }
+const updateBookReducer = (state, payload) => {
+  const updatedBook = { id: payload.id, ...payload}
+  const remainingBooks = [...state].filter(book => book.id !== +payload.id)
+  const updatedBookList = [...remainingBooks, updatedBook ]
+  return updatedBookList
+}
+
+const deleteBookReducer = (state, payload) => {
+  const splicedBooks = [...state].filter(book => book.id !== payload.id)
+  return splicedBooks
+}
+
+export { addBookReducer, updateBookReducer, deleteBookReducer }
