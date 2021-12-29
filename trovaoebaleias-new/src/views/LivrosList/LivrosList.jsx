@@ -5,7 +5,7 @@ import { BookCard } from './components'
 
 import styles from './LivrosList.module.scss'
 
-const LivrosList = ({ books }) => {
+const LivrosList = ({ books, removeBook }) => {
     return (
         <div className={styles["livro"]}>
             <div className={styles["livro-title"]}>
@@ -14,7 +14,7 @@ const LivrosList = ({ books }) => {
 
             <section className={styles["livro-section"]}>
                 { books.map(book =>
-                    <BookCard book={book} />
+                    <BookCard key={book.id} book={book} removeBook={removeBook} />
                 )}
 
                 <span className={styles["livro-section-adicionar"]}>

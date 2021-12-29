@@ -5,7 +5,7 @@ import { Card, Icon } from 'components'
 
 import styles from './BookCard.module.scss'
 
-const BookCard = ({ book }) => {
+const BookCard = ({ book, removeBook }) => {
     const [showBookMenu, setShowBookMenu] = useState(false)
 
     const menuClick = () => setShowBookMenu(prevState => !prevState)
@@ -38,7 +38,7 @@ const BookCard = ({ book }) => {
                         <ul className={styles["livro-section-menu"]}>
                             <li className={styles["livro-section-menu-item"]}><Link to={`/livro/${book.id}`}>Ver</Link></li>
                             <li className={styles["livro-section-menu-item"]}><Link to={`/livro/${book.id}`}>Editar</Link></li>
-                            <li className={styles["livro-section-menu-item"]}><Link to={`/livro/${book.id}`}>Excluir</Link></li>
+                            <li className={styles["livro-section-menu-item"]} onClick={() => removeBook(book.id)}>Excluir</li>
                         </ul>
                     }
                 </div>

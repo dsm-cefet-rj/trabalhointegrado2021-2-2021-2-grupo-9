@@ -5,7 +5,7 @@ import NotFound from "../../img/not_found.svg";
 
 import styles from './Livro.module.scss'
 
-const Livro = ({ books, setBooks }) => {
+const Livro = ({ books, setBooks, removeBook }) => {
     const [bookData, setBookData] = useState({})
     const [redirect, setRedirect] = useState(false)
 
@@ -51,6 +51,15 @@ const Livro = ({ books, setBooks }) => {
     const handleSubmit = (e) => {        
         e.preventDefault()
         e.stopPropagation()
+        const actionType = e.target.id
+        const removeBook = actionType === "excluir"
+
+        if (removeBook) {
+            removeBook(bookData.id)
+            setRedirect("/livros")
+            return
+        }
+
         creationMode ? addBook() : updateBook()
         setRedirect("/livros")
     }
@@ -100,12 +109,21 @@ const Livro = ({ books, setBooks }) => {
                         />
                     </div>
                 </div>
-    
-                <input 
-                    type="submit" 
-                    className={styles["livro-form-submit"]} 
-                    value={`${creationMode ? 'Adicionar' : 'Atualizar'}`}
-                />
+
+                <span className={styles["livro-form-submit"]}>
+                    <input 
+                        type="submit"
+                        id="excluir" 
+                        className={styles["livro-form-submit-secondary"]} 
+                        value='Excluir'
+                    />
+                    <input 
+                        type="submit"
+                        id="adicionar"  
+                        className={styles["livro-form-submit-primary"]} 
+                        value={`${creationMode ? 'Adicionar' : 'Atualizar'}`}
+                    />
+                </span>
             </form>
         </section>
      );

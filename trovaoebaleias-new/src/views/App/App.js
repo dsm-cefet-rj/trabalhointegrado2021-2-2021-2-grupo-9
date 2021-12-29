@@ -21,15 +21,22 @@ import './App.module.scss'
 const App = () => {
   const [books, setBooks] = useState(INITIAL_BOOKS)
 
+  const removeBook = (bookId) => {
+    const remaingBooks = books.filter(book => book.id !== bookId)
+    setBooks(remaingBooks)
+  }
+
   return (
     <Layout>
       <Switch>
         <Route exact path="/" component={Home} /> 
         <Route exact path="/home" component={Home} />
         <Route path = '/livro/:livroId'>
-          <Livro books={books} setBooks={setBooks} />
+          <Livro books={books} setBooks={setBooks} removeBook={removeBook} />
         </Route>
-        <Route path = '/livros' component={() => <LivrosList books={books} />} /> 
+        <Route path = '/livros'>
+          <LivrosList books={books} setBooks={setBooks} removeBook={removeBook} />
+        </Route>
         <Route path = '/login' component={Login} />
         <Route path = '/planos' component={Planos} />
         <Route path = '/cadastro' component={Cadastro} />
