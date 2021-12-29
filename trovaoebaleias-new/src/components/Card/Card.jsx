@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
-const Card = ({ children }) => {
+const Card = ({ children, noBorder, margin }) => {
   return (
-    <StyledCard>
+    <StyledCard noBorder={noBorder} margin={margin}>
         { children }
     </StyledCard>
   );
@@ -21,7 +22,18 @@ const StyledCard = styled.div`
 
     background-color: var(--color-white);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
-    overflow: hidden;
+
+    ${props => 
+      props.noBorder && 
+      css`
+        padding: 0; 
+    `}
+
+    ${props => 
+      props.margin && 
+      css`
+        margin: var(--spacing-${props.margin}); 
+    `}
 `
 
 export default Card;

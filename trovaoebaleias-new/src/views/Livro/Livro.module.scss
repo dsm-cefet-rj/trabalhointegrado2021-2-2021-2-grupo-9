@@ -1,81 +1,90 @@
+
 .livro {
     @extend .flex-column-center;
+    gap: var(--spacing-xSmall);
+    margin-top: var(--spacing-large);
 
-    &-title {
-        margin-top: var(--spacing-large);
-        margin-bottom: var(--spacing-medium);
-        font-size: var(--font-size-xxLarge);
-        text-align: center;
+    &-image {
+        width: 300px;
     }
 
-    &-section {
+    &-form {
         display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        margin-bottom: var(--spacing-small);
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;   
 
-        span {
-            margin-left: 0;
-        }
-
-        &-content {
-            @extend .flex-column-center;
+        &-info {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
             gap: var(--spacing-xxSmall);
-            width: 200px;
+            margin-bottom: var(--spacing-small); 
 
-            &-bottom {
-                @extend .flex-center;
-                
-                &-text {
-                    @extend .flex-column-center;
-                    gap: var(--spacing-xxSmall);
+            &-input {
+                display: block;
+                width: 100%; 
+                padding: var(--spacing-xxxSmall);
+                margin-left: var(--spacing-xxxSmall);
+            }
 
-                    &-title, &-author {
-                        text-align: center;
-        
-                        span {
-                            margin-left: 0;
-                        }
-                    }
-                }
-                
-                &-options {
-                    margin: auto auto;
+            &-title, &-author {
+                display: flex;
+                align-items: center;
+
+                span {
+                    margin-left: 0;
                 }
             }
         }
 
-        &-adicionar {
-            @extend .flex-column-center;
-            justify-content: center;
+        &-submit {
+            @extend .flex-center;
+            gap: var(--spacing-xxxSmall);
+            width: 100%;
+            margin-left: 0;
 
-            &-button {
+            &-primary {
                 @extend .default-button;
-                border-radius: 50%;
-                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+                height: 50px;
+                width: 70%;
+                border-radius: var(--border-radius-large);
                 font-size: x-large;
-                width: 150px;
-                height: 150px;
+            }
+
+            &-secondary {
+                @extend .secondary-button;
+                height: 40px; 
+                width: 30%;
+                border-radius: var(--border-radius-large);
+                font-size: large;
             }
         }
+
     }
 }
 
-.flex-column-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 .flex-center {
     display: flex;
-    justify-content: center;
+    align-items: center;
 }
-
+.flex-column-center {
+    @extend .flex-center;
+    flex-direction: column;
+}
 .default-button {
     text-decoration: none;
-	border: none; 
+	border: none;
 	cursor: pointer;
 
     background-color: var(--color-magenta);
+    color: var(--color-white);
+}
+.secondary-button {
+    text-decoration: none;
+	border: none;
+	cursor: pointer;
+
+    background-color: var(--color-shade40);
     color: var(--color-white);
 }
