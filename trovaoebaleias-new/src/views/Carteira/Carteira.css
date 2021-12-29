@@ -1,0 +1,64 @@
+.containerr {
+    margin-top: -2rem; /*retirar*/
+    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    max-width: 100vw;
+  
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .titulo {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.7rem;
+  }
+  
+  .titulo-label {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+  }
+  
+  form {
+    display: inline-block;
+  }
+  
+  .input-padrao {
+        display: block; /*bota tudo embaixo do outro*/
+        margin: 0 0 15px; /*afasta a label da caixinha de resposta*/
+        padding: 10px 50px; /*aumenta o tamanho da caixinha*/
+        width: 50%; /*aumenta a largura da caixinha*/
+        margin-left: 20px;
+        margin-top: 10px;
+        margin-bottom: 2rem;
+        width: 100%;
+        width: calc(100% - 2*var(--spacing-large));
+  }
+
+  .input-pequeno {
+    display: block; /*bota tudo embaixo do outro*/
+    margin: 0 0 15px; /*afasta a label da caixinha de resposta*/
+    padding: 10px 3px; /*aumenta o tamanho da caixinha*/
+    width: 50%; /*aumenta a largura da caixinha*/
+    margin-top: 10px;
+    margin-bottom: 2rem;
+    width: 100%;
+    width: calc(100% - 2*var(--spacing-large));
+}
+
+.button-cadastro{
+    background: #494986;
+
+    box-sizing: border-box;
+    border-radius: 3rem;
+
+    color: #fefefe;
+
+    margin: 2rem;
+
+    padding: 23px;
+}
