@@ -5,29 +5,30 @@ import * as IoIcons from 'react-icons/io';
 
 export const SidebarDataFull = [
     {
+        title:'Home',
+        path:"/homeafter",
+        icon:<AiIcons.AiFillHome/>,
+        cName: 'nav-text'
+    },
+    {
     title:'Editar Perfil',
-    path:"/editar",
+    path:"/editarperfil",
     icon:<FaIcons.FaPencilAlt/>,
     cName:'nav-text'
     },
     {
-    title:'Home',
-    path:"/homeafter",
-    icon:<AiIcons.AiFillHome/>,
-    cName: 'nav-text'
-    },
-    {
         title:'Planos',
         path:"/planosafter",
-        icon:<AiIcons.AiTwotoneMoneyCollect/>,
+        icon:<AiIcons.AiOutlineCreditCard/>,
         cName: 'nav-text'
     },
     {
-        title:'Histórico de Livros',
-        path:"/historico",
-        icon:<AiIcons.AiOutlineMoneyCollect/>,
+        title:'Carteira',
+        path:"/carteira",
+        icon:<FaIcons.FaWallet/>,
         cName: 'nav-text'
     },
+
 ]
 
 export default SidebarDataFull;
