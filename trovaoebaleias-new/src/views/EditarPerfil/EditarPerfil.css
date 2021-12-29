@@ -25,10 +25,13 @@
     font-weight: bold;
 }
 
-.input-padrao{  
+.input-padrao-ed{  
 	display: block; 
-    width: 20%;
-    margin-left: 1rem;
+    width: 30%;
+    padding: 10px 20px;
+    margin-top: 1rem;
+    margin-bottom: 1.3rem;
+    margin-left: 1.8rem;
 }
 
 .botao-ok{
@@ -49,14 +52,4 @@
 
     padding: 23px;
 
-}
-
-@media screen and (min-width: 1440px) {
-    .perfilfoto{
-        width: 10%;
-    }
-
-    .input-padrao{
-        width: 6%;
-    }
 }

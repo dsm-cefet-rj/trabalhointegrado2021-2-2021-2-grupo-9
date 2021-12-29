@@ -14,13 +14,13 @@ const EditarPerfil = () => {
             <h1 className="titulo-editar">Editar Perfil</h1>
             
             <label className="at">Alterar nome</label>
-            <input type="text" id="nomesobrenome" className="input-padrao" required/> 
+            <input type="text" id="nomesobrenome" className="input-padrao-ed" required/> 
 
             <label className="at">Alterar senha</label>
-            <input type="password" id="pass" className="input-padrao" required/> 
+            <input type="password" id="pass" className="input-padrao-ed" required/> 
 
             <label className="at">Repetir senha</label>
-            <input type="password" id="pass" className="input-padrao" required/> 
+            <input type="password" id="pass" className="input-padrao-ed" required/> 
 
             <Link to="/homeafter"><button class="botao-ok">Atualizar perfil</button></Link>
         </>
