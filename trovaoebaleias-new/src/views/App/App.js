@@ -1,6 +1,21 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
+import { 
+  Cadastro,
+  Livro, 
+  LivrosList, 
+  Login, 
+  Home, 
+  Contato, 
+  Planos, 
+  Pagamento, 
+  HomeAfter,
+} from 'views'
+import { Layout } from 'components'
+
+import { INITIAL_BOOKS } from '../../constants'
+
 import './App.module.scss'
 
 const App = () => {
