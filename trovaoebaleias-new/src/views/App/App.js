@@ -11,6 +11,10 @@ import {
   Planos, 
   Pagamento, 
   HomeAfter,
+  Carteira,
+  Cancelar,
+  PlanosAfter,
+  EditarPerfil,
 } from 'views'
 import { Layout } from 'components'
 
