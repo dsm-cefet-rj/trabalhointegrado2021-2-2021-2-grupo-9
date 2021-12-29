@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+
+import { Provider } from 'react-redux';
 
 import { 
   Cadastro,
@@ -18,42 +20,32 @@ import {
 } from 'views'
 import { Layout } from 'components'
 
-import { INITIAL_BOOKS } from '../../constants'
+import { store } from '../../redux'
 
 import './App.module.scss'
 
 const App = () => {
-  const [books, setBooks] = useState(INITIAL_BOOKS)
-
-  const removeBook = (bookId) => {
-    const remaingBooks = books.filter(book => book.id !== bookId)
-    setBooks(remaingBooks)
-  }
-
   return (
-    <Layout>
-      <Switch>
-        <Route exact path="/" component={Home} /> 
-        <Route exact path="/home" component={Home} />
-        <Route path = '/livro/:livroId'>
-          <Livro books={books} setBooks={setBooks} removeBook={removeBook} />
-        </Route>
-        <Route path = '/livros'>
-          <LivrosList books={books} setBooks={setBooks} removeBook={removeBook} />
-        </Route>
-        <Route path = '/login' component={Login} />
-        <Route path = '/planos' component={Planos} />
-        <Route path = '/cadastro' component={Cadastro} />
-        <Route path = '/contato' component={Contato} />
-        <Route path = '/pagamento' component={Pagamento} />
-        <Route path = '/homeafter' component={HomeAfter} />
-        <Route path = '/editarperfil' component={EditarPerfil} />
-        <Route path = '/planosafter' component={PlanosAfter} />
-        <Route path = '/cancelar' component={Cancelar} />
-        <Route path = '/carteira' component={Carteira} />
-
-      </Switch>
-    </Layout>
+    <Provider store={store}>
+      <Layout>
+        <Switch>
+          <Route exact path="/" component={Home} /> 
+          <Route exact path="/home" component={Home} />
+          <Route path = '/livro/:livroId' component={Livro} />
+          <Route path = '/livros' component={LivrosList} />
+          <Route path = '/login' component={Login} />
+          <Route path = '/planos' component={Planos} />
+          <Route path = '/cadastro' component={Cadastro} />
+          <Route path = '/contato' component={Contato} />
+          <Route path = '/pagamento' component={Pagamento} />
+          <Route path = '/homeafter' component={HomeAfter} />
+          <Route path = '/editarperfil' component={EditarPerfil} />
+          <Route path = '/planosafter' component={PlanosAfter} />
+          <Route path = '/cancelar' component={Cancelar} />
+          <Route path = '/carteira' component={Carteira} />
+        </Switch>
+      </Layout>
+    </Provider>
    )
 };
 

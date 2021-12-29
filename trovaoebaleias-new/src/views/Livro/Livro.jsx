@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { Redirect, useParams } from 'react-router-dom';
 
-import NotFound from "../../img/not_found.svg";
+import { useSelector, useDispatch} from 'react-redux'
 
 import styles from './Livro.module.scss'
 
-const Livro = ({ books, setBooks, removeBook }) => {
+const Livro = () => {
     const [bookData, setBookData] = useState({})
     const [redirect, setRedirect] = useState(false)
+    const books = useSelector(state => state.books)
+    const dispatch = useDispatch()
 
     const { livroId } = useParams()
     const creationMode = livroId === "new"
@@ -35,47 +37,23 @@ const Livro = ({ books, setBooks, removeBook }) => {
         })
     }
 
-    const getCurrentGreatestIndex = () => {
-        const bookIds = books.map(book => +book.id)
-        const sortedBookIdsDec = bookIds.sort((a, b) => b - a)
-        const firstIndex = sortedBookIdsDec[0]
-        return firstIndex
-    }
-
     const handleUserInput = (e) => {
         const name = e.target.id
         const value = e.target.value
         setBookData(prevData => ({...prevData, [name]: value }))
     }
 
-    const handleSubmit = (e) => {        
+    const handleClick = ({ e, type}) => {        
         e.preventDefault()
         e.stopPropagation()
-        const actionType = e.target.id
-        const removeBook = actionType === "excluir"
 
-        if (removeBook) {
-            removeBook(bookData.id)
-            setRedirect("/livros")
-            return
-        }
-
-        creationMode ? addBook() : updateBook()
+        dispatch({ type, payload: bookData })
         setRedirect("/livros")
     }
 
-    const addBook = () => {
-        const newBook = { id: getCurrentGreatestIndex() + 1, src: NotFound, ...bookData}
-        const newBookList = [...books, newBook ]
-        setBooks(newBookList)
-    }
-
-    const updateBook = () => {
-        const updatedBook = { id: livroId, ...bookData}
-        const remaingBooks = books.filter(book => book.id !== +livroId)
-        const updatedBooks = [...remaingBooks, updatedBook ]
-        setBooks(updatedBooks)
-    }
+    const handleAddClick = (e) => handleClick({ e: e, type: 'add'})
+    const handleUpdateClick = (e) => handleClick({ e: e, type: 'update'})
+    const handleRemoveClick = (e) => handleClick({ e: e, type: 'delete'})
 
     if (redirect) {
         return <Redirect push to={redirect} />
@@ -83,9 +61,9 @@ const Livro = ({ books, setBooks, removeBook }) => {
 
     return ( 
         <section className={styles["livro"]}>
-            <img src={bookData?.src ? bookData?.src : NotFound} className={styles["livro-image"]} />
+            <img src={bookData?.src} className={styles["livro-image"]} />
 
-            <form onSubmit={handleSubmit} className={styles["livro-form"]}>
+            <div className={styles["livro-form"]}>
                 <div className={styles["livro-form-info"]}>
                     <div className={styles["livro-form-info-title"]}>
                         <label>Título: </label>
@@ -111,20 +89,20 @@ const Livro = ({ books, setBooks, removeBook }) => {
                 </div>
 
                 <span className={styles["livro-form-submit"]}>
-                    <input 
+                    <button 
                         type="submit"
                         id="excluir" 
                         className={styles["livro-form-submit-secondary"]} 
-                        value='Excluir'
-                    />
-                    <input 
+                        onClick={handleRemoveClick}
+                    >Excluir</button>
+                    <button 
                         type="submit"
                         id="adicionar"  
                         className={styles["livro-form-submit-primary"]} 
-                        value={`${creationMode ? 'Adicionar' : 'Atualizar'}`}
-                    />
+                        onClick={creationMode ? handleAddClick : handleUpdateClick}
+                    >{`${creationMode ? 'Adicionar' : 'Atualizar'}`}</button>
                 </span>
-            </form>
+            </div>
         </section>
      );
 }
