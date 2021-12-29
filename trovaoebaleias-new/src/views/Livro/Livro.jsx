@@ -1,36 +1,45 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Redirect, useParams } from 'react-router-dom';
 
-import { INITIAL_BOOKS } from '../../constants'
+import NotFound from "../../img/not_found.svg";
 
 import styles from './Livro.module.scss'
 
-const Livro = () => {
-    const [books, setBooks] = useState(INITIAL_BOOKS)
-    const [bookData, setBookData] = useState({title: '', author: ''})
+const Livro = ({ books, setBooks }) => {
+    const [bookData, setBookData] = useState({})
+    const [redirect, setRedirect] = useState(false)
+
     const { livroId } = useParams()
+    const creationMode = livroId === "new"
 
     useEffect(() => {
-        if (livroId) {
-            const selectedBook = books.filter(book => book.id === +livroId)
-
-            setBookData({
-                author: selectedBook[0].author,
-                src: selectedBook[0].src,
-                title: selectedBook[0].title,
-            })
+        if (creationMode) {
+            return
         }
+
+        const selectedBook = books.filter(book => book.id === +livroId)
+        loadBookData(selectedBook)
     }, [livroId])
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        e.stopPropagation()
-       
-        const updateBook = { id: livroId, ...bookData}
-        const remaingBooks = books.filter(book => book.id !== +livroId)
-        const updateBooks = [...remaingBooks, updateBook ]
- 
-        setBooks(updateBooks)
+    const loadBookData = (selectedBook) => {
+        if (!selectedBook.length) {
+            setRedirect("/home")
+            return
+        }
+
+        setBookData({
+            author: selectedBook[0].author,
+            id: selectedBook[0].id,
+            src: selectedBook[0].src,
+            title: selectedBook[0].title,
+        })
+    }
+
+    const getCurrentGreatestIndex = () => {
+        const bookIds = books.map(book => +book.id)
+        const sortedBookIdsDec = bookIds.sort((a, b) => b - a)
+        const firstIndex = sortedBookIdsDec[0]
+        return firstIndex
     }
 
     const handleUserInput = (e) => {
@@ -39,15 +48,40 @@ const Livro = () => {
         setBookData(prevData => ({...prevData, [name]: value }))
     }
 
+    const handleSubmit = (e) => {        
+        e.preventDefault()
+        e.stopPropagation()
+        creationMode ? addBook() : updateBook()
+        setRedirect("/livros")
+    }
+
+    const addBook = () => {
+        const newBook = { id: getCurrentGreatestIndex() + 1, src: NotFound, ...bookData}
+        const newBookList = [...books, newBook ]
+        setBooks(newBookList)
+    }
+
+    const updateBook = () => {
+        const updatedBook = { id: livroId, ...bookData}
+        const remaingBooks = books.filter(book => book.id !== +livroId)
+        const updatedBooks = [...remaingBooks, updatedBook ]
+        setBooks(updatedBooks)
+    }
+
+    if (redirect) {
+        return <Redirect push to={redirect} />
+    }
+
     return ( 
         <section className={styles["livro"]}>
-            <img src={bookData?.src} className={styles["livro-image"]} />
+            <img src={bookData?.src ? bookData?.src : NotFound} className={styles["livro-image"]} />
 
             <form onSubmit={handleSubmit} className={styles["livro-form"]}>
                 <div className={styles["livro-form-info"]}>
                     <div className={styles["livro-form-info-title"]}>
                         <label>Título: </label>
-                        <input 
+                        <input
+                            type="text"  
                             className={styles["livro-form-info-input"]} 
                             id="title" 
                             value={bookData?.title} 
@@ -57,7 +91,8 @@ const Livro = () => {
 
                     <div className={styles["livro-form-info-author"]}>
                         <label>Autor: </label>
-                        <input 
+                        <input
+                            type="text" 
                             className={styles["livro-form-info-input"]} 
                             id="author"
                             value={bookData?.author} 
@@ -69,8 +104,8 @@ const Livro = () => {
                 <input 
                     type="submit" 
                     className={styles["livro-form-submit"]} 
-                    value="Atualizar"
-                />     
+                    value={`${creationMode ? 'Adicionar' : 'Atualizar'}`}
+                />
             </form>
         </section>
      );

@@ -3,11 +3,9 @@ import { Link } from 'react-router-dom'
 
 import { BookCard } from './components'
 
-import { INITIAL_BOOKS as books } from '../../constants'
-
 import styles from './LivrosList.module.scss'
 
-const LivrosList = () => {
+const LivrosList = ({ books }) => {
     return (
         <div className={styles["livro"]}>
             <div className={styles["livro-title"]}>
