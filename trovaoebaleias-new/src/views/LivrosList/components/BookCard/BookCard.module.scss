@@ -13,8 +13,10 @@
         }
 
         &-bottom {
-            @extend .flex-center;
+            display: flex;
+            justify-content: space-around;
             margin-bottom: var(--spacing-xxSmall);
+            width: calc(100% - 2*var(--spacing-xxxSmall));
             
             &-text {
                 @extend .flex-column-center;
@@ -22,6 +24,7 @@
 
                 &-title, &-author {
                     text-align: center;
+                    color: var(--color-shade80);
 
                     span {
                         margin-left: 0;
@@ -30,7 +33,7 @@
             }
             
             &-options {
-                margin: auto auto;
+                margin: auto 0;
             }
         }
     }
