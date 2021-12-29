@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 const useLogin = () => {
     const [isLogged, setIsLogged] = useState(false)
@@ -9,4 +9,4 @@ const useLogin = () => {
     }
 }
  
-export default useLogin;
+export { useLogin };

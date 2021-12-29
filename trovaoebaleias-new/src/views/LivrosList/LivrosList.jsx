@@ -6,8 +6,8 @@ import { BookCard } from './components'
 import styles from './LivrosList.module.scss'
 
 const LivrosList = ({ books, dispatch }) => {
+    const sortedBooks = books.sort((a, b) => a.id - b.id)
 
-    console.log('books', books)
     return (
         <div className={styles["livro"]}>
             <div className={styles["livro-title"]}>
@@ -15,7 +15,7 @@ const LivrosList = ({ books, dispatch }) => {
             </div>
 
             <section className={styles["livro-section"]}>
-                { books.map(book =>
+                { sortedBooks.map(book =>
                     <BookCard key={book.id} book={book} dispatch={dispatch} />
                 )}
 
