@@ -14,7 +14,7 @@ function Carteira() {
       <input type="number" className="input-padrao" />
 
       <label className="titulo-label">Nome</label>
-      <input type="number" className="input-padrao" />
+      <input type="text" className="input-padrao" />
 
 
 
