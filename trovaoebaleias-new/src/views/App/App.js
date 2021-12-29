@@ -1,6 +1,8 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 
+import { Cadastro, Login, Home, Contato, Planos, Pagamento , HomeAfter, EditarPerfil, PlanosAfter, Cancelar, Carteira} from 'views'
+import { Layout } from '../../components'
 
 import './App.module.scss'
 
