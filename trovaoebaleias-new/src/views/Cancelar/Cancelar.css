@@ -1,0 +1,75 @@
+.titulo-cancel {
+    font-weight: 700;
+    font-size: 1.5rem;
+
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+
+    text-align: center;
+   
+
+    color: #000000;
+
+    border-bottom: 1px solid #F0F0F0;
+}
+
+
+.parag{
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    line-height: normal;
+}
+
+.botao-cancelar{
+    background: #494986;
+
+    box-sizing: border-box;
+    border-radius: 3rem;
+
+    color: #fefefe;
+
+    margin: 2rem;
+
+    padding: 23px;
+
+}
+
+
+.titulo-emprestados{
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    text-align: left;
+   
+    margin-top: 40px;
+    margin-left: 10px;
+
+    color: #494986;
+
+    border-bottom: 1px solid #F0F0F0;
+
+}
+.livro{
+    width: 25%;
+    margin-left: .3rem;
+    margin-right: .3rem;
+    margin-bottom: 1rem;
+}
+
+.livros{
+    margin-top: 10px;
+    margin-left: 120px;
+}
+
+.livros ul{
+    display: inline-block;
+}
+
+.before, .after{
+    width: 8%;
+    margin-bottom: 64px;
+    margin-left: 6px;
+}
+
+

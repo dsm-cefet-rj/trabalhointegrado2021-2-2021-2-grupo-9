@@ -13,6 +13,10 @@ import {
   Planos, 
   Pagamento, 
   HomeAfter,
+  Carteira,
+  Cancelar,
+  PlanosAfter,
+  EditarPerfil,
 } from 'views'
 import { Layout } from 'components'
 
@@ -35,6 +39,10 @@ const App = () => {
           <Route path = '/contato' component={Contato} />
           <Route path = '/pagamento' component={Pagamento} />
           <Route path = '/homeafter' component={HomeAfter} />
+          <Route path = '/editarperfil' component={EditarPerfil} />
+          <Route path = '/planosafter' component={PlanosAfter} />
+          <Route path = '/cancelar' component={Cancelar} />
+          <Route path = '/carteira' component={Carteira} />
         </Switch>
       </Layout>
     </Provider>
