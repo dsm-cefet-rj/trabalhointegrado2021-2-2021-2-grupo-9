@@ -20,11 +20,14 @@ import {
 } from 'views'
 import { Layout } from 'components'
 
-import { store } from '../../redux'
+import { store, fetchBooks } from '../../redux'
 
 import './App.module.scss'
 
 const App = () => {
+
+  store.dispatch(fetchBooks())
+
   return (
     <Provider store={store}>
       <Layout>
