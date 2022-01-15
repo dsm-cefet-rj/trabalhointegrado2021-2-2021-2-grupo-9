@@ -1,0 +1,68 @@
+.livro-section {
+    position: relative;
+    height: 100%;
+
+    .livro-section-content {
+        @extend .flex-column-center;
+        gap: var(--spacing-xxSmall);
+        width: 200px;
+
+        &-image {
+            width: 200px;
+            border-radius: var(--border-radius-large);
+        }
+
+        &-bottom {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: var(--spacing-xxSmall);
+            width: calc(100% - 2*var(--spacing-xxxSmall));
+            
+            &-text {
+                @extend .flex-column-center;
+                gap: var(--spacing-xxSmall);
+
+                &-title, &-author {
+                    text-align: center;
+                    color: var(--color-shade80);
+
+                    span {
+                        margin-left: 0;
+                    }
+                }
+            }
+            
+            &-options {
+                margin: auto 0;
+            }
+        }
+    }
+    .livro-section-menu {
+        position: absolute;
+        width: 60px;
+        height: 80px;
+        background-color: var(--color-white);
+        padding: var(--spacing-xxSmall);
+        border: 1px solid gray;
+        border-radius: 10px;
+        top: 320px;
+        left: 195px;
+        z-index: 10;
+
+        &-item {
+            display: block;
+            background-color: var(--color-white);
+            margin-bottom: 16px;
+        }
+    }
+}
+
+.flex-column-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.flex-center {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,75 @@
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: 'Montserrat', sans-serif;
+    margin: auto var(--spacing-medium);
+    border-radius: var(--border-radius-large);
+    padding: var(--spacing-small);
+    background-color: var(--color-white);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+
+    form {
+        @extend .flex-column-center;
+        gap: var(--spacing-xxSmall);
+    }
+}
+
+.titulo{
+    font-size: var(--font-size-xxLarge);
+    padding: var(--spacing-xxSmall);
+    text-align: center;
+}
+
+.input-padrao{  
+    display: block;
+    margin: var(--spacing-xxxSmall);
+    padding: 10px 25px;
+    width: 50%;
+}
+
+.botao-ok{
+    @extend .default-button;
+	width: 150px; /*aumenta a largura*/
+	font-weight: bold;
+	font-size: 18px;
+
+    box-sizing: border-box;
+    border-radius: 3rem;
+    padding: 23px;
+}
+
+.cadastre-se{
+    margin-bottom: -2rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+}
+
+.esqueci{
+    padding-top: 70px;
+    margin-left: 3.2rem;
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+    .login {
+        margin-left: 0 !important;
+    }
+}
+
+
+.flex-column-center { /* esse container vai ser o espaçamento de toda a pagina*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.default-button {
+    text-decoration: none;
+	border: none; /*nenhuma borda*/
+	cursor: pointer; /*mostrar aquela maozinha do mouse*/
+
+    background-color: var(--color-magenta);
+    color: var(--color-white);
+}

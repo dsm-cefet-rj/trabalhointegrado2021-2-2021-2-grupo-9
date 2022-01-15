@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "rootDir": "src", 
+        "baseUrl": "./src",
+        "sourceMap": true,
+        "jsx": "react",
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": false,
+        "esModuleInterop": true
+    },
+    "include": ["src/**/*"]
+}

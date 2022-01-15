@@ -1,0 +1,3 @@
+const SLIDER_INTERVAL = 5000
+
+export { SLIDER_INTERVAL }
