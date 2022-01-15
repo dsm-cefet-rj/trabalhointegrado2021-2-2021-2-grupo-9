@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width initial-scale= 1.0">
+        <title>Login | TB</title>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">      
+        <link href="css/reset.css" rel="stylesheet">
+        <link href="css/cabecalho.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link href="css/sobre.css" rel="stylesheet">
+        <link href="css/rodape.css" rel="stylesheet">
+        <link href="css/login.css" rel="stylesheet">
+
+
+    </head>
+
+    <body>
+        <header class="cabecalho">
+            <button class="cabecalho__menu" aria-label="Menu" class="botao-logo"><i><img src="icons/menu.svg" class="menu-logo"></i></button>
+            <img src="logo-ltb.svg" alt="Logo da LTB" class="cabecalho-logo">   
+            <button aria-label="Notificação" class="botao-logo"><i><a href="login.html"><img src="icons/conta.svg" class="logout-logo"></a></i></button>
+        </header>
+        
+        <nav class="menu-lateral">
+            <a href="cadastro.html" class="menu-lateral__link menu-lateral__link--inicio menu-lateral__link--ativo"><img src="icons/pro.svg" class="icon">Cadastre-se</a>
+            <a href="homepage.html" class="menu-lateral__link menu-lateral__link--videos"><img src="icons/home.svg" class="icon">Home</a>
+            <a href="planos.html" class="menu-lateral__link menu-lateral__link--integrantes"><img src="icons/planos.svg" class="icon">Planos</a>
+            <a href="contato.html" class="menu-lateral__link menu-lateral__link--picos"><img src="icons/contato.svg" class="icon">Contato</a>
+        </nav>
+      
+        <main>
+            <h1 class="titulo">Faça login</h1>
+            <form>
+                <section>
+                    <label for="login" class="texto"></label> 
+                    <input type="text" id="login" class="input-padrao" required placeholder="Username"> 
+    
+                    <label for="senha"  class="texto"></label>
+                    <input type="password" id="senha" class="input-padrao" required placeholder="Senha">
+                </section>
+
+            <button class="botao-ok"><a href="loginhome.html">Confirmar</a></button>
+
+            <p class="esqueci"><b>Esqueci minha senha</b></p>
+
+        </main>
+
+        <footer class="rodape container">
+            <ul class="rodape__social">
+                <li><a href="#" class="rodape__midia"><img src="imgredes/facebook.svg" alt="Ícone do Facebook" class="redes-svg"></a></li>
+                <li><a href="#" class="rodape__midia"><img src="imgredes/instagram.svg" alt="Ícone do Instagram" class="redes-svg"></a></li>
+                <li><a href="#" class="rodape__midia"><img src="imgredes/twitter.svg" alt="Ícone do Twitter" class="redes-svg"></a></li>
+            </ul>
+            <p class="copy"><b>Copyright &copy; 2021 Livraria Trovão e Baleias  Todos os direitos reservados</b></p>
+        </footer>
+    </body>
+    <script src="js/index.js"></script>
+</html>

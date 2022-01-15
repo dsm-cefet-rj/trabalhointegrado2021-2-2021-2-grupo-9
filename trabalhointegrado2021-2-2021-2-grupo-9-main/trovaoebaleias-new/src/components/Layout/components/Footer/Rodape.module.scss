@@ -1,0 +1,49 @@
+footer{
+    font-family: 'Montserrat', sans-serif;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    list-style: none;
+    margin-top: var(--spacing-xxxSmall);
+    margin-bottom: 0;
+}
+
+.rodape {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    background-color: #b7d5e5;    
+    gap: .1rem;
+}
+
+.rodape__social {
+    display: flex;
+    gap: var(--spacing-large);    
+    padding: var(--spacing-xxxSmall) auto;
+}
+
+.rodape__midia {
+    display: block;
+
+    padding: var(--spacing-xxxSmall);
+}
+.rodape__link {
+    margin: var(--spacing-xxxSmall) auto;
+}
+
+.redes-svg{
+    width: var(--footer-icon-width);
+}
+
+.copy{
+    text-align: center;
+    line-height: normal;
+    font-size: 12px;
+    font-weight: bold;
+    margin: var(--spacing-xxxSmall) auto;
+}
