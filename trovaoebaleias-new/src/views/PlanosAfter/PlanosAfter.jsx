@@ -1,15 +1,65 @@
-import React from 'react'
 import { Link } from "react-router-dom";
+import { Redirect, useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useSelector, useDispatch} from 'react-redux'
+
+import { addPlano, updatePlano, removePlano } from '../../redux'
 
 import Verificado from "../../img/verificado.svg";
 
 import styles from './PlanosAfter.module.scss'
 
-import swal from 'sweetalert';
-
-const handlePlanChange = () => swal("Parabéns!", "Plano atualizado", "success");
+const handlePlanChange = () => alert("Parabéns!", "Plano atualizado", "success");
 
 const PlanosAfter = () => {
+    const [planoData, setPlanoData] = useState({})
+    const [redirect, setRedirect] = useState(false)
+    const planos = useSelector(state => state.planos)
+    const dispatch = useDispatch()
+
+    const { planId } = useParams()
+    const creationMode = planId === "new"
+
+    useEffect(() => {
+        if (creationMode) {
+            return
+        }
+
+        const selectedPlano = planos.filter(plano => plano.id === +planId)
+        loadPlanoData(selectedPlano)
+    }, [planId])
+
+    const loadPlanoData = (selectedPlano) => {
+        if (!selectedPlano.length) {
+            setRedirect("/home")
+            return
+        }
+
+        setPlanoData({
+            id: selectedPlano[0].id,
+            nome: selectedPlano[0].nome,
+            desc1: selectedPlano[0].desc1,
+            desc2: selectedPlano[0].desc2,
+        })
+    }
+    const handleUserInput = (e) => {
+        const name = e.target.id
+        const value = e.target.value
+        setPlanoData(prevData => ({...prevData, [name]: value }))
+    }
+
+    const handleClick = ({ fn }) => {        
+        dispatch(fn(planoData))
+        setRedirect("/planosafter")
+    }
+
+    const handleAddClick = () => handleClick({ fn: addPlano })
+    const handleUpdateClick = () => handleClick({ fn: updatePlano })
+    const handleRemoveClick = () => handleClick({ fn: removePlano })
+
+    if (redirect) {
+        return <Redirect push to={redirect} />
+    }
     return ( 
     <section className={styles["planos"]}>
         <h1 className={styles["titulo-plano"]}>Planos Mensais</h1>
