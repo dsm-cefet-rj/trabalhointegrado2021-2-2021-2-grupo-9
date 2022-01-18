@@ -1,4 +1,4 @@
-const INITIAL_USERS= [
+const INITIAL_CLIENTES= [
     { 
         id: 1001,
         nome: "Julie Moura",
@@ -21,4 +21,4 @@ const INITIAL_USERS= [
     },
 ]
 
-export { INITIAL_USERS }
+export { INITIAL_CLIENTES }
