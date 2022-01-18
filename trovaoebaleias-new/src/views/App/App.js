@@ -24,9 +24,9 @@ import { store, fetchBooks } from '../../redux'
 
 import './App.module.scss'
 
-const App = () => {
+store.dispatch(fetchBooks())
 
-  store.dispatch(fetchBooks())
+const App = () => {
 
   return (
     <Provider store={store}>

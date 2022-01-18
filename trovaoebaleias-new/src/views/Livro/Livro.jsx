@@ -12,7 +12,7 @@ import styles from './Livro.module.scss'
 const Livro = () => {
     const [bookData, setBookData] = useState({})
     const [redirect, setRedirect] = useState(false)
-    const books = useSelector(state => state.books)
+    const books = useSelector(state => state.books.books)
     const dispatch = useDispatch()
 
     const { livroId } = useParams()

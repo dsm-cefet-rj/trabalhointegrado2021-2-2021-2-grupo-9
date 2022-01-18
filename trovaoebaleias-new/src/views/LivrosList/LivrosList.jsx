@@ -8,8 +8,8 @@ import { BookCard } from './components'
 import styles from './LivrosList.module.scss'
 
 const LivrosList = () => {
-    const books = useSelector(state => state.books)
-    const sortedBooks = [...books].sort((itemA, itemB) => +itemA.id - itemB.id)
+    const { books } = useSelector(state => state?.books)
+    const sortedBooks = ([...books] || []).sort((itemA, itemB) => +itemA.id - itemB.id)
 
     return (
         <div className={styles["livro"]}>
