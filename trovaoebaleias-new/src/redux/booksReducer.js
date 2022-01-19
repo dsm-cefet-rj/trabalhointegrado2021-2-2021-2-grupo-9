@@ -1,28 +1,28 @@
 import NotFound from "../img/not_found.svg";
 
-const getCurrentGreatestIndex = (state) => {
-  const bookIds = state.map(book => +book.id)
+const getCurrentGreatestIndex = (books) => {
+  const bookIds = books.map(book => +book.id)
   const sortedBookIdsDec = bookIds.sort((a, b) => b - a)
   const firstIndex = sortedBookIdsDec[0]
   return firstIndex
 }
 
 const addBookReducer = (state, payload) => {
-  const newBook = { id: getCurrentGreatestIndex(state) + 1, src: NotFound, ...payload}
-  const newBookList = [...state, newBook ]
-  return newBookList
+  const nextId = getCurrentGreatestIndex(state.books) + 1
+  const newBook = { id: nextId, src: NotFound, ...payload}
+  const newBookList = [...state.books, newBook ]
+  state.books = newBookList
 }
 
 const updateBookReducer = (state, payload) => {
-  const updatedBook = payload
-  const remainingBooks = [...state].filter(book => book.id !== +payload.id)
-  const updatedBookList = [...remainingBooks, updatedBook ]
-  return updatedBookList
+  const remainingBooks = [...state.books].filter(book => book.id !== +payload.id)
+  const updatedBookList = [...remainingBooks, payload ]
+  state.books = updatedBookList
 }
 
 const deleteBookReducer = (state, payload) => {
-  const splicedBooks = [...state].filter(book => book.id !== payload.id)
-  return splicedBooks
+  const splicedBooks = [...state.books].filter(book => book.id !== payload.id)
+  state.books = splicedBooks
 }
 
 export { addBookReducer, updateBookReducer, deleteBookReducer }

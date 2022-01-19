@@ -28,6 +28,7 @@ import './App.module.scss'
 const App = () => {
 
   return (
+
     <Provider store={store}>
       <Layout>
         <Switch>
@@ -49,7 +50,5 @@ const App = () => {
         </Switch>
       </Layout>
     </Provider>
-   )
-};
 
 export default App;
