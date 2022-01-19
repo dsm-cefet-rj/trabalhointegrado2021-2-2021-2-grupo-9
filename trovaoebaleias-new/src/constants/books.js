@@ -5,7 +5,7 @@ import Hp4 from "../imglivros/hp4.jpg";
 import Hp5 from "../imglivros/hp5.jpg";
 import Hp6 from "../imglivros/hp6.jpg";
 
-const INITIAL_BOOKS = [
+const BOOKS = [
     { 
         id: 101,
         title: "Harry Porter e a Pedra Filosofal",
@@ -147,5 +147,11 @@ const INITIAL_BOOKS = [
         genrer: ["fantasia", "ficção"],
     },
 ]
+
+const INITIAL_BOOKS = {
+    status: 'not_loaded', 
+    books: BOOKS,
+    error: null,
+}
 
 export { INITIAL_BOOKS }
