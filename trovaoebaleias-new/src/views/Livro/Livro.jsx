@@ -3,8 +3,7 @@ import { Redirect, useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch} from 'react-redux'
 
-import { addBook, removeBook } from '../../redux'
-import { selectAllBooks, selectBooksById, updateBookServer } from 'redux/booksSlice'
+import { selectBooksById, addBookServer, updateBookServer, deleteBookServer } from 'redux/booksSlice'
 
 import NotFound from "../../img/not_found.svg";
 
@@ -55,9 +54,14 @@ const Livro = () => {
         setRedirect("/livros")
     }
 
-    const handleAddClick = () => handleClick({ fn: addBook })
+    const handleAddClick = () => handleClick({ fn: addBookServer })
     const handleUpdateClick = () => handleClick({ fn: updateBookServer })
-    const handleRemoveClick = () => handleClick({ fn: removeBook })
+
+    const handleRemoveClick = () => {
+        console.log('book', bookData)
+       dispatch(deleteBookServer(bookData.id))
+       setRedirect("/livros") 
+    }
 
     if (redirect) {
         return <Redirect push to={redirect} />
