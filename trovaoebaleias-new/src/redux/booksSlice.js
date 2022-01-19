@@ -38,12 +38,15 @@ export const slice = createSlice({
 
         [updateBookServer.pending]: (state, action) => {state.status = 'loading'},
         [updateBookServer.fulfilled]: (state, action) => {state.status = 'saved';booksAdapter.upsertOne(state, action.payload);},
+        [updateBookServer.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message},
 
         [addBookServer.pending]: (state, action) => {state.status = 'loading'},
         [addBookServer.fulfilled]: (state, action) => {state.status = 'saved';booksAdapter.addOne(state, action.payload);},
+        [addBookServer.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message},
 
         [deleteBookServer.pending]: (state, action) => {state.status = 'loading'},
         [deleteBookServer.fulfilled]: (state, action) => {state.status = 'deleted';booksAdapter.removeOne(state, action.payload);},
+        [deleteBookServer.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message},
     }
 })
 

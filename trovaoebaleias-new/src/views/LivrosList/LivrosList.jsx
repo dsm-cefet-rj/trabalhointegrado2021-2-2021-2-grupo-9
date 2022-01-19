@@ -5,10 +5,9 @@ import { useSelector, useDispatch} from 'react-redux'
 
 import { BookCard } from './components'
 import { LOADING_STATUS } from '../../constants'
-import { fetchBooks } from '../../redux'
+import { fetchBooks, selectAllBooks } from 'redux/booksSlice'
 
 import styles from './LivrosList.module.scss'
-import { selectAllBooks } from 'redux/booksSlice'
 
 const LivrosList = () => {
     const [ loading, setLoading] = useState(false)
