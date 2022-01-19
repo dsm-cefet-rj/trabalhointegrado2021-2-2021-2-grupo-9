@@ -3,7 +3,8 @@ import { Redirect, useParams } from 'react-router-dom';
 
 import { useSelector, useDispatch} from 'react-redux'
 
-import { addBook, updateBook, removeBook } from '../../redux'
+import { addBook, removeBook } from '../../redux'
+import { selectAllBooks, selectBooksById, updateBookServer } from 'redux/booksSlice'
 
 import NotFound from "../../img/not_found.svg";
 
@@ -12,32 +13,34 @@ import styles from './Livro.module.scss'
 const Livro = () => {
     const [bookData, setBookData] = useState({})
     const [redirect, setRedirect] = useState(false)
-    const books = useSelector(state => state.books.books)
     const dispatch = useDispatch()
 
     const { livroId } = useParams()
     const creationMode = livroId === "new"
+    const bookFound = useSelector(state => selectBooksById(state, livroId))
 
     useEffect(() => {
         if (creationMode) {
             return
         }
 
-        const selectedBook = books.filter(book => book.id === +livroId)
-        loadBookData(selectedBook)
+        if (bookFound) {
+            loadBookData(bookFound)
+        }
+
     }, [livroId])
 
     const loadBookData = (selectedBook) => {
-        if (!selectedBook.length) {
+        if (!Object.keys(selectedBook)) {
             setRedirect("/home")
             return
         }
 
         setBookData({
-            author: selectedBook[0].author,
-            id: selectedBook[0].id,
-            src: selectedBook[0].src,
-            title: selectedBook[0].title,
+            author: selectedBook.author,
+            id: selectedBook.id,
+            src: selectedBook.src,
+            title: selectedBook.title,
         })
     }
 
@@ -53,7 +56,7 @@ const Livro = () => {
     }
 
     const handleAddClick = () => handleClick({ fn: addBook })
-    const handleUpdateClick = () => handleClick({ fn: updateBook })
+    const handleUpdateClick = () => handleClick({ fn: updateBookServer })
     const handleRemoveClick = () => handleClick({ fn: removeBook })
 
     if (redirect) {

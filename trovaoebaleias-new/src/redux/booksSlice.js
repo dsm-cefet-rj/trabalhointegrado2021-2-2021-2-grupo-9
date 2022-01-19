@@ -1,23 +1,30 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 
-import { INITIAL_BOOKS } from '../constants'
-
+//import { INITIAL_BOOKS } from '../constants'
+import { httpGet, httpPut } from 'utils/client';
 import { addBookReducer, updateBookReducer, deleteBookReducer } from './booksReducer';
 
-export const fetchBooks = createAsyncThunk('books/fetchBooks', 
-    async () => {
-        return await (await fetch('http://localhost:3004/books')).json()
+const baseURL = 'http://localhost:3004'
+
+const booksAdapter = createEntityAdapter()
+
+const initialState = booksAdapter.getInitialState({
+    status: 'not_loaded',
+    error: null
+})
+
+export const fetchBooks = createAsyncThunk('books/fetchBooks', async () => {
+        return await httpGet(`${baseURL}/books`)
     }
 )
 
-const fullfillBooksReducer = (booksState, booksFetched) => {
-    booksState.status = 'loaded'
-    booksState.books = booksFetched
-}
+export const updateBookServer = createAsyncThunk('books/updateBookServer', async (book) => {
+    return await httpPut(`${baseURL}/books/${book.id}`, book);
+});
 
-const slice = createSlice({
+export const slice = createSlice({
     name: 'books',
-    initialState: INITIAL_BOOKS,
+    initialState: initialState,
     reducers: {
         addBook: (state, action) => addBookReducer(state, action.payload),
         updateBook: (state, action) => updateBookReducer(state, action.payload),
@@ -25,10 +32,18 @@ const slice = createSlice({
     },
     extraReducers: {
         [fetchBooks.pending]: (state, action) => {state.status = 'loading'},
-        [fetchBooks.fulfilled]: (state, action) => fullfillBooksReducer(state, action.payload),
+        [fetchBooks.fulfilled]: (state, action) => {state.status = 'loaded'; booksAdapter.setAll(state, action.payload)},
         [fetchBooks.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message},
+        [updateBookServer.pending]: (state, action) => {state.status = 'loading'},
+        [updateBookServer.fulfilled]: (state, action) => {state.status = 'saved';booksAdapter.upsertOne(state, action.payload);},
     }
 })
 
 export const { addBook, updateBook, removeBook } = slice.actions
 export default slice.reducer
+
+export const {
+    selectAll: selectAllBooks,
+    selectById: selectBooksById,
+    selectIds: selectBooksIds
+} = booksAdapter.getSelectors(state => state.books)

@@ -8,11 +8,14 @@ import { LOADING_STATUS } from '../../constants'
 import { fetchBooks } from '../../redux'
 
 import styles from './LivrosList.module.scss'
+import { selectAllBooks } from 'redux/booksSlice'
 
 const LivrosList = () => {
     const [ loading, setLoading] = useState(false)
     const [ hasError, setHasError] = useState(false)
-    const { books, status, error } = useSelector(state => state?.books)
+    const books = useSelector(selectAllBooks)
+    const { status, error } = useSelector(state => state?.books)
+    
     const dispatch = useDispatch()
 
     const sortedBooks = ([...books] || []).sort((itemA, itemB) => +itemA.id - itemB.id)
