@@ -17,6 +17,7 @@ import {
   Cancelar,
   PlanosAfter,
   EditarPerfil,
+  NovoPlano,
 } from 'views'
 import { Layout } from 'components'
 
@@ -43,6 +44,7 @@ const App = () => {
           <Route path = '/planosafter' component={PlanosAfter} />
           <Route path = '/cancelar' component={Cancelar} />
           <Route path = '/carteira' component={Carteira} />
+          <Route path = '/carteira' component={NovoPlano} />
         </Switch>
       </Layout>
     </Provider>

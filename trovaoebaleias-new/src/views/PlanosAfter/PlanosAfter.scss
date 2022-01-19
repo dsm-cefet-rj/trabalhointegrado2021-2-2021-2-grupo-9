@@ -1,0 +1,65 @@
+.planos{
+    display: flex;
+    flex-direction: column;
+
+    .titulo-plano {
+        font-weight: 700;
+        font-size: 1.5rem;
+    
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+    
+        text-align: center;
+       
+    
+        color: #000000;
+    
+        border-bottom: 1px solid #F0F0F0;
+    }
+    
+    .botao-planos{
+        background: #494986;
+
+        box-sizing: border-box;
+        border-radius: 3rem;
+    
+        color: #fefefe;
+        
+        padding: 23px;
+        margin-top: 1rem;
+    }
+
+    article{
+        text-align: center;
+        background-color: #fefefe;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        padding: 1rem;
+        border-radius: 40px;
+        h1{
+            margin-top: 1rem;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        p{
+            margin-top: .4rem;
+        }
+        .preco{
+            font-weight: bold;
+            margin-bottom: 1rem;
+
+        }
+        .botao-excluir{
+            background: #494986;
+
+            box-sizing: border-box;
+            border-radius: 3rem;
+    
+            color: #fefefe;
+        
+            padding: 23px;
+            margin-top: 1rem;
+        }
+    }
+    
+}
