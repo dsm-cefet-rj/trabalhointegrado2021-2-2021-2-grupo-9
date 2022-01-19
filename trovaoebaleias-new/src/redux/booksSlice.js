@@ -1,6 +1,5 @@
 import { createAsyncThunk, createEntityAdapter, createSlice } from '@reduxjs/toolkit'
 
-//import { INITIAL_BOOKS } from '../constants'
 import { httpGet, httpPost, httpPut, httpDelete } from 'utils/client';
 
 const baseURL = 'http://localhost:3004'
@@ -24,9 +23,9 @@ export const updateBookServer = createAsyncThunk('books/updateBookServer', async
     return await httpPut(`${baseURL}/books/${book.id}`, book);
 });
 
-export const deleteBookServer = createAsyncThunk('books/deleteBookServer', async (idBook) => {
-    await httpDelete(`${baseURL}/books/${idBook}`);
-    return idBook;
+export const deleteBookServer = createAsyncThunk('books/deleteBookServer', async (bookID) => {
+    await httpDelete(`${baseURL}/books/${bookID}`);
+    return bookID;
 });
 
 export const slice = createSlice({
@@ -36,12 +35,15 @@ export const slice = createSlice({
         [fetchBooks.pending]: (state, action) => {state.status = 'loading'},
         [fetchBooks.fulfilled]: (state, action) => {state.status = 'loaded'; booksAdapter.setAll(state, action.payload)},
         [fetchBooks.rejected]: (state, action) => {state.status = 'failed'; state.error = action.error.message},
+
         [updateBookServer.pending]: (state, action) => {state.status = 'loading'},
         [updateBookServer.fulfilled]: (state, action) => {state.status = 'saved';booksAdapter.upsertOne(state, action.payload);},
+
         [addBookServer.pending]: (state, action) => {state.status = 'loading'},
         [addBookServer.fulfilled]: (state, action) => {state.status = 'saved';booksAdapter.addOne(state, action.payload);},
+
         [deleteBookServer.pending]: (state, action) => {state.status = 'loading'},
-        [deleteBookServer.fulfilled]: (state, action) => {state.status = 'saved';booksAdapter.removeOne(state, action.payload);},
+        [deleteBookServer.fulfilled]: (state, action) => {state.status = 'deleted';booksAdapter.removeOne(state, action.payload);},
     }
 })
 

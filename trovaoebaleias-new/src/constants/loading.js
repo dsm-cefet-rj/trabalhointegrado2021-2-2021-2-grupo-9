@@ -1,8 +1,9 @@
 const LOADING_STATUS = {
+    FAILED: 'failed',
     LOADED: 'loaded',
     LOADING: 'loading', 
-    FAILED: 'failed',
-    NOT_LOADED: 'not_loaded',  
+    NOT_LOADED: 'not_loaded',
+    SAVED: 'saved',  
 }
 
 export { LOADING_STATUS }

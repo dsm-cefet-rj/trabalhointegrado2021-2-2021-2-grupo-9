@@ -8,7 +8,6 @@ const getCurrentGreatestIndex = (books) => {
 }
 
 const addBookReducer = (state, payload) => {
-  console.log('state', state)
   const nextId = getCurrentGreatestIndex(state.books) + 1
   const newBook = { id: nextId, src: NotFound, ...payload}
   const newBookList = [...state.books, newBook ]

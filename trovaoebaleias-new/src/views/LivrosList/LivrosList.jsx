@@ -26,7 +26,7 @@ const LivrosList = () => {
         setLoading(isLoading)
         setHasError(hasError)
 
-        if (status === LOADING_STATUS.NOT_LOADED) {
+        if (status === LOADING_STATUS.NOT_LOADED || status === LOADING_STATUS.SAVED) {
             dispatch(fetchBooks())
         }
     }, [status])
