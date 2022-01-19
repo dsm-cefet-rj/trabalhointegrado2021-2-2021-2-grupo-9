@@ -5,18 +5,28 @@ import { useSelector, useDispatch} from 'react-redux'
 
 import { selectBooksById, addBookServer, updateBookServer, deleteBookServer } from 'redux/booksSlice'
 
-import NotFound from "../../img/not_found.svg";
+import { livroSchema } from './livroSchema';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from "react-hook-form";
 
+import NotFound from "../../img/not_found.svg";
 import styles from './Livro.module.scss'
 
 const Livro = () => {
-    const [bookData, setBookData] = useState({})
     const [redirect, setRedirect] = useState(false)
     const dispatch = useDispatch()
 
     const { livroId } = useParams()
     const creationMode = livroId === "new"
     const bookFound = useSelector(state => selectBooksById(state, livroId))
+
+    const { register, handleSubmit, errors } = useForm({
+        resolver: yupResolver(livroSchema)
+    });
+
+    const [livroOnLoad, setLivroOnLoad] = useState(
+        livroId ? bookFound ?? livroSchema.cast({}): livroSchema.cast({})
+    )
 
     useEffect(() => {
         if (creationMode) {
@@ -35,7 +45,7 @@ const Livro = () => {
             return
         }
 
-        setBookData({
+        setLivroOnLoad({
             author: selectedBook.author,
             id: selectedBook.id,
             src: selectedBook.src,
@@ -43,21 +53,15 @@ const Livro = () => {
         })
     }
 
-    const handleUserInput = (e) => {
-        const name = e.target.id
-        const value = e.target.value
-        setBookData(prevData => ({...prevData, [name]: value }))
-    }
-
-    const handleClick = ({ fn }) => {        
-        dispatch(fn(bookData))
+    const handleAddClick = (bookData) => {
+        dispatch(addBookServer(bookData))
         setRedirect("/livros")
     }
-
-    const handleAddClick = () => handleClick({ fn: addBookServer })
-    const handleUpdateClick = () => handleClick({ fn: updateBookServer })
-
-    const handleRemoveClick = () => {
+    const handleUpdateClick = (bookData) => {
+        dispatch(updateBookServer(bookData))
+        setRedirect("/livros")
+    }
+    const handleRemoveClick = (bookData) => {
        dispatch(deleteBookServer(bookData.id))
        setRedirect("/livros") 
     }
@@ -68,7 +72,7 @@ const Livro = () => {
 
     return ( 
         <section className={styles["livro"]}>
-            <img src={bookData?.src || NotFound} className={styles["livro-image"]} />
+            <img src={livroOnLoad?.src || NotFound} className={styles["livro-image"]} />
 
             <div className={styles["livro-form"]}>
                 <div className={styles["livro-form-info"]}>
@@ -78,9 +82,10 @@ const Livro = () => {
                             type="text"  
                             className={styles["livro-form-info-input"]} 
                             id="title" 
-                            value={bookData?.title} 
-                            onChange={handleUserInput}
+                            defaultValue={livroOnLoad?.title} 
+                            {...register}
                         />
+                        <span>{errors?.title?.message}</span>
                     </div>
 
                     <div className={styles["livro-form-info-author"]}>
@@ -89,9 +94,10 @@ const Livro = () => {
                             type="text" 
                             className={styles["livro-form-info-input"]} 
                             id="author"
-                            value={bookData?.author} 
-                            onChange={handleUserInput}
+                            defaultValue={livroOnLoad?.author} 
+                            {...register}
                         />
+                        <span>{errors?.author?.message}</span>
                     </div>
                 </div>
 
@@ -106,7 +112,10 @@ const Livro = () => {
                         type="submit"
                         id="adicionar"  
                         className={styles["livro-form-submit-primary"]} 
-                        onClick={creationMode ? handleAddClick : handleUpdateClick}
+                        onClick={creationMode 
+                            ? handleSubmit(handleAddClick) 
+                            : handleSubmit(handleUpdateClick)
+                        }
                     >{`${creationMode ? 'Adicionar' : 'Atualizar'}`}</button>
                 </span>
             </div>

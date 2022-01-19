@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.10",
     "@emotion/styled": "^10.0.10",
+    "@hookform/resolvers": "^2.8.8",
     "@reduxjs/toolkit": "^1.7.1",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^11.2.7",
@@ -13,6 +14,7 @@
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-hook-form": "^7.24.1",
     "react-icons": "^4.3.1",
     "react-redux": "^7.2.6",
     "react-responsive": "^8.0.3",
@@ -20,7 +22,9 @@
     "react-scripts": "4.0.3",
     "redux": "^4.1.2",
     "sweetalert": "^2.1.2",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^1.1.2",
+    "yup": "^0.32.11",
+    "yup-locale-pt": "^0.0.9"
   },
   "scripts": {
     "start": "export SET NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
