@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { Route, Switch, useState } from 'react-router-dom'
 
 import { Provider } from 'react-redux';
 
@@ -17,6 +17,7 @@ import {
   Cancelar,
   PlanosAfter,
   EditarPerfil,
+  NovoPlano
 } from 'views'
 import { Layout } from 'components'
 
@@ -25,6 +26,7 @@ import { store } from '../../redux'
 import './App.module.scss'
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <Layout>
@@ -34,7 +36,6 @@ const App = () => {
           <Route path = '/livro/:livroId' component={Livro} />
           <Route path = '/livros' component={LivrosList} />
           <Route path = '/login' component={Login} />
-          <Route path = '/planos' component={Planos} />
           <Route path = '/cadastro' component={Cadastro} />
           <Route path = '/contato' component={Contato} />
           <Route path = '/pagamento' component={Pagamento} />
@@ -43,6 +44,8 @@ const App = () => {
           <Route path = '/planosafter' component={PlanosAfter} />
           <Route path = '/cancelar' component={Cancelar} />
           <Route path = '/carteira' component={Carteira} />
+          <Route path = '/novoplano' component={NovoPlano} />
+          <Route path = '/planos' component={Planos} />
         </Switch>
       </Layout>
     </Provider>

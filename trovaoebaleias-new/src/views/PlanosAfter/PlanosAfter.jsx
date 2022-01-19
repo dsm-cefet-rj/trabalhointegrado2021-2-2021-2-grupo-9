@@ -7,11 +7,18 @@ import { addPlano, updatePlano, removePlano } from '../../redux'
 
 import Verificado from "../../img/verificado.svg";
 
-import styles from './PlanosAfter.module.scss'
+import styles from './PlanosAfter.scss'
+import { FaCircleNotch } from "react-icons/fa";
 
 const handlePlanChange = () => alert("Parabéns!", "Plano atualizado", "success");
 
 const PlanosAfter = () => {
+    /*
+    const[planos, setPlanos] = useState(
+        [{nome: 'Start'}, {desc1: 'Primeiro mês grátis'}, {desc2: 'Cinco livros por mês'}, {preco: '19.90'} ]
+    )
+
+
     const [planoData, setPlanoData] = useState({})
     const [redirect, setRedirect] = useState(false)
     const planos = useSelector(state => state.planos)
@@ -63,48 +70,45 @@ const PlanosAfter = () => {
     if (redirect) {
         return <Redirect push to={redirect} />
     }
+*/
+    const plano = '';
+
+    function handleClickExcluirPlano(nome){
+        const setPlanos = (plano.filter((value) => value.nome !== nome ));
+    }
 
     return ( 
-    <section className={styles["planos"]}>
-        <h1 className={styles["titulo-plano"]}>Planos Mensais</h1>
+    <section className="planos">
+        <h1 className="titulo-plano">Planos Mensais</h1>
 
-        <button className={styles["botao-planos"]}><Link to="/cancelar">Cancelar plano</Link></button>
 
-        <ul className={styles["planos-cartoes"]}>
-            <li className={styles["cartao"]}>
-                <h3 className={styles["titulo-cartoes"]}>Start</h3>
-                <article>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />Primeiro mês grátis</p>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />5 livros por mês</p>
-                    <p className={styles["preco-cartao"]}>R$ 19,90</p>
-                    <button onClick={handlePlanChange} className={styles["botao-plano"]}>Vir para este plano</button>
-                    <button onClick={deletePlano} className={styles["botao-plano"]}>Excluir</button>
-                </article>
-            </li>
+        <button className="botao-planos"><Link to="/cancelar">Cancelar plano</Link></button>
+        
+        <button className="botao-planos"><Link to="/novoplano">Adicionar Plano</Link></button>
 
-            <li className={styles["cartao"]}>
-                <article>
-                    <h3 className={styles["titulo-cartoes"]}>Pro</h3>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />Primeiro mês grátis</p>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />10 livros por mês</p>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />-10% ao convidar amigo</p>
-                    <p className={styles["preco-cartao"]}>R$ 39,90</p>
-                    <button onClick={handlePlanChange} className={styles["botao-plano"]}>Vir para este plano</button>
-                </article>
-            </li>
+        <article>
+        <h1>Start</h1>
+        <p>Primeiro mês grátis</p>
+        <p>5 livros por mês</p>
+        <p className="preco">R$ 19,90</p>
+        <button className="botao-excluir" onClick={handleClickExcluirPlano}>Excluir</button>
+        </article>
+        
+        <article>
+        <h1>Pro</h1>
+        <p>Primeiro mês grátis</p>
+        <p>10 livros por mês</p>
+        <p className="preco">R$ 59,90</p>
+        <button className="botao-excluir" onClick={handleClickExcluirPlano}>Excluir</button>
+        </article>
 
-            <li className={styles["cartao"]}>
-                <article>
-                    <h3 className={styles["titulo-cartoes"]}>VIP</h3>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />Primeiro mês grátis</p>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />Livros ilimitados</p>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />-10% ao convidar amigo</p>
-                    <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />Entre outras vantagens</p>
-                    <p className={styles["preco-cartao"]}>R$ 89,90</p>
-                    <button onClick={handlePlanChange} className={styles["botao-plano"]}>Vir para este plano</button>
-                </article>
-            </li>
-        </ul>
+        <article>
+        <h1>VIP</h1>
+        <p>Primeiro mês grátis</p>
+        <p>Livros ilimitados</p>
+        <p className="preco">R$ 89,90</p>
+        <button className="botao-excluir" onClick={handleClickExcluirPlano}>Excluir</button>
+        </article>
     </section>
         
      );
