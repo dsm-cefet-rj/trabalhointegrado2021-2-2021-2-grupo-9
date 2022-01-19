@@ -27,7 +27,7 @@
     "build": "export NODE_OPTIONS=--openssl-legacy-provider; gatsby build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "json-server": "json-server --watch shared/books.json --port 3004"
+    "json-server": "json-server --watch shared/books.json --port 3004 --delay 2000"
   },
   "eslintConfig": {
     "extends": [

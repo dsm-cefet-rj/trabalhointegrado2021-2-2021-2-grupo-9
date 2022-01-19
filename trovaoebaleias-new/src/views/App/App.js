@@ -20,15 +20,11 @@ import {
 } from 'views'
 import { Layout } from 'components'
 
-import { store, fetchBooks } from '../../redux'
+import { store } from '../../redux'
 
 import './App.module.scss'
 
-store.dispatch(fetchBooks())
-
-const App = () => {
-
-  return (
+const App = () => 
     <Provider store={store}>
       <Layout>
         <Switch>
@@ -49,7 +45,5 @@ const App = () => {
         </Switch>
       </Layout>
     </Provider>
-   )
-};
 
 export default App;
