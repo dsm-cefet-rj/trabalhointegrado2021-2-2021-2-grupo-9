@@ -5,14 +5,16 @@ import { useSelector, useDispatch} from 'react-redux'
 
 import { BookCard } from './components'
 import { LOADING_STATUS } from '../../constants'
-import { fetchBooks } from '../../redux'
+import { fetchBooks, selectAllBooks } from 'redux/booksSlice'
 
 import styles from './LivrosList.module.scss'
 
 const LivrosList = () => {
     const [ loading, setLoading] = useState(false)
     const [ hasError, setHasError] = useState(false)
-    const { books, status, error } = useSelector(state => state?.books)
+    const books = useSelector(selectAllBooks)
+    const { status, error } = useSelector(state => state?.books)
+    
     const dispatch = useDispatch()
 
     const sortedBooks = ([...books] || []).sort((itemA, itemB) => +itemA.id - itemB.id)
@@ -23,7 +25,7 @@ const LivrosList = () => {
         setLoading(isLoading)
         setHasError(hasError)
 
-        if (status === LOADING_STATUS.NOT_LOADED) {
+        if (status === LOADING_STATUS.NOT_LOADED || status === LOADING_STATUS.SAVED) {
             dispatch(fetchBooks())
         }
     }, [status])

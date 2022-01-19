@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import { useDispatch} from 'react-redux'
-import { removeBook } from '../../../../redux'
 
 import { Card, Icon } from 'components'
+import { deleteBookServer } from 'redux/booksSlice'
 
 import styles from './BookCard.module.scss'
 
@@ -13,7 +13,7 @@ const BookCard = ({ book }) => {
     const dispatch = useDispatch()
 
     const menuClick = () => setShowBookMenu(prevState => !prevState)
-    const deleteBook = () => dispatch(removeBook(book))
+    const deleteBook = () => dispatch(deleteBookServer(book.id))
 
     return ( 
         <>
