@@ -16,6 +16,8 @@ const PlanosAfter = () => {
     const [redirect, setRedirect] = useState(false)
     const planos = useSelector(state => state.planos)
     const dispatch = useDispatch()
+    const deletePlano = () => dispatch(removePlano(planos))
+
 
     const { planId } = useParams()
     const creationMode = planId === "new"
@@ -31,7 +33,7 @@ const PlanosAfter = () => {
 
     const loadPlanoData = (selectedPlano) => {
         if (!selectedPlano.length) {
-            setRedirect("/home")
+          //  setRedirect("/home")
             return
         }
 
@@ -42,6 +44,7 @@ const PlanosAfter = () => {
             desc2: selectedPlano[0].desc2,
         })
     }
+
     const handleUserInput = (e) => {
         const name = e.target.id
         const value = e.target.value
@@ -60,6 +63,7 @@ const PlanosAfter = () => {
     if (redirect) {
         return <Redirect push to={redirect} />
     }
+
     return ( 
     <section className={styles["planos"]}>
         <h1 className={styles["titulo-plano"]}>Planos Mensais</h1>
@@ -74,6 +78,7 @@ const PlanosAfter = () => {
                     <p className={styles["descricao-cartao"]}><img src={Verificado} className={styles["iconsvg"]} />5 livros por mês</p>
                     <p className={styles["preco-cartao"]}>R$ 19,90</p>
                     <button onClick={handlePlanChange} className={styles["botao-plano"]}>Vir para este plano</button>
+                    <button onClick={deletePlano} className={styles["botao-plano"]}>Excluir</button>
                 </article>
             </li>
 
