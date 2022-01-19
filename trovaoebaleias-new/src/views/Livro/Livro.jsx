@@ -58,7 +58,6 @@ const Livro = () => {
     const handleUpdateClick = () => handleClick({ fn: updateBookServer })
 
     const handleRemoveClick = () => {
-        console.log('book', bookData)
        dispatch(deleteBookServer(bookData.id))
        setRedirect("/livros") 
     }
