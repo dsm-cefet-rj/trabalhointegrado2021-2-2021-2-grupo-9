@@ -48,7 +48,6 @@ const Cadastro = () => {
                 name: userData?.name,
                 password: userData?.password,
             }
-            console.log('newUser', newUser)
 
             setUser(newUser)
             setRedirect(true)

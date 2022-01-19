@@ -25,8 +25,7 @@ import { store } from '../../redux'
 
 import './App.module.scss'
 
-const App = () => {
-  return (
+const App = () => 
     <Provider store={store}>
       <Layout>
         <Switch>
@@ -48,7 +47,5 @@ const App = () => {
         </Switch>
       </Layout>
     </Provider>
-   )
-};
 
 export default App;
