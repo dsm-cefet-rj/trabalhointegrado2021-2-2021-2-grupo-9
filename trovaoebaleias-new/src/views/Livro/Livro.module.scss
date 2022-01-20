@@ -3,9 +3,12 @@
     @extend .flex-column-center;
     gap: var(--spacing-xSmall);
     margin-top: var(--spacing-large);
+    margin-bottom: var(--spacing-large);
 
     &-image {
-        width: 300px;
+        width: 200px;
+        min-height: 150px;
+        background-color: var(--color-shade10);
     }
 
     &-form {
