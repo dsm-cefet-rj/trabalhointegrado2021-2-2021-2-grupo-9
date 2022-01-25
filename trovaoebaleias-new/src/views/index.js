@@ -12,4 +12,6 @@ export { default as EditarPerfil } from './EditarPerfil/EditarPerfil'
 export { default as PlanosAfter } from './PlanosAfter/PlanosAfter'
 export { default as Cancelar } from './Cancelar/Cancelar'
 export { default as Carteira } from './Carteira/Carteira'
+export { default as NovoPlano } from './NovoPlano/NovoPlano'
+
 

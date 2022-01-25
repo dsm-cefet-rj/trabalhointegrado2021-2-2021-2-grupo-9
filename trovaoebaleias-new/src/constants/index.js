@@ -5,5 +5,8 @@ export {
     ESTADOS, 
 } from './cadastro'
 export { INITIAL_BOOKS } from './books'
+export { INITIAL_PLANOS } from './planos'
+export { INITIAL_CLIENTES } from './clientes'
+export { SLIDER_INTERVAL } from './slider'
 export { LOADING_STATUS } from './loading'
 export { SLIDER_INTERVAL } from './slider'
