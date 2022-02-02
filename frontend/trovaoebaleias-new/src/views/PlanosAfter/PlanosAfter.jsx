@@ -13,15 +13,16 @@ import { FaCircleNotch } from "react-icons/fa";
 const handlePlanChange = () => alert("Parabéns!", "Plano atualizado", "success");
 
 const PlanosAfter = () => {
-    /*
-    const[planos, setPlanos] = useState(
-        [{nome: 'Start'}, {desc1: 'Primeiro mês grátis'}, {desc2: 'Cinco livros por mês'}, {preco: '19.90'} ]
-    )
+    // const[planos, setPlanos] = useState(
+    //     [{nome: 'Start'}, {desc1: 'Primeiro mês grátis'}, {desc2: 'Cinco livros por mês'}, {preco: '19.90'} ]
+    // )
     const [planoData, setPlanoData] = useState({})
     const [redirect, setRedirect] = useState(false)
     const planos = useSelector(state => state.planos)
     const dispatch = useDispatch()
+
     const deletePlano = () => dispatch(removePlano(planos))
+
     const { planId } = useParams()
     const creationMode = planId === "new"
     useEffect(() => {
@@ -58,7 +59,14 @@ const PlanosAfter = () => {
     if (redirect) {
         return <Redirect push to={redirect} />
     }
-*/
+    
+    const handleAddAction = () => {
+        console.log('planoData', planoData)
+        handleAddClick()
+        console.log('planos', planos)
+    }
+
+
     const plano = '';
 
     function handleClickExcluirPlano(nome){
@@ -72,7 +80,7 @@ const PlanosAfter = () => {
 
         <button className="botao-planos"><Link to="/cancelar">Cancelar plano</Link></button>
         
-        <button className="botao-planos"><Link to="/novoplano">Adicionar Plano</Link></button>
+        <button className="botao-planos"><Link to="/novoplano" onClick={handleAddAction}>Adicionar Plano</Link></button>
 
         <article>
         <h1>Start</h1>
